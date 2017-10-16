@@ -1,1 +1,2 @@
-# POP-SF15-2016
+# Platforme za objektno prog
+## SF-15-2016
