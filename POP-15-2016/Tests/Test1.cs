@@ -33,7 +33,7 @@ namespace POP_15_2016.Tests
             var salon = new Salon()
             {
                 Id = 1
-            }
+            };
 
             strings.Add("rucno");
 

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace POP_15_2016.Model
 {
+    [Serializable]
     public class Salon
     {
+        
         public int Id { get; set; }
         public string naziv { get; set; }
 
         public string telefon { get; set; }
-
+        public string adresa { get; set; }
         public string email { get; set; }
 
         public string adresaSajta{ get; set; }
@@ -23,8 +25,11 @@ namespace POP_15_2016.Model
 
         public string brojZiroRacuna { get; set;}
 
-        public bool Obrisan { get; set; }
+        public bool obrisan { get; set; }
 
+        public void save()
+        {
 
-    }
+        }
+            } 
 }

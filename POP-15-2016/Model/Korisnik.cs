@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace POP_15_2016.Model
 {
-
     [Serializable]
-    public class Akcija
+    class Korisnik
     {
         public int id { get; set; }
-        public DateTime pocetakAkcije { get; set; }
-        public DateTime zavrsetakAkcije { get; set; }
-        public double popust { get; set; }
-        public bool obrisan { get; set; }
+        public string ime { get; set; }
+        public string prezime { get; set; }
+        public string korisnickoime { get; set; }
+        public string lozinka { get; set; }
     }
 }
