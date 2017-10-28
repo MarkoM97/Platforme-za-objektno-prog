@@ -164,7 +164,7 @@ namespace POP_15_2016
                 {
                     content += usluga.naziv + ",";
                 }
-                Console.WriteLine($" |Prodavac {prodaja.prodavac.ime} |Namestaj {prodaja.prodatiNamestaj.naziv} |Komada {prodaja.BrojKomadaNamestaja} |Dodatne usluge prodaje {content} |Kupac : {prodaja.kupac} |Ukupna cena : {prodaja.UkupnaCena} ");
+                Console.WriteLine($" Broj racuna : {prodaja.Id }|Prodavac {prodaja.prodavac.ime} |Namestaj {prodaja.prodatiNamestaj.naziv} |Komada {prodaja.BrojKomadaNamestaja} |Dodatne usluge prodaje {content} |Kupac : {prodaja.imeKupca + prodaja.prezimeKupca} |Ukupna cena : {prodaja.UkupnaCena} ");
             }
         }
 
@@ -231,6 +231,32 @@ namespace POP_15_2016
             return 0;
         }
 
+        public static double izracunajUkupnuCenu(int brojProdatih, List<DodatnaUsluga> usluge, Namestaj namestaj)
+        {
+            double cenaNamestaja = namestaj.jedinicnaCena;
+            int brojProdatihNamestaja = brojProdatih;
+            double procenatSnizenja = 0;
+            double cenaUsluga = 0;
+            if(usluge != null)
+            {
+                foreach(DodatnaUsluga usluga in usluge)
+                {
+                    cenaUsluga += usluga.cena;
+                }
+            }
+            if (namestaj.akcija != null)
+            {
+                double popust = namestaj.akcija.popust;
+                procenatSnizenja = ((popust / 100) * cenaNamestaja);
+
+            }
+            Console.WriteLine(procenatSnizenja);
+            Console.WriteLine(cenaUsluga);
+            double ukupnaCena = (((cenaNamestaja - procenatSnizenja) * brojProdatihNamestaja) + cenaUsluga) + 2.52;
+            return ukupnaCena;
+
+        }
+
         public static void konstruisiRacun()
         {
             List<DodatnaUsluga> uslugeProdaja = new List<DodatnaUsluga>();
@@ -263,9 +289,11 @@ namespace POP_15_2016
                     usluga = null;
                 }
             } while (proso == false);
-
-
-
+            Console.WriteLine("Unesite ime kupca: ");
+            string imeK = Console.ReadLine();
+            Console.WriteLine("Unesite prezime kupca: ");
+            string prezimeK = Console.ReadLine();
+            double ukupnaCena = izracunajUkupnuCenu(brojProdatihKomada, uslugeProdaja, namestaj);
             prodati.Add(new ProdajaNemestaja()
             {
                 Id = prodati.Count + 1,
@@ -274,13 +302,11 @@ namespace POP_15_2016
                 BrojKomadaNamestaja = brojProdatihKomada,
                 DatumProdaje = DateTime.Now,
                 DodatneUsluge = uslugeProdaja,
-                kupac = "NekoRandom",
-                UkupnaCena = 250,
-                BrojRacuna = "asfafa"
+                imeKupca = imeK,
+                prezimeKupca = prezimeK,
+                UkupnaCena = ukupnaCena,
             });
-
             Console.WriteLine("---PRODAJA USPESNO EVIDENTIRANA---");
-
             ispisiProdaje();
             ispisiMeniProdavac();
         }

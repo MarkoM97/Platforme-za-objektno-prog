@@ -16,10 +16,9 @@ namespace POP_15_2016.Model
         public int BrojKomadaNamestaja { get; set; }
         public DateTime DatumProdaje { get; set; }
         public List<DodatnaUsluga> DodatneUsluge { get; set; }
-        public string kupac { get; set; }
-        public readonly double PDV = 5.2;
+        public string imeKupca { get; set; }
+        public string prezimeKupca { get; set; }
         public double  UkupnaCena { get; set; }
-        public string  BrojRacuna { get; set; }
 
     }
 }
