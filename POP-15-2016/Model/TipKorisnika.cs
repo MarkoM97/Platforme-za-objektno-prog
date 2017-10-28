@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 namespace POP_15_2016.Model
 {
     [Serializable]
-    public class TipNamestaja
+    public class TipKorisnika
     {
-        public int Id { get; set; }
+        public int id { get; set; }
         public string naziv { get; set; }
-        public bool Obrisan { get; set; }
-
     }
 }

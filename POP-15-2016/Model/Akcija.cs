@@ -11,8 +11,10 @@ namespace POP_15_2016.Model
     public class Akcija
     {
         public int id { get; set; }
+        public string naziv { get; set; }
         public DateTime pocetakAkcije { get; set; }
-        public DateTime zavrsetakAkcije { get; set; }
+        public int trajanjeAkcije { get; set; }
+        public DateTime zavrsetakAkcije { get; set;}
         public double popust { get; set; }
         public bool obrisan { get; set; }
     }
