@@ -18,7 +18,9 @@ namespace POP_15_2016
         public static List<ProdajaNemestaja> prodati { get; set; } = new List<ProdajaNemestaja>();
         static void Main(string[] args)
         {
-
+            korisnici = Utils.Ucitavanje.ucitajKorisnike("../../Utils/Korisnik.xml");
+            namestaj =Utils.Ucitavanje.ucitajNamestaj("../../Utils/Namestaj.xml");
+            prodati = Utils.Ucitavanje.ucitajProdaje("../../Utils/Prodaje.xml");
             Salon s = new Model.Salon()
             {
                 Id = 1,
@@ -78,29 +80,32 @@ namespace POP_15_2016
             };
             akcije.Add(akcija);
 
-            Korisnik korisnik = new Model.Korisnik()
-            {
-                id = 1,
-                ime = "Mitar",
-                prezime = "Mitrovic",
-                korisnickoime = "Mita",
-                lozinka = "123",
-                tipKorisnika = tipAdmin,
+            //Korisnik korisnik = new Model.Korisnik()
+            //{
+            //    id = 1,
+            //    ime = "Mitar",
+            //    prezime = "Mitrovic",
+            //    korisnickoime = "Mita",
+            //    lozinka = "123",
+            //    tipKorisnika = tipAdmin,
 
-            };
-            korisnici.Add(korisnik);
 
-            Korisnik korisnik2 = new Model.Korisnik()
-            {
-                id = 2,
-                ime = "Mitar",
-                prezime = "Mitrovic",
-                korisnickoime = "Marko",
-                lozinka = "123",
-                tipKorisnika = tipProdavac,
+            //};
 
-            };
-            korisnici.Add(korisnik2);
+            //korisnici.Add(korisnik);
+
+            //Korisnik korisnik2 = new Model.Korisnik()
+            //{
+            //    id = 2,
+            //    ime = "Mitar",
+            //    prezime = "Mitrovic",
+            //    korisnickoime = "Marko",
+            //    lozinka = "123",
+            //    tipKorisnika = tipProdavac,
+
+            //};
+            //korisnici.Add(korisnik2);
+            //Model.Korisnik.sacuvajKorisnike("../../Utils/Korisnik.xml");
 
 
             namestaj.Add(new Namestaj()
