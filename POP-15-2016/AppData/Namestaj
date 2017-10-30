@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Namestaj>
+    <Id>1</Id>
+    <naziv>RazvlacivaSofa</naziv>
+    <jedinicnaCena>28</jedinicnaCena>
+    <kolicina>5</kolicina>
+    <sifra>Sgasg</sifra>
+    <obrisan>false</obrisan>
+    <tipNamestaja>
+      <Id>1</Id>
+      <naziv>DnevniBoravak</naziv>
+      <Obrisan>false</Obrisan>
+    </tipNamestaja>
+  </Namestaj>
+</ArrayOfNamestaj><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Namestaj>
+    <Id>1</Id>
+    <naziv>RazvlacivaSofa</naziv>
+    <jedinicnaCena>28</jedinicnaCena>
+    <kolicina>5</kolicina>
+    <sifra>Sgasg</sifra>
+    <obrisan>false</obrisan>
+    <tipNamestaja>
+      <Id>1</Id>
+      <naziv>DnevniBoravak</naziv>
+      <Obrisan>false</Obrisan>
+    </tipNamestaja>
+  </Namestaj>
+</ArrayOfNamestaj>

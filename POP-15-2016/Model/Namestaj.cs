@@ -21,21 +21,21 @@ namespace POP_15_2016.Model
         public TipNamestaja tipNamestaja { get; set;}
     }
 
-    public static void sacuvajNamestaj(string fileName)
-    {
-        using (var stram = new FileStream(fileName, FileMode.Open))
-        {
-            XmlSerializer xmls = new XmlSerializer(typeof(List<Namestaj>));
-            xmls.Serialize(stram, Program.korisnici);
-        }
-    }
+    //public static void sacuvajNamestaj(string fileName)
+    //{
+    //    using (var stram = new FileStream(fileName, FileMode.Open))
+    //    {
+    //        XmlSerializer xmls = new XmlSerializer(typeof(List<Namestaj>));
+    //        xmls.Serialize(stram, Program.korisnici);
+    //    }
+    //}
 
-    public static List<Namestaj> ucitajNamestaj(string fileName)
-    {
-        using (var stream = new FileStream(fileName, FileMode.Open))
-        {
-            XmlSerializer xmls = new XmlSerializer(typeof(List<Namestaj>));
-            return (List<Namestaj>)xmls.Deserialize(stream);
-        }
-    }
+    //public static List<Namestaj> ucitajNamestaj(string fileName)
+    //{
+    //    using (var stream = new FileStream(fileName, FileMode.Open))
+    //    {
+    //        XmlSerializer xmls = new XmlSerializer(typeof(List<Namestaj>));
+    //        return (List<Namestaj>)xmls.Deserialize(stream);
+    //    }
+    //}
 }

@@ -18,9 +18,9 @@ namespace POP_15_2016
         public static List<ProdajaNemestaja> prodati { get; set; } = new List<ProdajaNemestaja>();
         static void Main(string[] args)
         {
-            korisnici = Utils.Ucitavanje.ucitajKorisnike("../../Utils/Korisnik.xml");
-            namestaj =Utils.Ucitavanje.ucitajNamestaj("../../Utils/Namestaj.xml");
-            prodati = Utils.Ucitavanje.ucitajProdaje("../../Utils/Prodaje.xml");
+// korisnici = Model.Korisnik.ucitajKorisnike("../../Utils/Korisnik.xml");
+            //namestaj =Model.Namestaj.ucitajNamestaj("../../Utils/Namestaj.xml");
+// prodati = Model.ProdajaNemestaja.ucitajProdaje("../../Utils/Prodaje.xml");
             Salon s = new Model.Salon()
             {
                 Id = 1,
@@ -118,6 +118,15 @@ namespace POP_15_2016
             sifra = "Sgasg",
             tipNamestaja = sofa
         });
+
+            Utils.GenericSerializer.Serialize("Namestaj", namestaj);
+            Console.WriteLine("Serializacia");
+            List<Namestaj> n = Utils.GenericSerializer.Deserialize<Namestaj>("Namestaj");
+            Console.WriteLine("Deserializacija");
+
+            Console.WriteLine(n[0].naziv);
+
+
             
             Console.WriteLine($"Dobrodosli u salon namestaja {s.naziv}");
             //ispisiGlavniMeni();

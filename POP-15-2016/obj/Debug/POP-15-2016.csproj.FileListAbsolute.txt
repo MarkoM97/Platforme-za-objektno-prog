@@ -12,3 +12,10 @@ C:\Users\Marko\Git\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.
 C:\Users\Marko\Git\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.csproj.CoreCompileInputs.cache
 C:\Users\Marko\Git\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.exe
 C:\Users\Marko\Git\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.pdb
+S:\profile.V5\Git\POP-15-2016\Platforme-za-objektno-prog\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.csprojResolveAssemblyReference.cache
+S:\profile.V5\Git\POP-15-2016\Platforme-za-objektno-prog\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.exe
+S:\profile.V5\Git\POP-15-2016\Platforme-za-objektno-prog\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.pdb
+S:\profile.V5\Git\POP-15-2016\Platforme-za-objektno-prog\Platforme-za-objektno-prog\POP-15-2016\bin\Debug\POP-15-2016.exe.config
+S:\profile.V5\Git\POP-15-2016\Platforme-za-objektno-prog\Platforme-za-objektno-prog\POP-15-2016\obj\Debug\POP-15-2016.csproj.CoreCompileInputs.cache
+S:\profile.V5\Git\POP-15-2016\Platforme-za-objektno-prog\Platforme-za-objektno-prog\POP-15-2016\bin\Debug\POP-15-2016.exe
+S:\profile.V5\Git\POP-15-2016\Platforme-za-objektno-prog\Platforme-za-objektno-prog\POP-15-2016\bin\Debug\POP-15-2016.pdb
