@@ -1,0 +1,15 @@
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.csprojResolveAssemblyReference.cache
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\MainWindow.g.cs
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\App.g.cs
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI_MarkupCompile.cache
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI_MarkupCompile.lref
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\bin\Debug\POP-SF-15-2016-GUI.exe.config
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\bin\Debug\POP-SF-15-2016-GUI.exe
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\bin\Debug\POP-SF-15-2016-GUI.pdb
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\MainWindow.baml
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.g.resources
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP_SF_15_2016_GUI.Properties.Resources.resources
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.csproj.GenerateResource.Cache
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.csproj.CoreCompileInputs.cache
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.exe
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.pdb
