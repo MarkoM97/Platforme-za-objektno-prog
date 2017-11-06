@@ -1,4 +1,6 @@
-﻿using System;
+﻿using POP_15_2016_GUI.Model;
+using POP_SF_15_2016_GUI.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,49 @@ namespace POP_SF_15_2016_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(Namestaj namestaj)
         {
             InitializeComponent();
+
+            OsveziPrikaz();
+
+
+        }
+
+        public void OsveziPrikaz()
+        {
+            ListBoxNamestaja.Items.Clear();
+            foreach (var namestaj in Projekat.instanca.Namestaj)
+            {
+                ListBoxNamestaja.Items.Add(namestaj);
+            }
+
+            ListBoxNamestaja.SelectedIndex = 0;
+        }
+
+        private void Izlaz(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void DodajNamestaj(object sender, RoutedEventArgs e)
+        {
+            var noviNamestaj = new Namestaj()
+            {
+                naziv = ""
+            };
+            
+
+            var NamestajProzor = new NamestajWindow(noviNamestaj);
+            NamestajProzor.Show();
+        }
+
+        private void IzmeniNamestaj(object sender, RoutedEventArgs e)
+        {
+            Namestaj selektovaniNamestaj = (Namestaj)ListBoxNamestaja.SelectedItem;
+
+            var namestajProzor = new NamestajWindow(selektovaniNamestaj);
+            namestajProzor.Show();
         }
     }
 }

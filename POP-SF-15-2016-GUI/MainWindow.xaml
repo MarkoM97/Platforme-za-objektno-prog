@@ -8,7 +8,18 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="263*"/>
+            <RowDefinition Height="56*"/>
         </Grid.RowDefinitions>
+        <ListBox Name="ListBoxNamestaja" Grid.Row="0" FontSize="15">
+
+
+        </ListBox>
+        <Button Grid.Row="1" Content="Dodaj" Width="50" Height="20" FontSize="10"  Margin="25,16,442,20" Click="DodajNamestaj" />
+        <Button Grid.Row="1" Content="Izmeni" Width="50" Height="20" FontSize="10" Margin="80,16,387,20" Click="IzmeniNamestaj"  />
+        <Button Grid.Row="1" Content="Obrisi" Width="50" Height="20" FontSize="10" Margin="135,16,332,20" />
+        <Button Grid.Row="1" Content="Izlaz" Width="50" Height="20" FontSize="10" Margin="448,16,19,20" Click="Izlaz"  />
+        <Button Content="Sacuvaj" HorizontalAlignment="Right"/>
+        <Button Content="Izlaz" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

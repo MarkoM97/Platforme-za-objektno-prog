@@ -12,20 +12,21 @@ namespace POP_15_2016_GUI.Model
         public static Projekat instanca { get; } = new Projekat();
         public List<Namestaj> namestaj = new List<Namestaj>();
         public List<Korisnik> korisnici = new List<Korisnik>();
+        public List<TipNamestaja> tipNamestaja = new List<TipNamestaja>();
 
         public List<Namestaj> Namestaj
         {
             get {
-                this.namestaj = GenericSerializer.Deserialize<Namestaj>("Namestaj.xml");
+                this.namestaj = GenericSerializer.Deserialize<Namestaj>("Namestaj");
                 return this.namestaj;
             }
             set {
                 this.namestaj = value;
-                GenericSerializer.Serialize<Namestaj>("Namestaj.xml", this.namestaj);
+                GenericSerializer.Serialize<Namestaj>("Namestaj", this.namestaj);
             }
         }
 
-        public List<Korisnik> Korisnici
+        /*public List<Korisnik> Korisnici
         {
             get
             {
@@ -37,25 +38,22 @@ namespace POP_15_2016_GUI.Model
                 this.korisnici = value;
                 GenericSerializer.Serialize<Korisnik>("Korisnik.xml", this.korisnici);
             }
-        }
+        }*/
 
         public List<TipNamestaja> TipNamestaja
         {
             get
             {
-                this.TipNamestaja = GenericSerializer.Deserialize<TipNamestaja>("TipNamestaja.xml");
-                return this.TipNamestaja;
+                this.tipNamestaja = GenericSerializer.Deserialize<TipNamestaja>("TipNamestaja.xml");
+                return this.tipNamestaja;
             }
             set
             {
-                this.TipNamestaja = value;
-                GenericSerializer.Serialize<TipNamestaja>("TipNamestaja.xml", this.TipNamestaja);
+                this.tipNamestaja = value;
+                GenericSerializer.Serialize<TipNamestaja>("TipNamestaja.xml", this.tipNamestaja);
             }
         }
 
 
-        public Projekat()
-        {
-        }
     }
 }

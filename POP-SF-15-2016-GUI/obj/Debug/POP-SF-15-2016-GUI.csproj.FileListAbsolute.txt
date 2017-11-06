@@ -13,3 +13,5 @@ C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\
 C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.csproj.CoreCompileInputs.cache
 C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.exe
 C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.pdb
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\UI\NamestajWindow.g.cs
+C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\UI\NamestajWindow.baml

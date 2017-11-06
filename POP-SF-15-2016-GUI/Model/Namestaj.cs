@@ -19,6 +19,11 @@ namespace POP_15_2016_GUI.Model
         public string sifra { get; set; }
         public bool obrisan { get; set; }
         public int tipNamestaja { get; set;}
+
+        public override string ToString()
+        {
+            return $"Naziv{naziv}, Cena{jedinicnaCena} tip namestaja {TipNamestaja.GetID(tipNamestaja)}";
+        }
     }
 
 }
