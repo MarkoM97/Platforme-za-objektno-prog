@@ -21,18 +21,52 @@ namespace POP_SF_15_2016_GUI.UI
     public partial class NamestajWindow : Window
     {
         private Namestaj namestaj;
-        public NamestajWindow(Namestaj namestaj)
+        private Operacija operacija;
+        public enum Operacija
         {
-            InicilizujVrednosti(namestaj);
+            DODAVANJE,
+            IZMENA
+        };
+        public NamestajWindow(Namestaj namestaj, Operacija operacija)
+        {
+            InicilizujVrednosti(namestaj, operacija);
             InitializeComponent();
 
             
         }
 
-        private void InicilizujVrednosti(Namestaj namestaj)
+        private void InicilizujVrednosti(Namestaj namestaj, Operacija operacija)
         {
+            this.operacija = operacija;
             this.namestaj = namestaj;
             tbNaziv.Text = namestaj.naziv;
+        }
+
+        private void SacuvajIzmene(Object sender, RoutedEventArgs e)
+        {
+            List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
+            switch(operacija)
+            {
+                case Operacija.DODAVANJE:
+                    var noviNamestaj = new Namestaj()
+                    {
+                        naziv = tbNaziv.Text,
+                    };
+                    postojeciNamestaj.Add(noviNamestaj);
+                    break;
+                case Operacija.IZMENA:
+                    foreach(var n in postojeciNamestaj)
+                    {
+                        if(n.Id == namestaj.Id)
+                        {
+                            n.naziv = tbNaziv.Text;
+                            break;
+                        }
+                    }
+                    break;
+            }
+
+            Projekat.instanca.namestaj = postojeciNamestaj;
         }
     }
 }

@@ -55,7 +55,7 @@ namespace POP_SF_15_2016_GUI
             };
             
 
-            var NamestajProzor = new NamestajWindow(noviNamestaj);
+            var NamestajProzor = new NamestajWindow(noviNamestaj, NamestajWindow.Operacija.DODAVANJE);
             NamestajProzor.Show();
         }
 
@@ -63,7 +63,7 @@ namespace POP_SF_15_2016_GUI
         {
             Namestaj selektovaniNamestaj = (Namestaj)ListBoxNamestaja.SelectedItem;
 
-            var namestajProzor = new NamestajWindow(selektovaniNamestaj);
+            var namestajProzor = new NamestajWindow(selektovaniNamestaj, NamestajWindow.Operacija.IZMENA);
             namestajProzor.Show();
         }
     }
