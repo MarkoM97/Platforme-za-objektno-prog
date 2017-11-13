@@ -10,7 +10,7 @@ namespace POP_15_2016_GUI.Model
     public class TipNamestaja
     {
         public int Id { get; set; }
-        public string naziv { get; set; }
+        public string Naziv { get; set; }
         public bool Obrisan { get; set; }
 
 

@@ -2,20 +2,22 @@
 <ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namestaj>
     <Id>1</Id>
-    <naziv>RazvlacivaSofa</naziv>
+    <naziv>NERADI</naziv>
     <jedinicnaCena>28</jedinicnaCena>
+    <akcija>1</akcija>
     <kolicina>5</kolicina>
     <sifra>Sgasg</sifra>
     <obrisan>false</obrisan>
-    <tipNamestaja>1</tipNamestaja>
+    <tipNamestaja>2</tipNamestaja>
   </Namestaj>
   <Namestaj>
-    <Id>1</Id>
+    <Id>2</Id>
     <naziv>Sofa</naziv>
     <jedinicnaCena>20</jedinicnaCena>
+    <akcija>2</akcija>
     <kolicina>2</kolicina>
     <sifra>Sgasg</sifra>
     <obrisan>false</obrisan>
-    <tipNamestaja>2</tipNamestaja>
+    <tipNamestaja>1</tipNamestaja>
   </Namestaj>
 </ArrayOfNamestaj>

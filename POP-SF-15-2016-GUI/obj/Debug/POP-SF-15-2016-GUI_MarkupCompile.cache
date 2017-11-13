@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\obj\Debug\
+C:\Users\Marko\Git\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\
 POP_SF_15_2016_GUI
 none
 false
 DEBUG;TRACE
-C:\Users\sf15-2016\source\repos\POP-SF-15-2016-GUI\POP-SF-15-2016-GUI\App.xaml
-2-2054523422
+C:\Users\Marko\Git\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\App.xaml
+3-1168288478
 
-17-1363226735
+18665566570
 131569487696
-MainWindow.xaml;UI\NamestajWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;UI\NamestajWindow.xaml;
 
 False
 

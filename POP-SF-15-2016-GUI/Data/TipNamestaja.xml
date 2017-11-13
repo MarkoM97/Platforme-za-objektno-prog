@@ -5,5 +5,10 @@
     <Naziv>Sofa</Naziv>
     <Obrisan>false</Obrisan>
   </TipNamestaja>
+  <TipNamestaja>
+    <Id>2</Id>
+    <Naziv>Krevet</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamestaja>
   </ArrayOfTipNamestaja>
   

@@ -14,7 +14,7 @@ namespace POP_15_2016_GUI.Model
         public int Id{ get; set; }
         public string naziv{ get; set; }
         public double jedinicnaCena { get; set; }
-        public Akcija akcija { get; set; }
+        public int akcija { get; set; }
         public int kolicina { get; set; }
         public string sifra { get; set; }
         public bool obrisan { get; set; }
@@ -22,7 +22,13 @@ namespace POP_15_2016_GUI.Model
 
         public override string ToString()
         {
-            return $"Naziv{naziv}, Cena{jedinicnaCena} tip namestaja {TipNamestaja.GetID(tipNamestaja)}";
+            if (akcija != 0)
+            {
+                return $"Naziv: {naziv} | Cena: {jedinicnaCena} | tip namestaja: {TipNamestaja.GetID(tipNamestaja).Naziv} | Akcija: {Akcija.GetID(akcija).naziv}";
+            }else
+            {
+                return $"Naziv: {naziv} | Cena: {jedinicnaCena} | tip namestaja: {TipNamestaja.GetID(tipNamestaja).Naziv}";
+            }
         }
     }
 

@@ -1,21 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ArrayOfKorisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Korisnik>
-    <Id>1</Id>
-    <naziv>RazvlacivaSofa</naziv>
-    <jedinicnaCena>28</jedinicnaCena>
-    <kolicina>5</kolicina>
-    <sifra>Sgasg</sifra>
-    <obrisan>false</obrisan>
-    <tipNamestaja>1</tipNamestaja>
+    <id>1</id>
+    <ime>Marko</ime>
+    <prezime>Martonosi</prezime>
+    <korisnickoIme>Marko</korisnickoIme>
+    <lozinka>Marko</lozinka>
+    <tipKorisnika>1</tipKorisnika>
   </Korisnik>
   <Korisnik>
-    <Id>1</Id>
-    <naziv>Sofa</naziv>
-    <jedinicnaCena>20</jedinicnaCena>
-    <kolicina>2</kolicina>
-    <sifra>Sgasg</sifra>
-    <obrisan>false</obrisan>
-    <tipNamestaja>2</tipNamestaja>
+    <id>2</id>
+    <ime>Markoooo</ime>
+    <prezime>mm</prezime>
+    <korisnickoIme>m</korisnickoIme>
+    <lozinka>m</lozinka>
+    <tipKorisnika>2</tipKorisnika>
+  </Korisnik>
+  <Korisnik>
+    <id>2</id>
+    <ime>Markoooo</ime>
+    <prezime>mm</prezime>
+    <korisnickoIme>a</korisnickoIme>
+    <lozinka>a</lozinka>
+    <tipKorisnika>1</tipKorisnika>
   </Korisnik>
 </ArrayOfKorisnik>

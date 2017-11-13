@@ -15,11 +15,9 @@
 
 
         </ListBox>
-        <Button Grid.Row="1" Content="Dodaj" Width="50" Height="20" FontSize="10"  Margin="25,16,442,20" Click="DodajNamestaj" />
-        <Button Grid.Row="1" Content="Izmeni" Width="50" Height="20" FontSize="10" Margin="80,16,387,20" Click="IzmeniNamestaj"  />
-        <Button Grid.Row="1" Content="Obrisi" Width="50" Height="20" FontSize="10" Margin="135,16,332,20" />
-        <Button Grid.Row="1" Content="Izlaz" Width="50" Height="20" FontSize="10" Margin="448,16,19,20" Click="Izlaz"  />
-        
-        <Button Content="Izlaz" HorizontalAlignment="Right"/>
+        <Button Grid.Row="1" Content="Dodaj" FontSize="10"  Margin="10,10,442,10" Click="DodajNamestaj" />
+        <Button Grid.Row="1" Content="Izmeni" FontSize="10" Margin="80,10,373,10" Click="IzmeniNamestaj"  />
+        <Button Grid.Row="1" Content="Obrisi" FontSize="10" Margin="149,10,300,10" Click="IzbrisiNamestaj" />
+        <Button Grid.Row="1" Content="Izlaz" FontSize="10" Margin="417,10,19,10" Click="Izlaz"/>
     </Grid>
 </Window>

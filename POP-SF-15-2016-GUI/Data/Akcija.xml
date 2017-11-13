@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfAkcija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Akcija>
+    <id>1</id>
+    <naziv>Prolecna Akcija</naziv>
+    <pocetakAkcije>2009-03-13T22:16:00</pocetakAkcije>
+    <trajanjeAkcije>5</trajanjeAkcije>
+    <zavrsetakAkcije>2009-03-13T22:16:00</zavrsetakAkcije>
+    <popust>15</popust>
+    <obrisan>false</obrisan>
+  </Akcija>
+  <Akcija>
+    <id>2</id>
+    <naziv>Zimska Akcija</naziv>
+    <pocetakAkcije>2009-03-13T22:16:00</pocetakAkcije>
+    <trajanjeAkcije>5</trajanjeAkcije>
+    <zavrsetakAkcije>2009-03-13T22:16:00</zavrsetakAkcije>
+    <popust>15</popust>
+    <obrisan>false</obrisan>
+  </Akcija>
+</ArrayOfAkcija>

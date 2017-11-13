@@ -22,21 +22,23 @@ namespace POP_SF_15_2016_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(Namestaj namestaj)
+        List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
+        public MainWindow()
         {
             InitializeComponent();
-
+            
             OsveziPrikaz();
-
-
         }
 
         public void OsveziPrikaz()
         {
             ListBoxNamestaja.Items.Clear();
-            foreach (var namestaj in Projekat.instanca.Namestaj)
+            foreach (var namestaj in postojeciNamestaj)
             {
-                ListBoxNamestaja.Items.Add(namestaj);
+                if (namestaj.obrisan == false)
+                {
+                    ListBoxNamestaja.Items.Add(namestaj);
+                }
             }
 
             ListBoxNamestaja.SelectedIndex = 0;
@@ -51,12 +53,21 @@ namespace POP_SF_15_2016_GUI
         {
             var noviNamestaj = new Namestaj()
             {
-                naziv = ""
+                Id = Projekat.instanca.Namestaj.Count + 1,
+                naziv = "",
+                akcija = 0,
+                kolicina = 0,
+                jedinicnaCena = 0,
+                sifra = "",
+                tipNamestaja = 0
+
+                
             };
             
 
             var NamestajProzor = new NamestajWindow(noviNamestaj, NamestajWindow.Operacija.DODAVANJE);
             NamestajProzor.Show();
+            this.Close();
         }
 
         private void IzmeniNamestaj(object sender, RoutedEventArgs e)
@@ -65,6 +76,15 @@ namespace POP_SF_15_2016_GUI
 
             var namestajProzor = new NamestajWindow(selektovaniNamestaj, NamestajWindow.Operacija.IZMENA);
             namestajProzor.Show();
+            this.Close();
+        }
+
+        private void IzbrisiNamestaj(object sender, RoutedEventArgs e)
+        {
+            Namestaj selektovaniNamestaj = (Namestaj)ListBoxNamestaja.SelectedItem;
+            selektovaniNamestaj.obrisan = true;
+            Projekat.instanca.Namestaj = postojeciNamestaj;
+            OsveziPrikaz();
         }
     }
 }

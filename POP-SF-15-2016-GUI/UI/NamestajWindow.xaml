@@ -8,19 +8,31 @@
         Title="NamestajWindow" Height="338" Width="383">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6*"/>
-            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="37*"/>
+            <ColumnDefinition Width="88*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="38*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="42*"/>
-            <RowDefinition Height="104*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="109*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Content="Naziv" FontSize="15" HorizontalAlignment="Left" Width="46"/>
-        <TextBox Grid.Row="0" Grid.Column="1" FontSize="15" HorizontalAlignment="Left" Name="tbNaziv" Width="40"/>
-        <Button Content="Sacuvaj" HorizontalAlignment="Right" Click="SacuvajIzmene"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Naziv" FontSize="15" HorizontalAlignment="Left" Width="111"/>
+        
+        <Button Content="Sacuvaj" HorizontalAlignment="Right" Click="SacuvajIzmene" Margin="0,66,19,10" Grid.Row="6" Grid.Column="1" Width="117"/>
+        <Label Grid.Column="0" Content="Cena" HorizontalAlignment="Left" Margin="0,1,0,0" Grid.Row="1" VerticalAlignment="Top" Width="111" FontSize="15" Height="40" Grid.RowSpan="2"/>
+        <Label Content="Kolicina" HorizontalAlignment="Left" Grid.Row="2"  FontSize="15" VerticalAlignment="Top" Margin="0,2,0,0" Width="111" Height="36" Grid.RowSpan="2"/>
+        <Label Content="Akcija" HorizontalAlignment="Left" Grid.Row="3" Width="111" FontSize="15"  />
+        <Label Content="Sifra " HorizontalAlignment="Left" Grid.Row="4" Width="111" FontSize="15" />
+        <Label Content="Tip namestaja" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="111" Height="33" Grid.RowSpan="2" FontSize="15"/>
+        <TextBox FontSize="15" HorizontalAlignment="Left" Name="tbNaziv" Width="159" Grid.Column="1"/>
+        <TextBox FontSize="15" HorizontalAlignment="Left" x:Name="tbCena" Width="159" Grid.Column="1" Grid.Row="1"/>
+        <TextBox FontSize="15" HorizontalAlignment="Left" x:Name="tbKolicina" Width="159" Grid.Column="1" Grid.Row="2"/>
+        <TextBox FontSize="15" HorizontalAlignment="Left" x:Name="tbSifra" Width="159" Grid.Column="1" Grid.Row="4"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Top" Width="159" Height="32" Name="cbAkcije"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" VerticalAlignment="Top" Width="159" Height="32" Name="cbTipNamestaja"/>
     </Grid>
 </Window>
