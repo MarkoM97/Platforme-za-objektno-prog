@@ -42,9 +42,9 @@ namespace POP_SF_15_2016_GUI.UI
             }
 
 
-            if (namestaj.Akcija != null)
+            if (namestaj.Akcija ==  null)
             {
-                cbAkcije.SelectedItem = namestaj.Akcija.naziv;
+                cbAkcije.SelectedItem = namestaj.Akcija;
             }else
             {
                 cbAkcije.SelectedItem = "";
@@ -60,7 +60,7 @@ namespace POP_SF_15_2016_GUI.UI
 
             if (namestaj.TipNamestaja != null)
             {
-                cbTipNamestaja.SelectedItem = namestaj.TipNamestaja.Naziv;
+                cbTipNamestaja.SelectedItem = namestaj.TipNamestaja;
             } else
             {
                 cbTipNamestaja.SelectedItem = Projekat.instanca.TipNamestaja[0];
@@ -101,9 +101,9 @@ namespace POP_SF_15_2016_GUI.UI
                         {
                             n.Naziv = tbNaziv.Text;
                             n.JedinicnaCena = Convert.ToDouble(tbCena.Text);
-                            n.Akcija = (Akcija)cbAkcije.SelectedItem;
+                            n.Akcija = namestaj.Akcija;
                             n.Kolicina = Convert.ToInt16(tbKolicina.Text);
-                            n.TipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
+                            n.TipNamestaja = namestaj.TipNamestaja;
                             n.Sifra = tbSifra.Text;
                         }
                     }

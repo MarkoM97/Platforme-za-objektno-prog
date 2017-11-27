@@ -13,7 +13,6 @@ namespace POP_15_2016_GUI.Model
     [Serializable]
     public class Namestaj : INotifyPropertyChanged
     {
-        private ObservableCollection<Namestaj> namestaji = new ObservableCollection<Namestaj>();
 
         private int id;
         public int Id { get { return id; } set { id = value; OnPropertyChanged("Id"); } }
@@ -24,8 +23,8 @@ namespace POP_15_2016_GUI.Model
         private double jedinicnaCena;
         public double JedinicnaCena { get { return jedinicnaCena; } set { jedinicnaCena = value; OnPropertyChanged("JedinicnaCena"); } }
 
-        private Akcija akcija;
-        public Akcija Akcija { get { return akcija; } set { akcija = value;OnPropertyChanged("Akcija"); } }
+        public int akcijaId;
+        public Akcija Akcija { get { return Model.Akcija.GetID(akcijaId); } set { if (value != null) { akcijaId = value.id; } else { value.id = 0; } OnPropertyChanged("Akcija"); } }
 
         private int kolicina;
         public int Kolicina { get { return kolicina; } set { kolicina = value; OnPropertyChanged("Kolicina"); } }
@@ -36,17 +35,17 @@ namespace POP_15_2016_GUI.Model
         private bool obrisan;
         public bool Obrisan { get { return obrisan; } set { obrisan = value;OnPropertyChanged("Obrisan"); } }
 
-        private TipNamestaja tipNamestaja;
-        public TipNamestaja TipNamestaja { get { return tipNamestaja; } set { tipNamestaja = value;OnPropertyChanged("TipNamestaja"); } }
+        public int tipNamestajaId;
+        public TipNamestaja TipNamestaja { get { return Model.TipNamestaja.GetID(tipNamestajaId); } set { if (value != null) { tipNamestajaId = value.Id; }; OnPropertyChanged("TipNamestaja"); } }
 
         public override string ToString()
         {
-            if (akcija == null)
+            if (Akcija == null)
             {
-                return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {TipNamestaja.Naziv} | Akcija: {Akcija.naziv} | Obrisan : {Obrisan}";
+                return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {Model.TipNamestaja.GetID(tipNamestajaId).Naziv} | Akcija: {Model.Akcija.GetID(akcijaId).naziv} | Obrisan : {Obrisan}";
             }else
             {
-                return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {TipNamestaja.Naziv} | Obrisan : {Obrisan}";
+                return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {Model.TipNamestaja.GetID(tipNamestajaId).Naziv} | Obrisan : {Obrisan}";
             }
         }
 

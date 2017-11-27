@@ -8,7 +8,7 @@ namespace POP_15_2016_GUI.Model
 {
 
     [Serializable]
-    public class ProdajaNemestaja
+    public class Racun
     {
         public int Id { get; set; }
         public Korisnik prodavac { get; set; }

@@ -19,17 +19,17 @@
         <TabControl HorizontalAlignment="Left" Height="309" Margin="0,-30,0,0" VerticalAlignment="Top" Width="630" Grid.RowSpan="2">
             <TabItem Header="Namestaj" Margin="-2,0,-2,-2">
                 <Grid DataContext="{Binding Source={StaticResource namestaj}}" Background="#FFE5E5E5" Margin="0,0,-5,0">
-                    <ListView ItemsSource="{Binding }" Name="lvNamestaj">
+                    <ListView  ItemsSource="{Binding }" Name="lvNamestaj">
                         <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="ID" Width="20" DisplayMemberBinding="{Binding Id, Mode=TwoWay}" />
+                            <GridView >
+                                <!-- <GridViewColumn Header="ID" Width="20" DisplayMemberBinding="{Binding Id, Mode=TwoWay}" /> -->
                                 <GridViewColumn Header="Naziv" Width="80" DisplayMemberBinding="{Binding Naziv, Mode=TwoWay}" />
                                 <GridViewColumn Header="Cena" Width="60" DisplayMemberBinding="{Binding JedinicnaCena, Mode=TwoWay}" />
                                 <GridViewColumn Header="Kolicina" Width="80" DisplayMemberBinding="{Binding Kolicina, Mode=TwoWay}" />
                                 <GridViewColumn Header="Sifra" Width="90" DisplayMemberBinding="{Binding Sifra, Mode=TwoWay}" />
-                                <GridViewColumn Header="Akcija" Width="90" DisplayMemberBinding="{Binding Akcija, Mode=TwoWay}" />
-                                <GridViewColumn Header="Tip Namestaja" Width="90" DisplayMemberBinding="{Binding TipNamestaja, Mode=TwoWay}" />
-                                <GridViewColumn Header="Obrisan" Width="90" DisplayMemberBinding="{Binding Obrisan, Mode=TwoWay}" />
+                                <GridViewColumn Header="Akcija" Width="90" DisplayMemberBinding="{Binding Akcija}" />
+                                <GridViewColumn Header="Tip Namestaja" Width="90" DisplayMemberBinding="{Binding TipNamestaja}" />
+                                <!-- <GridViewColumn Header="Obrisan" Width="90" DisplayMemberBinding="{Binding Obrisan, Mode=TwoWay}" /> -->
                             </GridView>
                         </ListView.View>
                     </ListView>

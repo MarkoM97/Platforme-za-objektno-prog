@@ -25,6 +25,13 @@ namespace POP_15_2016_GUI.Model
             }
             return null;
         }
+
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
+        public TipNamestaja() { }
     }
 
     
