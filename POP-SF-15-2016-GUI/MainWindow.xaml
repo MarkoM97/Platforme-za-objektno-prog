@@ -4,20 +4,57 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_15_2016_GUI"
+        xmlns:m="clr-namespace:POP_15_2016_GUI.Model"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="350" Width="638">
+    <Window.Resources>
+        <m:Namestaj x:Key="namestaj"/>
+    </Window.Resources>
+    <Grid Margin="0,40,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="263*"/>
-            <RowDefinition Height="56*"/>
+            <RowDefinition Height="266*"/>
+            <RowDefinition Height="53*"/>
         </Grid.RowDefinitions>
-        <ListBox Name="ListBoxNamestaja" Grid.Row="0" FontSize="15">
 
+        <TabControl HorizontalAlignment="Left" Height="309" Margin="0,-30,0,0" VerticalAlignment="Top" Width="630" Grid.RowSpan="2">
+            <TabItem Header="Namestaj" Margin="-2,0,-2,-2">
+                <Grid DataContext="{Binding Source={StaticResource namestaj}}" Background="#FFE5E5E5" Margin="0,0,-5,0">
+                    <ListView ItemsSource="{Binding }" Name="lvNamestaj">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" Width="20" DisplayMemberBinding="{Binding Id, Mode=TwoWay}" />
+                                <GridViewColumn Header="Naziv" Width="80" DisplayMemberBinding="{Binding Naziv, Mode=TwoWay}" />
+                                <GridViewColumn Header="Cena" Width="60" DisplayMemberBinding="{Binding JedinicnaCena, Mode=TwoWay}" />
+                                <GridViewColumn Header="Kolicina" Width="80" DisplayMemberBinding="{Binding Kolicina, Mode=TwoWay}" />
+                                <GridViewColumn Header="Sifra" Width="90" DisplayMemberBinding="{Binding Sifra, Mode=TwoWay}" />
+                                <GridViewColumn Header="Akcija" Width="90" DisplayMemberBinding="{Binding Akcija, Mode=TwoWay}" />
+                                <GridViewColumn Header="Tip Namestaja" Width="90" DisplayMemberBinding="{Binding TipNamestaja, Mode=TwoWay}" />
+                                <GridViewColumn Header="Obrisan" Width="90" DisplayMemberBinding="{Binding Obrisan, Mode=TwoWay}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
 
-        </ListBox>
-        <Button Grid.Row="1" Content="Dodaj" FontSize="10"  Margin="10,10,442,10" Click="DodajNamestaj" />
-        <Button Grid.Row="1" Content="Izmeni" FontSize="10" Margin="80,10,373,10" Click="IzmeniNamestaj"  />
-        <Button Grid.Row="1" Content="Obrisi" FontSize="10" Margin="149,10,300,10" Click="IzbrisiNamestaj" />
-        <Button Grid.Row="1" Content="Izlaz" FontSize="10" Margin="417,10,19,10" Click="Izlaz"/>
+                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajNamestaj" />
+                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniNamestaj"  />
+                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiNamestaj" />
+                    <Button Content="Izlaz" FontSize="10" Margin="417,244,19,10" Click="Izlaz"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tipovi" Margin="4,0,-8,-2">
+                <Grid Background="#FFE5E5E5" Margin="0,-4,0,-6" HorizontalAlignment="Right" Width="511" Height="291" VerticalAlignment="Bottom"/>
+            </TabItem>
+            <TabItem Header="Akcije" Margin="10,0,-15,-2">
+                <Grid Background="#FFE5E5E5" Margin="0,-4,0,-6" HorizontalAlignment="Right" Width="511" Height="291" VerticalAlignment="Bottom"/>
+            </TabItem>
+            <TabItem Header="Korisnici" Margin="17,0,-21,-2">
+                <Grid Background="#FFE5E5E5" Margin="0,-4,0,-6" HorizontalAlignment="Right" Width="511" Height="291" VerticalAlignment="Bottom"/>
+            </TabItem>
+            <TabItem Header="Prodaje" Margin="23,0,-27,-2">
+                <Grid Background="#FFE5E5E5" Margin="0,-4,0,-6" HorizontalAlignment="Right" Width="511" Height="291" VerticalAlignment="Bottom"/>
+            </TabItem>
+            <TabItem Header="Salonske usluge" Margin="29,0,-34,-2">
+                <Grid Background="#FFE5E5E5" Margin="0,-4,0,-6" HorizontalAlignment="Right" Width="511" Height="291" VerticalAlignment="Bottom"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

@@ -1,19 +1,13 @@
 ﻿using POP_15_2016_GUI.Model;
 using POP_SF_15_2016_GUI.UI;
-using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace POP_SF_15_2016_GUI
 {
@@ -23,26 +17,14 @@ namespace POP_SF_15_2016_GUI
     public partial class MainWindow : Window
     {
         List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
+        ObservableCollection<Namestaj> pNamestaj = new ObservableCollection<Namestaj>(Projekat.instanca.Namestaj);
         public MainWindow()
         {
             InitializeComponent();
-            
-            OsveziPrikaz();
-        }
-
-        public void OsveziPrikaz()
-        {
-            ListBoxNamestaja.Items.Clear();
-            foreach (var namestaj in postojeciNamestaj)
-            {
-                if (namestaj.obrisan == false)
-                {
-                    ListBoxNamestaja.Items.Add(namestaj);
-                }
+            lvNamestaj.ItemsSource = pNamestaj;
             }
 
-            ListBoxNamestaja.SelectedIndex = 0;
-        }
+        
 
         private void Izlaz(object sender, RoutedEventArgs e)
         {
@@ -54,12 +36,12 @@ namespace POP_SF_15_2016_GUI
             var noviNamestaj = new Namestaj()
             {
                 Id = Projekat.instanca.Namestaj.Count + 1,
-                naziv = "",
-                akcija = 0,
-                kolicina = 0,
-                jedinicnaCena = 0,
-                sifra = "",
-                tipNamestaja = 0
+                Naziv = "",
+                Akcija = null,
+                Kolicina = 0,
+                JedinicnaCena = 0,
+                Sifra = "",
+                TipNamestaja = null
 
                 
             };
@@ -67,24 +49,26 @@ namespace POP_SF_15_2016_GUI
 
             var NamestajProzor = new NamestajWindow(noviNamestaj, NamestajWindow.Operacija.DODAVANJE);
             NamestajProzor.Show();
-            this.Close();
         }
 
         private void IzmeniNamestaj(object sender, RoutedEventArgs e)
         {
-            Namestaj selektovaniNamestaj = (Namestaj)ListBoxNamestaja.SelectedItem;
+            Namestaj selektovaniNamestaj = (Namestaj)lvNamestaj.SelectedItem;
 
             var namestajProzor = new NamestajWindow(selektovaniNamestaj, NamestajWindow.Operacija.IZMENA);
             namestajProzor.Show();
-            this.Close();
         }
 
         private void IzbrisiNamestaj(object sender, RoutedEventArgs e)
+
         {
-            Namestaj selektovaniNamestaj = (Namestaj)ListBoxNamestaja.SelectedItem;
-            selektovaniNamestaj.obrisan = true;
-            Projekat.instanca.Namestaj = postojeciNamestaj;
-            OsveziPrikaz();
+           var izabraniNamestaj = (Namestaj)lvNamestaj.SelectedItem;
+
+            if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv}?", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                izabraniNamestaj.Obrisan = true;
+                
+            }
         }
     }
 }

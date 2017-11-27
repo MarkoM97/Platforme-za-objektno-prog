@@ -40,30 +40,37 @@ namespace POP_SF_15_2016_GUI.UI
             {
                 cbAkcije.Items.Add(Akcija.naziv);
             }
-            if(namestaj.akcija != 0)
+
+
+            if (namestaj.Akcija != null)
             {
-                cbAkcije.SelectedItem = Akcija.GetID(namestaj.akcija).naziv;
+                cbAkcije.SelectedItem = namestaj.Akcija.naziv;
             }else
             {
                 cbAkcije.SelectedItem = "";
             }
+
+
             foreach (var Tip in Projekat.instanca.TipNamestaja)
             {
                 cbTipNamestaja.Items.Add(Tip.Naziv);
             }
-            if (namestaj.tipNamestaja == 0)
+
+
+
+            if (namestaj.TipNamestaja != null)
             {
-                cbTipNamestaja.SelectedItem = Projekat.instanca.TipNamestaja.ElementAt(0).Naziv;
+                cbTipNamestaja.SelectedItem = namestaj.TipNamestaja.Naziv;
             } else
             {
-                cbTipNamestaja.SelectedItem = TipNamestaja.GetID(namestaj.tipNamestaja).Naziv;
+                cbTipNamestaja.SelectedItem = Projekat.instanca.TipNamestaja[0];
             }
             this.operacija = operacija;
             this.namestaj = namestaj;
-            tbNaziv.Text = namestaj.naziv;
-            tbCena.Text = namestaj.jedinicnaCena.ToString();
-            tbSifra.Text = namestaj.sifra.ToString();
-            tbKolicina.Text = namestaj.kolicina.ToString(); 
+            tbNaziv.Text = namestaj.Naziv;
+            tbCena.Text = namestaj.JedinicnaCena.ToString();
+            tbSifra.Text = namestaj.Sifra.ToString();
+            tbKolicina.Text = namestaj.Kolicina.ToString(); 
         }
 
         private void SacuvajIzmene(Object sender, RoutedEventArgs e)
@@ -71,32 +78,19 @@ namespace POP_SF_15_2016_GUI.UI
             List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
             Akcija akcijaDodele = new Akcija();
             TipNamestaja tipDodele = new TipNamestaja();
-            foreach (Akcija akcija in Projekat.instanca.Akcija)
-            {
-                if (akcija.naziv.Equals(cbAkcije.SelectedItem.ToString()))
-                {
-                    akcijaDodele = akcija;
-                }
-            }
-            foreach (TipNamestaja tip in Projekat.instanca.TipNamestaja)
-            {
-                if (tip.Naziv.Equals(cbTipNamestaja.SelectedItem.ToString()))
-                {
-                    tipDodele = tip;
-                }
-            }
+
             switch (operacija)
             {
                 case Operacija.DODAVANJE:
                     var noviNamestaj = new Namestaj()
                     {
                         Id = Projekat.instanca.Namestaj.Count + 1,
-                        naziv = tbNaziv.Text,
-                        jedinicnaCena = Convert.ToDouble(tbCena.Text),
-                        kolicina = Convert.ToInt16(tbKolicina.Text),
-                        tipNamestaja = tipDodele.Id,
-                        akcija = akcijaDodele.id,
-                        sifra = tbSifra.Text
+                        Naziv = tbNaziv.Text,
+                        JedinicnaCena = Convert.ToDouble(tbCena.Text),
+                        Kolicina = Convert.ToInt16(tbKolicina.Text),
+                        TipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem,
+                        Akcija = (Akcija)cbAkcije.SelectedItem,
+                        Sifra = tbSifra.Text
                     };
                     postojeciNamestaj.Add(noviNamestaj);
                     break;
@@ -105,12 +99,12 @@ namespace POP_SF_15_2016_GUI.UI
                     {
                         if(n.Id == namestaj.Id)
                         {
-                            n.naziv = tbNaziv.Text;
-                            n.jedinicnaCena = Convert.ToDouble(tbCena.Text);
-                            n.akcija = akcijaDodele.id;
-                            n.kolicina = Convert.ToInt16(tbKolicina.Text);
-                            n.tipNamestaja = tipDodele.Id;
-                            n.sifra = tbSifra.Text;
+                            n.Naziv = tbNaziv.Text;
+                            n.JedinicnaCena = Convert.ToDouble(tbCena.Text);
+                            n.Akcija = (Akcija)cbAkcije.SelectedItem;
+                            n.Kolicina = Convert.ToInt16(tbKolicina.Text);
+                            n.TipNamestaja = (TipNamestaja)cbTipNamestaja.SelectedItem;
+                            n.Sifra = tbSifra.Text;
                         }
                     }
                     break;
