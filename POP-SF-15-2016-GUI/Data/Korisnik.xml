@@ -4,8 +4,8 @@
     <id>1</id>
     <ime>Marko</ime>
     <prezime>Martonosi</prezime>
-    <korisnickoIme>Marko</korisnickoIme>
-    <lozinka>Marko</lozinka>
+    <korisnickoIme></korisnickoIme>
+    <lozinka></lozinka>
     <tipKorisnika>1</tipKorisnika>
   </Korisnik>
   <Korisnik>

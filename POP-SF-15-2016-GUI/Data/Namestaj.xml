@@ -2,22 +2,81 @@
 <ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namestaj>
     <Id>1</Id>
-    <naziv>NERADI</naziv>
-    <jedinicnaCena>28</jedinicnaCena>
-    <akcija>1</akcija>
-    <kolicina>5</kolicina>
-    <sifra>Sgasg</sifra>
-    <obrisan>false</obrisan>
-    <tipNamestaja>2</tipNamestaja>
+    <Naziv>Razzzz</Naziv>
+    <JedinicnaCena>26</JedinicnaCena>
+    <Akcija>
+      <id>1</id>
+      <naziv>Prolecna Akcija</naziv>
+      <pocetakAkcije>2009-03-13T22:16:00</pocetakAkcije>
+      <trajanjeAkcije>5</trajanjeAkcije>
+      <zavrsetakAkcije>2009-03-13T22:16:00</zavrsetakAkcije>
+      <popust>15</popust>
+      <obrisan>false</obrisan>
+    </Akcija>
+    <Kolicina>5</Kolicina>
+    <Sifra>Sgasg</Sifra>
+    <Obrisan>true</Obrisan>
+    <TipNamestaja>
+      <Id>1</Id>
+      <Naziv>Sofa</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamestaja>
   </Namestaj>
   <Namestaj>
     <Id>2</Id>
-    <naziv>Sofa</naziv>
-    <jedinicnaCena>20</jedinicnaCena>
-    <akcija>2</akcija>
-    <kolicina>2</kolicina>
-    <sifra>Sgasg</sifra>
-    <obrisan>false</obrisan>
-    <tipNamestaja>1</tipNamestaja>
+    <Naziv>Sofa</Naziv>
+    <JedinicnaCena>20</JedinicnaCena>
+    <Akcija>
+      <id>2</id>
+      <naziv>Zimska Akcija</naziv>
+      <pocetakAkcije>2009-03-13T22:16:00</pocetakAkcije>
+      <trajanjeAkcije>5</trajanjeAkcije>
+      <zavrsetakAkcije>2009-03-13T22:16:00</zavrsetakAkcije>
+      <popust>15</popust>
+      <obrisan>false</obrisan>
+    </Akcija>
+    <Kolicina>2</Kolicina>
+    <Sifra>Sgasg</Sifra>
+    <Obrisan>false</Obrisan>
+    <TipNamestaja>
+      <Id>1</Id>
+      <Naziv>Sofa</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamestaja>
+  </Namestaj>
+  <Namestaj>
+    <Id>3</Id>
+    <Naziv>pERA</Naziv>
+    <JedinicnaCena>15</JedinicnaCena>
+    <Kolicina>14</Kolicina>
+    <Sifra>486846</Sifra>
+    <Obrisan>false</Obrisan>
+    <TipNamestaja>
+      <Id>1</Id>
+      <Naziv>Sofa</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamestaja>
+  </Namestaj>
+  <Namestaj>
+    <Id>4</Id>
+    <Naziv>asda</Naziv>
+    <JedinicnaCena>123</JedinicnaCena>
+    <Akcija>
+      <id>1</id>
+      <naziv>Prolecna Akcija</naziv>
+      <pocetakAkcije>2009-03-13T22:16:00</pocetakAkcije>
+      <trajanjeAkcije>5</trajanjeAkcije>
+      <zavrsetakAkcije>2009-03-13T22:16:00</zavrsetakAkcije>
+      <popust>15</popust>
+      <obrisan>false</obrisan>
+    </Akcija>
+    <Kolicina>123</Kolicina>
+    <Sifra>34535</Sifra>
+    <Obrisan>true</Obrisan>
+    <TipNamestaja>
+      <Id>1</Id>
+      <Naziv>Sofa</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamestaja>
   </Namestaj>
 </ArrayOfNamestaj>

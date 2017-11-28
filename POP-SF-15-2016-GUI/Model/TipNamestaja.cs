@@ -25,6 +25,23 @@ namespace POP_15_2016_GUI.Model
             }
             return null;
         }
+
+        public static TipNamestaja getNaziv(string naziv)
+        {
+            foreach(var tip in Projekat.instanca.TipNamestaja)
+            {
+                if(tip.Naziv.Equals(naziv))
+                {
+                    return tip;
+                }
+            }
+            return null;
+        }
+
+        public override string ToString()
+        {
+            return Naziv;
+        }
     }
 
     

@@ -34,5 +34,23 @@ namespace POP_15_2016_GUI.Model
             }
             return null;
         }
+
+        public static Akcija getNaziv(string naziv)
+        {
+            foreach(var akc in Projekat.instanca.Akcija)
+            {
+                if(akc.naziv.Equals(naziv))
+                {
+                    return akc;
+                }
+            }
+            return null;
+        }
+
+        public override string ToString()
+        {
+            return naziv;
+        }
     }
+
 }
