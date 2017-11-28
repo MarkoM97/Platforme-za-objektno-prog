@@ -18,16 +18,25 @@ namespace POP_SF_15_2016_GUI
     {
         List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
         ObservableCollection<Namestaj> pNamestaj = new ObservableCollection<Namestaj>(Projekat.instanca.Namestaj);
+        Akcija tempAkcija = new Akcija();
+        TipNamestaja tempTip = new TipNamestaja();
         public MainWindow()
         {
-
-            foreach(var x in pNamestaj)
-            {
-                System.Console.WriteLine(x);
-            }
             InitializeComponent();
             lvNamestaj.ItemsSource = pNamestaj;
-            }
+          
+            /*
+             * 
+             * view = CollectionViewSource.GetDefaultView(Projekat.instance.Namestaj)
+             * view.filter = NamestajFilter;
+             * dgNamestaj.ItemsSource = view;
+             * dgNamestaj.isSynh...
+             
+             * private bool NamestajFilter(object obj) {
+             *  return !((Namestaj)obj.Obrisan);
+             * }
+             * **/ 
+        }
 
         
 
@@ -47,7 +56,6 @@ namespace POP_SF_15_2016_GUI
                 JedinicnaCena = 0,
                 Sifra = "",
                 TipNamestaja = null
-
                 
             };
 

@@ -17,7 +17,7 @@ namespace POP_15_2016_GUI.Model
         public DateTime pocetakAkcije { get; set; }
         public int trajanjeAkcije { get; set; }
         [System.Xml.Serialization.XmlElementAttribute(DataType = "dateTime", ElementName = "zavrsetakAkcije")]
-        public DateTime zavrsetakAkcije { get; set;}
+        public DateTime zavrsetakAkcije { get; set; }
         public double popust { get; set; }
         public bool obrisan { get; set; }
 

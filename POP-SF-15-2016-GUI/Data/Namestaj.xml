@@ -2,7 +2,7 @@
 <ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namestaj>
     <Id>1</Id>
-    <Naziv>Razzzz</Naziv>
+    <Naziv>Sofa</Naziv>
     <JedinicnaCena>26</JedinicnaCena>
     <Akcija>
       <id>1</id>
@@ -14,18 +14,18 @@
       <obrisan>false</obrisan>
     </Akcija>
     <Kolicina>5</Kolicina>
-    <Sifra>Sgasg</Sifra>
-    <Obrisan>true</Obrisan>
+    <Sifra>sf152016</Sifra>
+    <Obrisan>false</Obrisan>
     <TipNamestaja>
-      <Id>1</Id>
-      <Naziv>Sofa</Naziv>
+      <Id>2</Id>
+      <Naziv>Krevet</Naziv>
       <Obrisan>false</Obrisan>
     </TipNamestaja>
   </Namestaj>
   <Namestaj>
     <Id>2</Id>
-    <Naziv>Sofa</Naziv>
-    <JedinicnaCena>20</JedinicnaCena>
+    <Naziv>RazvlacivaSofa</Naziv>
+    <JedinicnaCena>12000</JedinicnaCena>
     <Akcija>
       <id>2</id>
       <naziv>Zimska Akcija</naziv>
@@ -35,8 +35,8 @@
       <popust>15</popust>
       <obrisan>false</obrisan>
     </Akcija>
-    <Kolicina>2</Kolicina>
-    <Sifra>Sgasg</Sifra>
+    <Kolicina>7</Kolicina>
+    <Sifra>K113</Sifra>
     <Obrisan>false</Obrisan>
     <TipNamestaja>
       <Id>1</Id>
@@ -46,10 +46,19 @@
   </Namestaj>
   <Namestaj>
     <Id>3</Id>
-    <Naziv>pERA</Naziv>
-    <JedinicnaCena>15</JedinicnaCena>
-    <Kolicina>14</Kolicina>
-    <Sifra>486846</Sifra>
+    <Naziv>ASFAF</Naziv>
+    <JedinicnaCena>123</JedinicnaCena>
+    <Akcija>
+      <id>2</id>
+      <naziv>Zimska Akcija</naziv>
+      <pocetakAkcije>2009-03-13T22:16:00</pocetakAkcije>
+      <trajanjeAkcije>5</trajanjeAkcije>
+      <zavrsetakAkcije>2009-03-13T22:16:00</zavrsetakAkcije>
+      <popust>15</popust>
+      <obrisan>false</obrisan>
+    </Akcija>
+    <Kolicina>123</Kolicina>
+    <Sifra>agasg</Sifra>
     <Obrisan>false</Obrisan>
     <TipNamestaja>
       <Id>1</Id>
@@ -59,7 +68,29 @@
   </Namestaj>
   <Namestaj>
     <Id>4</Id>
-    <Naziv>asda</Naziv>
+    <Naziv>Marko123</Naziv>
+    <JedinicnaCena>12</JedinicnaCena>
+    <Akcija>
+      <id>1</id>
+      <naziv>Prolecna Akcija</naziv>
+      <pocetakAkcije>2009-03-13T22:16:00</pocetakAkcije>
+      <trajanjeAkcije>5</trajanjeAkcije>
+      <zavrsetakAkcije>2009-03-13T22:16:00</zavrsetakAkcije>
+      <popust>15</popust>
+      <obrisan>false</obrisan>
+    </Akcija>
+    <Kolicina>2</Kolicina>
+    <Sifra>asfa</Sifra>
+    <Obrisan>false</Obrisan>
+    <TipNamestaja>
+      <Id>1</Id>
+      <Naziv>Sofa</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamestaja>
+  </Namestaj>
+  <Namestaj>
+    <Id>5</Id>
+    <Naziv>asdsa</Naziv>
     <JedinicnaCena>123</JedinicnaCena>
     <Akcija>
       <id>1</id>
@@ -70,9 +101,9 @@
       <popust>15</popust>
       <obrisan>false</obrisan>
     </Akcija>
-    <Kolicina>123</Kolicina>
-    <Sifra>34535</Sifra>
-    <Obrisan>true</Obrisan>
+    <Kolicina>12</Kolicina>
+    <Sifra>1512</Sifra>
+    <Obrisan>false</Obrisan>
     <TipNamestaja>
       <Id>1</Id>
       <Naziv>Sofa</Naziv>

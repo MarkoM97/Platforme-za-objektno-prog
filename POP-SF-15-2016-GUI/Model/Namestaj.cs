@@ -13,7 +13,7 @@ namespace POP_15_2016_GUI.Model
     [Serializable]
     public class Namestaj : INotifyPropertyChanged
     {
-        private ObservableCollection<Namestaj> namestaji = new ObservableCollection<Namestaj>();
+
 
         private int id;
         public int Id { get { return id; } set { id = value; OnPropertyChanged("Id"); } }
@@ -25,7 +25,25 @@ namespace POP_15_2016_GUI.Model
         public double JedinicnaCena { get { return jedinicnaCena; } set { jedinicnaCena = value; OnPropertyChanged("JedinicnaCena"); } }
 
         private Akcija akcija;
-        public Akcija Akcija { get { return akcija; } set { akcija = value;OnPropertyChanged("Akcija"); } }
+        private int akcijaId;
+        public Akcija Akcija{get
+            {
+                return akcija;
+            }
+            set
+            {
+                akcija = value;
+                if (akcija == null)
+                {
+                    akcija = new Akcija()
+                    {
+                        id = 0
+                    };
+                }
+                akcijaId = akcija.id;
+                OnPropertyChanged("Akcija");
+            }
+        }
 
         private int kolicina;
         public int Kolicina { get { return kolicina; } set { kolicina = value; OnPropertyChanged("Kolicina"); } }
@@ -36,6 +54,7 @@ namespace POP_15_2016_GUI.Model
         private bool obrisan;
         public bool Obrisan { get { return obrisan; } set { obrisan = value;OnPropertyChanged("Obrisan"); } }
 
+        private int tipNamestajaId;
         private TipNamestaja tipNamestaja;
         public TipNamestaja TipNamestaja { get { return tipNamestaja; } set { tipNamestaja = value;OnPropertyChanged("TipNamestaja"); } }
 
@@ -44,11 +63,13 @@ namespace POP_15_2016_GUI.Model
             if (akcija != null)
             {
                 return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {TipNamestaja.Naziv} | Akcija: {Akcija.naziv} | Obrisan : {Obrisan}";
-            }else
+            }
+            else
             {
                 return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {TipNamestaja.Naziv} | Obrisan : {Obrisan}";
             }
         }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 

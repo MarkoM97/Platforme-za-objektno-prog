@@ -1,17 +1,8 @@
 ﻿using POP_15_2016_GUI.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace POP_SF_15_2016_GUI.UI
 {
@@ -41,7 +32,6 @@ namespace POP_SF_15_2016_GUI.UI
                 cbAkcije.Items.Add(Akcija.naziv);
             }
 
-
             if (namestaj.Akcija != null)
             {
                 cbAkcije.SelectedItem = namestaj.Akcija.naziv;
@@ -55,14 +45,11 @@ namespace POP_SF_15_2016_GUI.UI
             {
                 cbTipNamestaja.Items.Add(Tip.Naziv);
             }
-
-
-            Console.WriteLine(Projekat.instanca.TipNamestaja[0]);
-            Console.WriteLine("AAAAAAAAAAAAAAAAAA");
             if (namestaj.TipNamestaja != null)
             {
                 cbTipNamestaja.SelectedItem = namestaj.TipNamestaja.Naziv;
-            } else
+            }
+            else
             {
                 cbTipNamestaja.SelectedItem = Projekat.instanca.TipNamestaja[0].Naziv;
             }
@@ -88,6 +75,9 @@ namespace POP_SF_15_2016_GUI.UI
                 akcijaDodele = new Akcija() { id = Projekat.instanca.Akcija.Count + 1, naziv = "" };
             }
             akcijaDodele = Akcija.getNaziv(cbAkcije.SelectedItem.ToString()); */
+            Akcija akcijaDodele = new Akcija();
+            TipNamestaja tipDodele = new TipNamestaja();
+
             switch (operacija)
             {
                 case Operacija.DODAVANJE:
@@ -113,6 +103,7 @@ namespace POP_SF_15_2016_GUI.UI
                             n.Akcija = Akcija.getNaziv(cbAkcije.SelectedItem.ToString());
                             n.Kolicina = Convert.ToInt16(tbKolicina.Text);
                             n.TipNamestaja = TipNamestaja.getNaziv(cbTipNamestaja.SelectedItem.ToString());
+                            n.Kolicina = Convert.ToInt16(tbKolicina.Text);
                             n.Sifra = tbSifra.Text;
                         }
                     }

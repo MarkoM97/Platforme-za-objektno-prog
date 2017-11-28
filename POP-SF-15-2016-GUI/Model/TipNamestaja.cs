@@ -42,6 +42,7 @@ namespace POP_15_2016_GUI.Model
         {
             return Naziv;
         }
+
     }
 
     
