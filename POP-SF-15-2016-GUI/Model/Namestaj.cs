@@ -27,7 +27,7 @@ namespace POP_15_2016_GUI.Model
         private Akcija akcija;
         public int akcijaId;
         [XmlIgnore]
-        public Akcija Akcija{
+        public Akcija Akcija {
             get
             {
                 return Model.Akcija.GetID(akcijaId);
@@ -51,10 +51,10 @@ namespace POP_15_2016_GUI.Model
         public int Kolicina { get { return kolicina; } set { kolicina = value; OnPropertyChanged("Kolicina"); } }
 
         private string sifra;
-        public string Sifra { get { return sifra; } set { sifra = value;OnPropertyChanged("Sifra"); } }
+        public string Sifra { get { return sifra; } set { sifra = value; OnPropertyChanged("Sifra"); } }
 
         private bool obrisan;
-        public bool Obrisan { get { return obrisan; } set { obrisan = value;OnPropertyChanged("Obrisan"); } }
+        public bool Obrisan { get { return obrisan; } set { obrisan = value; OnPropertyChanged("Obrisan"); } }
 
         public int tipNamestajaId;
         private TipNamestaja tipNamestaja;
@@ -70,7 +70,7 @@ namespace POP_15_2016_GUI.Model
             }
         }
 
-        public override string ToString()
+        /*public override string ToString()
         {
             if (akcija != null)
             {
@@ -80,7 +80,24 @@ namespace POP_15_2016_GUI.Model
             {
                 return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {TipNamestaja.Naziv} | Obrisan : {Obrisan}";
             }
+        }*/
+
+        public override string ToString()
+        {
+            return naziv;
         }
+
+        public static Namestaj getID(int id)
+        {
+            foreach(var thing  in Projekat.instanca.Namestaj)
+            {
+                if (id.Equals(id))
+                {
+                    return thing;
+                }
+            }
+            return null;
+        } 
         
 
         public event PropertyChangedEventHandler PropertyChanged;

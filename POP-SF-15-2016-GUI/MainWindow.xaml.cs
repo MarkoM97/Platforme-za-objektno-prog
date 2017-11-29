@@ -19,7 +19,7 @@ namespace POP_SF_15_2016_GUI
         List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
         ObservableCollection<Namestaj> pNamestaj = new ObservableCollection<Namestaj>(Projekat.instanca.Namestaj);
         ObservableCollection<Korisnik> pKorisnik = new ObservableCollection<Korisnik>(Projekat.instanca.Korisnik);
-        //ObservableCollection<Racun> pRacun = new ObservableCollection<Racun>(Projekat.instanca.Racun);
+        ObservableCollection<Racun> pRacun = new ObservableCollection<Racun>(Projekat.instanca.Racun);
         ObservableCollection<DodatnaUsluga> pDodatna = new ObservableCollection<DodatnaUsluga>(Projekat.instanca.DodatnaUsluga);
         ObservableCollection<Akcija> pAkcija = new ObservableCollection<Akcija>(Projekat.instanca.Akcija);
         ObservableCollection<TipNamestaja> pTipNamestaja = new ObservableCollection<TipNamestaja>(Projekat.instanca.TipNamestaja);
@@ -27,19 +27,22 @@ namespace POP_SF_15_2016_GUI
         //Akcija tempAkcija = new Akcija();
         //TipNamestaja tempTip = new TipNamestaja();
         public MainWindow()
-        {
-            foreach(var thing in postojeciNamestaj)
+        { 
+
+            foreach(var tghing in pRacun)
             {
-                System.Console.WriteLine(thing);
+                System.Console.WriteLine(tghing.DodatneUsluge);
             }
 
             InitializeComponent();
+            lvUsluge.ItemsSource = pDodatna;
             lvNamestaj.ItemsSource = pNamestaj;
             lvAkcije.ItemsSource = pAkcija;
             lvKorisnici.ItemsSource = pKorisnik;
             lvTipovi.ItemsSource = pTipNamestaja;
-            //lvRacuni.ItemsSource = pRacun;
-            lvUsluge.ItemsSource = pDodatna;
+            lvRacuni.ItemsSource = pRacun;
+
+            
           
             /*
              * 

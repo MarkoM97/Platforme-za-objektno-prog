@@ -47,11 +47,28 @@ namespace POP_15_2016_GUI.Model
             return null;
         }
 
+        public static Korisnik getID(int ID)
+        {
+            foreach (Korisnik kor in Projekat.instanca.korisnici)
+            {
+                if (ID.Equals(kor.id))
+                {
+                    return kor;
+                }
+            }
+            return null;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public override string ToString()
+        {
+            return ime;
         }
     }
 }

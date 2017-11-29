@@ -29,5 +29,40 @@ namespace POP_15_2016_GUI.Model
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        public static List<DodatnaUsluga> getIds(List<int> Ids)
+        {
+            List<DodatnaUsluga> ubacene = new List<DodatnaUsluga>();
+            foreach(var dodatna in Projekat.instanca.DodatnaUsluga)
+            {
+                foreach(var idDodatne in Ids)
+                {
+                    if (dodatna.Id.Equals(idDodatne))
+                    {
+                        ubacene.Add(dodatna);
+                    }
+                }
+            }
+
+            return ubacene;
+        }
+
+        public static DodatnaUsluga getName(string name)
+        {
+            foreach (var dodatna in Projekat.instanca.DodatnaUsluga)
+            {
+                if(dodatna.naziv.Equals(name))
+                {
+                    return dodatna;
+                }
+            }
+
+            return null;
+        }
+
+        public override string ToString()
+        {
+            return naziv;
+        }
     }
 }

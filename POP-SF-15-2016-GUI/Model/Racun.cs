@@ -15,11 +15,32 @@ namespace POP_15_2016_GUI.Model
         private string id { get; set; }
         public string Id { get { return id; } set { id = value; OnPropertyChanged("Id"); } }
 
+        public int korisnikId {get;set;}
         private Korisnik prodavac { get; set; }
-        public Korisnik Prodavac { get { return prodavac; } set { prodavac = value; OnPropertyChanged("Prodavac"); } }
+        [XmlIgnore]
+        public Korisnik Prodavac{
+            get {
+                return Model.Korisnik.getID(korisnikId);
+            } set {
 
+                prodavac = value;
+                korisnikId = prodavac.Id;
+                OnPropertyChanged("Prodavac");
+            } 
+}
+
+        public int namestajId;
         private Namestaj prodatiNamestaj { get; set; }
-        public Namestaj ProdatiNamestaj { get { return prodatiNamestaj; } set { prodatiNamestaj= value; OnPropertyChanged("ProdatiNamestaj"); } }
+        [XmlIgnore]
+        public Namestaj ProdatiNamestaj {
+            get {
+                return Model.Namestaj.getID(namestajId);
+            } set {
+                prodatiNamestaj = value;
+                namestajId = prodatiNamestaj.Id;
+                OnPropertyChanged("ProdatiNamestaj");
+            }
+        }
 
         private int brojKomada{ get; set; }
         public int BrojKomada { get { return brojKomada; } set { brojKomada= value; OnPropertyChanged("BrojKomada"); } }
@@ -28,8 +49,21 @@ namespace POP_15_2016_GUI.Model
         private DateTime datumProdaje { get; set; }
         public DateTime DatumProdaje { get { return datumProdaje; } set { datumProdaje= value; OnPropertyChanged("DatumProdaje"); } }
 
+        public List<int> dodateUslugeIds { get; set; }
         private List<DodatnaUsluga> dodatneUsluge { get; set; }
-        public List<DodatnaUsluga> DodatneUsluge { get { return dodatneUsluge; } set { dodatneUsluge= value; OnPropertyChanged("DodatneUsluge"); } }
+        [XmlIgnore]
+        public List<DodatnaUsluga> DodatneUsluge {
+            get {
+                return Model.DodatnaUsluga.getIds(dodateUslugeIds);
+            } set {
+                dodatneUsluge = value;
+                foreach(var d in dodatneUsluge)
+                {
+                    dodateUslugeIds.Add(d.Id);
+                }
+                OnPropertyChanged("DodatneUsluge");
+            }
+        }
 
         private string imeKupca { get; set; }
         public string ImeKupca{ get { return imeKupca; } set { imeKupca= value; OnPropertyChanged("ImeKupca"); } }
