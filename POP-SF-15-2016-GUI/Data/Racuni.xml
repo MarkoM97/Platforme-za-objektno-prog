@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ArrayOfRacun xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Racun>
+    <Id>1</Id>
+    <Prodavac>1</Prodavac>
+    <ProdatiNamestaj>1</ProdatiNamestaj>
+    <BrojKomada>2</BrojKomada>
+    <DatumProdaje>2009-03-13T22:16:00</DatumProdaje>
+    <DodatnaUsluga>1</DodatnaUsluga>
+    <ImeKupca>Radovan</ImeKupca>
+    <PrezimeKupca>Miljonic</PrezimeKupca>
+    <UkupnaCena>1050</UkupnaCena>
+  </Racun>
+  <Racun>
+    <Id>1</Id>
+    <Prodavac>1</Prodavac>
+    <ProdatiNamestaj>1</ProdatiNamestaj>
+    <BrojKomada>2</BrojKomada>
+    <DatumProdaje>2009-03-13T22:16:00</DatumProdaje>
+    <DodatnaUsluga>1</DodatnaUsluga>
+    <ImeKupca>Radovan</ImeKupca>
+    <PrezimeKupca>Miljonic</PrezimeKupca>
+    <UkupnaCena>1050</UkupnaCena>
+  </Racun>
+</ArrayOfRacun>

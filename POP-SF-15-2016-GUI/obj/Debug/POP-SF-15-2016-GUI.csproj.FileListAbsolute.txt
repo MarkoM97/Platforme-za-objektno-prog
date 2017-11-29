@@ -17,3 +17,11 @@ C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.csproj.CoreCompileInputs.cache
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.exe
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\POP-SF-15-2016-GUI.pdb
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\AkcijeWindow.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\KorisniciWindow.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\RacuniWindow.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\TipoviWindow.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\AkcijeWindow.baml
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\KorisniciWindow.baml
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\RacuniWindow.baml
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\UI\TipoviWindow.baml

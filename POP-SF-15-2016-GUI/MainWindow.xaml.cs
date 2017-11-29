@@ -18,12 +18,28 @@ namespace POP_SF_15_2016_GUI
     {
         List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
         ObservableCollection<Namestaj> pNamestaj = new ObservableCollection<Namestaj>(Projekat.instanca.Namestaj);
-        Akcija tempAkcija = new Akcija();
-        TipNamestaja tempTip = new TipNamestaja();
+        ObservableCollection<Korisnik> pKorisnik = new ObservableCollection<Korisnik>(Projekat.instanca.Korisnik);
+        //ObservableCollection<Racun> pRacun = new ObservableCollection<Racun>(Projekat.instanca.Racun);
+        ObservableCollection<DodatnaUsluga> pDodatna = new ObservableCollection<DodatnaUsluga>(Projekat.instanca.DodatnaUsluga);
+        ObservableCollection<Akcija> pAkcija = new ObservableCollection<Akcija>(Projekat.instanca.Akcija);
+        ObservableCollection<TipNamestaja> pTipNamestaja = new ObservableCollection<TipNamestaja>(Projekat.instanca.TipNamestaja);
+
+        //Akcija tempAkcija = new Akcija();
+        //TipNamestaja tempTip = new TipNamestaja();
         public MainWindow()
         {
+            foreach(var thing in postojeciNamestaj)
+            {
+                System.Console.WriteLine(thing);
+            }
+
             InitializeComponent();
             lvNamestaj.ItemsSource = pNamestaj;
+            lvAkcije.ItemsSource = pAkcija;
+            lvKorisnici.ItemsSource = pKorisnik;
+            lvTipovi.ItemsSource = pTipNamestaja;
+            //lvRacuni.ItemsSource = pRacun;
+            lvUsluge.ItemsSource = pDodatna;
           
             /*
              * 
@@ -51,11 +67,11 @@ namespace POP_SF_15_2016_GUI
             {
                 Id = Projekat.instanca.Namestaj.Count + 1,
                 Naziv = "",
-                Akcija = null,
+                akcijaId = 0,
                 Kolicina = 0,
                 JedinicnaCena = 0,
                 Sifra = "",
-                TipNamestaja = null
+                tipNamestajaId = 0
                 
             };
 
@@ -83,6 +99,15 @@ namespace POP_SF_15_2016_GUI
             if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv}?", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 izabraniNamestaj.Obrisan = true;
+                foreach(var thing in postojeciNamestaj)
+                {
+                    if(izabraniNamestaj.Id.Equals(thing.Id))
+                    {
+                        thing.Obrisan = true;
+                    }
+                }
+
+                Projekat.instanca.Namestaj = postojeciNamestaj;
                 
             }
         }

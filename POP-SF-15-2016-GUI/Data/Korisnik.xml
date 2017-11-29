@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ArrayOfKorisnik xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Korisnik>
-    <id>1</id>
-    <ime>Marko</ime>
-    <prezime>Martonosi</prezime>
-    <korisnickoIme></korisnickoIme>
-    <lozinka></lozinka>
-    <tipKorisnika>1</tipKorisnika>
+    <Id>1</Id>
+    <Ime>Marko</Ime>
+    <Prezime>Martonosi</Prezime>
+    <KorisnickoIme> </KorisnickoIme>
+    <Lozinka> </Lozinka>
+    <TipKorisnika>true</TipKorisnika>
   </Korisnik>
   <Korisnik>
-    <id>2</id>
-    <ime>Markoooo</ime>
-    <prezime>mm</prezime>
-    <korisnickoIme>m</korisnickoIme>
-    <lozinka>m</lozinka>
-    <tipKorisnika>2</tipKorisnika>
+    <Id>2</Id>
+    <Ime>Markoooo</Ime>
+    <Prezime>mm</Prezime>
+    <KorisnickoIme>m</KorisnickoIme>
+    <Lozinka>m</Lozinka>
+    <TipKorisnika>false</TipKorisnika>
   </Korisnik>
   <Korisnik>
-    <id>2</id>
-    <ime>Markoooo</ime>
-    <prezime>mm</prezime>
-    <korisnickoIme>a</korisnickoIme>
-    <lozinka>a</lozinka>
-    <tipKorisnika>1</tipKorisnika>
+    <Id>2</Id>
+    <Ime>Markoooo</Ime>
+    <Prezime>mm</Prezime>
+    <KorisnickoIme>a</KorisnickoIme>
+    <Lozinka>a</Lozinka>
+    <TipKorisnika>true</TipKorisnika>
   </Korisnik>
 </ArrayOfKorisnik>

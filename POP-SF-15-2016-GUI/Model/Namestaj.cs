@@ -25,10 +25,12 @@ namespace POP_15_2016_GUI.Model
         public double JedinicnaCena { get { return jedinicnaCena; } set { jedinicnaCena = value; OnPropertyChanged("JedinicnaCena"); } }
 
         private Akcija akcija;
-        private int akcijaId;
-        public Akcija Akcija{get
+        public int akcijaId;
+        [XmlIgnore]
+        public Akcija Akcija{
+            get
             {
-                return akcija;
+                return Model.Akcija.GetID(akcijaId);
             }
             set
             {
@@ -37,10 +39,10 @@ namespace POP_15_2016_GUI.Model
                 {
                     akcija = new Akcija()
                     {
-                        id = 0
+                        Id = 0
                     };
                 }
-                akcijaId = akcija.id;
+                akcijaId = akcija.Id;
                 OnPropertyChanged("Akcija");
             }
         }
@@ -54,15 +56,25 @@ namespace POP_15_2016_GUI.Model
         private bool obrisan;
         public bool Obrisan { get { return obrisan; } set { obrisan = value;OnPropertyChanged("Obrisan"); } }
 
-        private int tipNamestajaId;
+        public int tipNamestajaId;
         private TipNamestaja tipNamestaja;
-        public TipNamestaja TipNamestaja { get { return tipNamestaja; } set { tipNamestaja = value;OnPropertyChanged("TipNamestaja"); } }
+        [XmlIgnore]
+        public TipNamestaja TipNamestaja {
+            get {
+                return Model.TipNamestaja.GetID(tipNamestajaId);
+            }
+            set {
+                tipNamestaja = value;
+                tipNamestajaId = tipNamestaja.Id;
+                OnPropertyChanged("TipNamestaja");
+            }
+        }
 
         public override string ToString()
         {
             if (akcija != null)
             {
-                return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {TipNamestaja.Naziv} | Akcija: {Akcija.naziv} | Obrisan : {Obrisan}";
+                return $"Naziv: {Naziv} | Cena: {JedinicnaCena} | tip namestaja: {TipNamestaja.Naziv} | Akcija: {Akcija.Naziv} | Obrisan : {Obrisan}";
             }
             else
             {

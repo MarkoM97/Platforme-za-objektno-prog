@@ -1,9 +1,6 @@
 ﻿using POP_15_2016.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace POP_15_2016_GUI.Model
 {
@@ -14,6 +11,8 @@ namespace POP_15_2016_GUI.Model
         public List<Korisnik> korisnici = new List<Korisnik>();
         public List<TipNamestaja> tipNamestaja = new List<TipNamestaja>();
         public List<Akcija> akcija = new List<Akcija>();
+        public List<DodatnaUsluga> dodatne = new List<DodatnaUsluga>();
+        public List<Racun> racuni = new List<Racun>();
 
         public List<Namestaj> Namestaj
         {
@@ -24,6 +23,34 @@ namespace POP_15_2016_GUI.Model
             set {
                 this.namestaj = value;
                 GenericSerializer.Serialize<Namestaj>("Namestaj.xml", this.namestaj);
+            }
+        }
+
+        public List<Racun> Racun
+        {
+            get
+            {
+                this.racuni = GenericSerializer.Deserialize<Racun>("Racuni.xml");
+                return this.racuni;
+            }
+            set
+            {
+                this.racuni = value;
+                GenericSerializer.Serialize<Racun>("Racuni.xml", this.racuni);
+            }
+        }
+
+        public List<DodatnaUsluga> DodatnaUsluga
+        {
+            get
+            {
+                this.dodatne = GenericSerializer.Deserialize<DodatnaUsluga>("DodatneUsluge.xml");
+                return this.dodatne;
+            }
+            set
+            {
+                this.dodatne = value;
+                GenericSerializer.Serialize<DodatnaUsluga>("DodatneUsluge.xml", this.dodatne);
             }
         }
 

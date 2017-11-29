@@ -62,13 +62,24 @@
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Namestaj.cs" />
     <Compile Include="Model\Racun.cs" />
-    <Compile Include="Model\Prodavac.cs" />
     <Compile Include="Model\Projekat.cs" />
     <Compile Include="Model\Salon.cs" />
     <Compile Include="Model\TipKorisnika.cs" />
     <Compile Include="Model\TipNamestaja.cs" />
+    <Compile Include="UI\AkcijeWindow.xaml.cs">
+      <DependentUpon>AkcijeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\KorisniciWindow.xaml.cs">
+      <DependentUpon>KorisniciWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RacuniWindow.xaml.cs">
+      <DependentUpon>RacuniWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TipoviWindow.xaml.cs">
+      <DependentUpon>TipoviWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
     <Page Include="LoginWindow.xaml">
@@ -87,7 +98,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\AkcijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\KorisniciWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\NamestajWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\RacuniWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TipoviWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,6 +156,15 @@
     <Resource Include="Data\Namestaj.xml">
       <SubType>Designer</SubType>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\DodatneUsluge.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Racuni.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Salon.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

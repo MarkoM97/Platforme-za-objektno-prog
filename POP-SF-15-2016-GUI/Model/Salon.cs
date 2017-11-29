@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,25 +8,39 @@ using System.Threading.Tasks;
 namespace POP_15_2016_GUI.Model
 {
     [Serializable]
-    public class Salon
+    public class Salon: INotifyPropertyChanged
     {
-        
-        public int Id { get; set; }
-        public string naziv { get; set; }
 
-        public string telefon { get; set; }
-        public string adresa { get; set; }
-        public string email { get; set; }
+        private string id { get; set; }
+        public string Id { get { return id; } set { id = value; OnPropertyChanged("Id"); } }
 
-        public string adresaSajta{ get; set; }
+        private string telefon { get; set; }
+        public string Telefon { get { return telefon; } set { telefon= value; OnPropertyChanged("Telefon"); } }
 
-        public int PIB { get; set; }
+        private string adresa { get; set; }
+        public string Adresa { get { return adresa; } set { adresa= value; OnPropertyChanged("Adresa"); } }
 
-        public int maticniBroj { get; set; }
+        private string email { get; set; }
+        public string Email { get { return email; } set { email = value; OnPropertyChanged("Email"); } }
 
-        public string brojZiroRacuna { get; set;}
+        private string adresaSajta { get; set; }
+        public string AdresaSajta { get { return adresaSajta; } set { adresaSajta= value; OnPropertyChanged("AdresaSajta"); } }
 
-        public bool obrisan { get; set; }
+        private int pib { get; set; }
+        public int PIB { get { return pib; } set { pib= value; OnPropertyChanged("PIB"); } }
+
+        private int maticniBroj { get; set; }
+        public int MaticniBroj { get { return maticniBroj; } set { maticniBroj= value; OnPropertyChanged("MaticniBroj"); } }
+
+        private string brojZiroRacuna { get; set; }
+        public string BrojZiroRacuna { get { return brojZiroRacuna; } set { brojZiroRacuna= value; OnPropertyChanged("BrojZiroRacuna"); } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         public void save()
         {
