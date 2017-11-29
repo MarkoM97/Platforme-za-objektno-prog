@@ -57,9 +57,9 @@
                             </ListView.View>
                         </ListView>
 
-                        <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajNamestaj" />
-                        <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniNamestaj"  />
-                        <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiNamestaj" />
+                        <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajTip" />
+                        <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniTip"  />
+                        <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiTip" />
                         <Button Content="Izlaz" FontSize="10" Margin="417,244,19,10" Click="Izlaz"/>
                     </Grid>
             </TabItem>
@@ -79,9 +79,9 @@
                         </ListView.View>
                     </ListView>
 
-                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajNamestaj" />
-                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniNamestaj"  />
-                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiNamestaj" />
+                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajAkciju" />
+                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniAkciju"  />
+                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiAkciju" />
                     <Button Content="Izlaz" FontSize="10" Margin="417,244,19,10" Click="Izlaz"/>
                 </Grid>
             </TabItem>
@@ -100,9 +100,9 @@
                         </ListView.View>
                     </ListView>
 
-                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajNamestaj" />
-                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniNamestaj"  />
-                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiNamestaj" />
+                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajKorisnika" />
+                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniKorisnika"  />
+                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiKorisnika" />
                     <Button Content="Izlaz" FontSize="10" Margin="417,244,19,10" Click="Izlaz"/>
                 </Grid>
             </TabItem>
@@ -116,7 +116,7 @@
                                 <GridViewColumn Header="Namestaj" Width="60" DisplayMemberBinding="{Binding ProdatiNamestaj}" />
                                 <GridViewColumn Header="Broj komada" Width="60" DisplayMemberBinding="{Binding BrojKomada, Mode=TwoWay}" />
                                 <GridViewColumn Header="Datum" Width="60" DisplayMemberBinding="{Binding DatumProdaje, Mode=TwoWay}" />
-                                <GridViewColumn Header="Dodatne usluge" Width="60" DisplayMemberBinding="{Binding ispisniString}" />
+                                <GridViewColumn Header="Dodatne usluge" Width="60" DisplayMemberBinding="{Binding uslugeString}" />
                                 <GridViewColumn Header="Ime kupca" Width="60" DisplayMemberBinding="{Binding ImeKupca, Mode=TwoWay}" />
                                 <GridViewColumn Header="Prezime kupca" Width="60" DisplayMemberBinding="{Binding PrezimeKupca, Mode=TwoWay}" />
                                 <GridViewColumn Header="Ukupna cena racuna" Width="60" DisplayMemberBinding="{Binding UkupnaCena, Mode=TwoWay}" />
@@ -124,9 +124,9 @@
                         </ListView.View>
 
                     </ListView>
-                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajNamestaj" />
-                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniNamestaj"  />
-                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiNamestaj" />
+                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajRacun" />
+                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniRacun"  />
+                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiRacun" />
                     <Button Content="Izlaz" FontSize="10" Margin="417,244,19,10" Click="Izlaz"/>
                 </Grid>
             </TabItem>
@@ -143,9 +143,9 @@
                         </ListView.View>
                     </ListView>
 
-                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajNamestaj" />
-                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniNamestaj"  />
-                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiNamestaj" />
+                    <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajUslugu" />
+                    <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniUslugu"  />
+                    <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiUslugu" />
                     <Button Content="Izlaz" FontSize="10" Margin="417,244,19,10" Click="Izlaz"/>
                 </Grid>
             </TabItem>

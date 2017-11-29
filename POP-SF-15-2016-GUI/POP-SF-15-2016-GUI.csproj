@@ -81,6 +81,9 @@
     <Compile Include="UI\TipoviWindow.xaml.cs">
       <DependentUpon>TipoviWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UslugeWindow.xaml.cs">
+      <DependentUpon>UslugeWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\TipoviWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UslugeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

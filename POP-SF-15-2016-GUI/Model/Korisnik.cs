@@ -30,8 +30,8 @@ namespace POP_15_2016_GUI.Model
         private bool tipKorisnika { get; set; }
         public bool TipKorisnika { get { return tipKorisnika; } set { tipKorisnika = value; OnPropertyChanged("TipKorisnika"); } }
 
-        private double cena { get; set; }
-        public double Cena { get { return cena; } set { cena = value; OnPropertyChanged("Cena"); } }
+        private bool obrisan { get; set; }
+        public bool Obrisan { get { return obrisan; } set { obrisan = value; OnPropertyChanged("Obrisan"); } }
 
         
 

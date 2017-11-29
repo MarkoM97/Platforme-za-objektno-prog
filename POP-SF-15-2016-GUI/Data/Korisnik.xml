@@ -7,6 +7,7 @@
     <KorisnickoIme> </KorisnickoIme>
     <Lozinka> </Lozinka>
     <TipKorisnika>true</TipKorisnika>
+    <Obrisan>false</Obrisan>
   </Korisnik>
   <Korisnik>
     <Id>2</Id>
@@ -15,6 +16,7 @@
     <KorisnickoIme>m</KorisnickoIme>
     <Lozinka>m</Lozinka>
     <TipKorisnika>false</TipKorisnika>
+    <Obrisan>false</Obrisan>
   </Korisnik>
   <Korisnik>
     <Id>2</Id>
@@ -23,5 +25,6 @@
     <KorisnickoIme>a</KorisnickoIme>
     <Lozinka>a</Lozinka>
     <TipKorisnika>true</TipKorisnika>
+    <Obrisan>false</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>
