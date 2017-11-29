@@ -112,18 +112,18 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ID" Width="20" DisplayMemberBinding="{Binding Id, Mode=TwoWay}" />
-                                    <GridViewColumn Header="Prodavac" Width="80" DisplayMemberBinding="{Binding Prodavac}" />
-                                    <GridViewColumn Header="Namestaj" Width="60" DisplayMemberBinding="{Binding ProdatiNamestaj}" />
-                                    <GridViewColumn Header="Broj komada" Width="60" DisplayMemberBinding="{Binding BrojKomada, Mode=TwoWay}" />
-                                    <GridViewColumn Header="Datum" Width="60" DisplayMemberBinding="{Binding DatumProdaje, Mode=TwoWay}" />
-                                    <GridViewColumn Header="Dodatne usluge" Width="60" DisplayMemberBinding="{Binding DodatneUsluge}" />
-                                    <GridViewColumn Header="Ime kupca" Width="60" DisplayMemberBinding="{Binding ImeKupca, Mode=TwoWay}" />
-                                    <GridViewColumn Header="Prezime kupca" Width="60" DisplayMemberBinding="{Binding PrezimeKupca, Mode=TwoWay}" />
-                                    <GridViewColumn Header="Ukupna cena racuna" Width="60" DisplayMemberBinding="{Binding UkupnaCena, Mode=TwoWay}" />
+                                <GridViewColumn Header="Prodavac" Width="80" DisplayMemberBinding="{Binding Prodavac}" />
+                                <GridViewColumn Header="Namestaj" Width="60" DisplayMemberBinding="{Binding ProdatiNamestaj}" />
+                                <GridViewColumn Header="Broj komada" Width="60" DisplayMemberBinding="{Binding BrojKomada, Mode=TwoWay}" />
+                                <GridViewColumn Header="Datum" Width="60" DisplayMemberBinding="{Binding DatumProdaje, Mode=TwoWay}" />
+                                <GridViewColumn Header="Dodatne usluge" Width="60" DisplayMemberBinding="{Binding uslugeString}" />
+                                <GridViewColumn Header="Ime kupca" Width="60" DisplayMemberBinding="{Binding ImeKupca, Mode=TwoWay}" />
+                                <GridViewColumn Header="Prezime kupca" Width="60" DisplayMemberBinding="{Binding PrezimeKupca, Mode=TwoWay}" />
+                                <GridViewColumn Header="Ukupna cena racuna" Width="60" DisplayMemberBinding="{Binding UkupnaCena, Mode=TwoWay}" />
                             </GridView>
                         </ListView.View>
-                    </ListView>
 
+                    </ListView>
                     <Button Content="Dodaj" FontSize="10"  Margin="10,244,538,10" Click="DodajNamestaj" />
                     <Button Content="Izmeni" FontSize="10" Margin="109,244,438,10" Click="IzmeniNamestaj"  />
                     <Button Content="Obrisi" FontSize="10" Margin="206,244,328,10" Click="IzbrisiNamestaj" />

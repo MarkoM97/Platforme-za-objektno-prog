@@ -27,11 +27,14 @@ namespace POP_SF_15_2016_GUI
         //Akcija tempAkcija = new Akcija();
         //TipNamestaja tempTip = new TipNamestaja();
         public MainWindow()
-        { 
+        {
 
-            foreach(var tghing in pRacun)
+            foreach (var tghing in pRacun)
             {
-                System.Console.WriteLine(tghing.DodatneUsluge);
+                foreach (var thingy in tghing.DodatneUsluge)
+                {
+                    System.Console.WriteLine(thingy);
+                }
             }
 
             InitializeComponent();

@@ -15,16 +15,16 @@ namespace POP_15_2016_GUI.Model
         private string id { get; set; }
         public string Id { get { return id; } set { id = value; OnPropertyChanged("Id"); } }
 
-        public int korisnikId {get;set;}
+        public int prodavacId {get;set;}
         private Korisnik prodavac { get; set; }
         [XmlIgnore]
         public Korisnik Prodavac{
             get {
-                return Model.Korisnik.getID(korisnikId);
+                return Model.Korisnik.getID(prodavacId);
             } set {
 
                 prodavac = value;
-                korisnikId = prodavac.Id;
+                prodavacId = prodavac.Id;
                 OnPropertyChanged("Prodavac");
             } 
 }
@@ -49,8 +49,24 @@ namespace POP_15_2016_GUI.Model
         private DateTime datumProdaje { get; set; }
         public DateTime DatumProdaje { get { return datumProdaje; } set { datumProdaje= value; OnPropertyChanged("DatumProdaje"); } }
 
+
         public List<int> dodateUslugeIds { get; set; }
         private List<DodatnaUsluga> dodatneUsluge { get; set; }
+        private string usluge;
+        [XmlIgnore]
+        public string uslugeString {
+            get {
+                foreach(var usluga in dodatneUsluge)
+                {
+                    usluge += usluga.Naziv + "|";
+                }
+                return usluge;
+
+            } set {
+
+            }
+        }
+
         [XmlIgnore]
         public List<DodatnaUsluga> DodatneUsluge {
             get {
