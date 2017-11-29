@@ -31,11 +31,15 @@ namespace POP_SF_15_2016_GUI
 
             foreach (var tghing in pRacun)
             {
-                foreach (var thingy in tghing.DodatneUsluge)
+                System.Console.WriteLine("AAAAAAAAAAAAAAAAAAAA");
+
+                foreach(var thing in tghing.DodatneUsluge)
                 {
-                    System.Console.WriteLine(thingy);
+                    System.Console.WriteLine(thing.Naziv);
                 }
+                System.Console.WriteLine("BBBBBBBBBBBBBBBBBBBB");
             }
+
 
             InitializeComponent();
             lvUsluge.ItemsSource = pDodatna;
@@ -43,7 +47,9 @@ namespace POP_SF_15_2016_GUI
             lvAkcije.ItemsSource = pAkcija;
             lvKorisnici.ItemsSource = pKorisnik;
             lvTipovi.ItemsSource = pTipNamestaja;
-            lvRacuni.ItemsSource = pRacun;
+            lvRacuni.ItemsSource = pRacun; 
+
+            
 
             
           
@@ -116,6 +122,11 @@ namespace POP_SF_15_2016_GUI
                 Projekat.instanca.Namestaj = postojeciNamestaj;
                 
             }
+        }
+
+        private void GridViewColumn_Expanded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

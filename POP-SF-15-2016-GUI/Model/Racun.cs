@@ -50,36 +50,37 @@ namespace POP_15_2016_GUI.Model
         public DateTime DatumProdaje { get { return datumProdaje; } set { datumProdaje= value; OnPropertyChanged("DatumProdaje"); } }
 
 
-        public List<int> dodateUslugeIds { get; set; }
-        private List<DodatnaUsluga> dodatneUsluge { get; set; }
+        /*[XmlIgnore]
         private string usluge;
-        [XmlIgnore]
+        
         public string uslugeString {
             get {
-                foreach(var usluga in dodatneUsluge)
-                {
-                    usluge += usluga.Naziv + "|";
-                }
-                return usluge;
+                Console.WriteLine();
+                
+                return "5";
 
             } set {
 
             }
-        }
-
+        }*/
+        [XmlIgnore]
+        public string ispisniString { get; set; }
+        public int idDodatneUsluge { get; set; }
+        private List<DodatnaUsluga> dodatneUsluge = new List<DodatnaUsluga>();
         [XmlIgnore]
         public List<DodatnaUsluga> DodatneUsluge {
             get {
-                return Model.DodatnaUsluga.getIds(dodateUslugeIds);
+                dodatneUsluge.Add(Model.DodatnaUsluga.getId(idDodatneUsluge));
+                ispisniString += Model.DodatnaUsluga.getId(idDodatneUsluge).Naziv;
+                return dodatneUsluge;
+                 
             } set {
                 dodatneUsluge = value;
-                foreach(var d in dodatneUsluge)
-                {
-                    dodateUslugeIds.Add(d.Id);
-                }
                 OnPropertyChanged("DodatneUsluge");
             }
         }
+
+
 
         private string imeKupca { get; set; }
         public string ImeKupca{ get { return imeKupca; } set { imeKupca= value; OnPropertyChanged("ImeKupca"); } }

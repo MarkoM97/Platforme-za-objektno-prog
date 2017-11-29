@@ -6,10 +6,8 @@
     <ProdatiNamestaj>1</ProdatiNamestaj>
     <BrojKomada>2</BrojKomada>
     <DatumProdaje>2009-03-13T22:16:00</DatumProdaje>
-    <ArrayOfdodateUslugeIds>
-      <dodateUslugeIds>2</dodateUslugeIds>
-    </ArrayOfdodateUslugeIds>
-    <ImeKupca>Radovan</ImeKupca>
+    <idDodatneUsluge>1</idDodatneUsluge>
+     <ImeKupca>Radovan</ImeKupca>
     <PrezimeKupca>Miljonic</PrezimeKupca>
     <UkupnaCena>1050</UkupnaCena>
   </Racun>
@@ -19,9 +17,7 @@
     <ProdatiNamestaj>1</ProdatiNamestaj>
     <BrojKomada>2</BrojKomada>
     <DatumProdaje>2009-03-13T22:16:00</DatumProdaje>
-    <ArrayOfdodateUslugeIds>
-      <dodateUslugeIds>1</dodateUslugeIds>
-    </ArrayOfdodateUslugeIds>
+    <idDodatneUsluge>2</idDodatneUsluge>
     <ImeKupca>Radovan</ImeKupca>
     <PrezimeKupca>Miljonic</PrezimeKupca>
     <UkupnaCena>1050</UkupnaCena>

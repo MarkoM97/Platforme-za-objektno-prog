@@ -30,21 +30,34 @@ namespace POP_15_2016_GUI.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public static List<DodatnaUsluga> getIds(List<int> Ids)
+        public static DodatnaUsluga getId(int id)
         {
-            List<DodatnaUsluga> ubacene = new List<DodatnaUsluga>();
             foreach(var dodatna in Projekat.instanca.DodatnaUsluga)
             {
-                foreach(var idDodatne in Ids)
-                {
-                    if (dodatna.Id.Equals(idDodatne))
+                    if (dodatna.Id.Equals(id))
                     {
-                        ubacene.Add(dodatna);
+                        return dodatna;
+                    }
+            }
+
+            return null;
+        }
+
+        public static List<DodatnaUsluga> getIds(List<int> ids)
+        {
+            List<DodatnaUsluga> postojace = new List<DodatnaUsluga>();
+            foreach (var dodatna in Projekat.instanca.DodatnaUsluga)
+            {
+                foreach(var idz in ids)
+                {
+                    if(dodatna.id.Equals(idz))
+                    {
+                        postojace.Add(dodatna);
                     }
                 }
             }
 
-            return ubacene;
+            return postojace;
         }
 
         public static DodatnaUsluga getName(string name)
