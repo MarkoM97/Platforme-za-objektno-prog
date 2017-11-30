@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_15_2016_GUI.UI"
         mc:Ignorable="d"
-        Title="UslugeWindow" Height="300" Width="300">
+        Title="UslugeWindow" Height="200" Width="300">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="187*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="111*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Naziv" FontSize="15" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="95" Height="31"/>
+        <Label Content="Cena" FontSize="15" HorizontalAlignment="Left" Margin="0,9,0,0" VerticalAlignment="Top" Width="95" Height="31" Grid.Row="1"/>
+        <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" />
+        <TextBox x:Name="tbCena" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="10,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" Grid.Row="1"/>
+        <Button Content="Sacuvaj" Grid.Column="1" HorizontalAlignment="Left" Margin="48,71,0,0" Grid.Row="1" VerticalAlignment="Top" Width="99" Height="30" Click="SacuvajIzmene"/>
+
     </Grid>
 </Window>

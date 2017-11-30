@@ -118,7 +118,6 @@
                                 <GridViewColumn Header="Datum" Width="60" DisplayMemberBinding="{Binding DatumProdaje, Mode=TwoWay}" />
                                 <GridViewColumn Header="Dodatne usluge" Width="60" DisplayMemberBinding="{Binding uslugeString}" />
                                 <GridViewColumn Header="Ime kupca" Width="60" DisplayMemberBinding="{Binding ImeKupca, Mode=TwoWay}" />
-                                <GridViewColumn Header="Prezime kupca" Width="60" DisplayMemberBinding="{Binding PrezimeKupca, Mode=TwoWay}" />
                                 <GridViewColumn Header="Ukupna cena racuna" Width="60" DisplayMemberBinding="{Binding UkupnaCena, Mode=TwoWay}" />
                             </GridView>
                         </ListView.View>

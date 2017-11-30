@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace POP_15_2016_GUI.Model
@@ -70,6 +67,7 @@ namespace POP_15_2016_GUI.Model
             }
             set
             {
+
                 dodatneUsluge = value;
                 OnPropertyChanged("DodatneUsluge");
             }
@@ -99,10 +97,6 @@ namespace POP_15_2016_GUI.Model
         [XmlElement(ElementName = "ImeKupca")]
         private string imeKupca { get; set; }
         public string ImeKupca{ get { return imeKupca; } set { imeKupca= value; OnPropertyChanged("ImeKupca"); } }
-
-        [XmlElement(ElementName = "PrezimeKupca")]
-        private string prezimeKupca{ get; set; }
-        public string PrezimeKupca { get { return prezimeKupca; } set { prezimeKupca= value; OnPropertyChanged("PrezimeKupca"); } }
 
         [XmlElement(ElementName = "UkupnaCena")]
         private int ukupnaCena { get; set; }

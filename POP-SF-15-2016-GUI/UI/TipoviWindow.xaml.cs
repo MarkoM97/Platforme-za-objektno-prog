@@ -1,16 +1,6 @@
-﻿using System;
+﻿using POP_15_2016_GUI.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace POP_SF_15_2016_GUI.UI
 {
@@ -19,9 +9,62 @@ namespace POP_SF_15_2016_GUI.UI
     /// </summary>
     public partial class TipoviWindow : Window
     {
-        public TipoviWindow()
+        
+        private TipNamestaja tip;
+        private Operacija operacija;
+        public enum Operacija
+        {
+            DODAVANJE,
+            IZMENA
+        };
+        public TipoviWindow(TipNamestaja tip, Operacija operacija)
         {
             InitializeComponent();
+            InicijalizujVrednosti(tip, operacija);
+        }
+
+        private void InicijalizujVrednosti(TipNamestaja tip, Operacija operacija)
+        {
+            this.operacija = operacija;
+            this.tip = tip;
+            tbNaziv.Text = tip.Naziv;
+        }
+
+        private void SacuvajIzmene(object sender, RoutedEventArgs e)
+        {
+            List<TipNamestaja> postojaciTipovi= Projekat.instanca.TipNamestaja;
+            if (tbNaziv.Text.Equals(""))
+            {
+                MessageBox.Show("Podaci nisu dobro uneti, pokusajte ponovo ");
+                return;
+            }
+
+            switch (operacija)
+            {
+                case Operacija.DODAVANJE:
+                    var noviTip = new TipNamestaja()
+                    {
+                        Id = Projekat.instanca.TipNamestaja.Count + 1,
+                        Naziv = tbNaziv.Text,
+                    };
+                    postojaciTipovi.Add(noviTip);
+                    break;
+                case Operacija.IZMENA:
+                    foreach (var n in postojaciTipovi)
+                    {
+                        if (n.Id == tip.Id)
+                        {
+                            n.Naziv = tbNaziv.Text;
+                        }
+                    }
+                    break;
+            }
+
+            Projekat.instanca.TipNamestaja = postojaciTipovi;
+            MainWindow mejn = new MainWindow();
+            mejn.Show();
+            this.Close();
         }
     }
 }
+

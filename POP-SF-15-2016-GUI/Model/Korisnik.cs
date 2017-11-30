@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 namespace POP_15_2016_GUI.Model
 {
     [Serializable]
-    public class Korisnik: INotifyPropertyChanged
+    public class Korisnik : INotifyPropertyChanged
     {
         private int id { get; set; }
         public int Id { get { return id; } set { id = value; OnPropertyChanged("Id"); } }
@@ -33,13 +33,13 @@ namespace POP_15_2016_GUI.Model
         private bool obrisan { get; set; }
         public bool Obrisan { get { return obrisan; } set { obrisan = value; OnPropertyChanged("Obrisan"); } }
 
-        
+
 
         public static Korisnik getTip(int ID)
         {
-            foreach(Korisnik kor in Projekat.instanca.korisnici)
+            foreach (Korisnik kor in Projekat.instanca.korisnici)
             {
-                if(ID.Equals(kor.tipKorisnika))
+                if (ID.Equals(kor.tipKorisnika))
                 {
                     return kor;
                 }
@@ -54,6 +54,18 @@ namespace POP_15_2016_GUI.Model
                 if (ID.Equals(kor.id))
                 {
                     return kor;
+                }
+            }
+            return null;
+        }
+
+        public static Korisnik getName(string name)
+        {
+            foreach(var k in Projekat.instanca.Korisnik)
+            {
+                if (k.Ime.Equals(name))
+                {
+                    return k;
                 }
             }
             return null;

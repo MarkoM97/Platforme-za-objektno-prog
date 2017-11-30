@@ -97,7 +97,20 @@ namespace POP_15_2016_GUI.Model
                 }
             }
             return null;
-        } 
+        }
+        
+
+        public static Namestaj getName(string name)
+        {
+            foreach(var t in Projekat.instanca.Namestaj)
+            {
+                if(t.Naziv.Equals(name))
+                {
+                    return t;
+                }
+            }
+            return null;
+        }
         
 
         public event PropertyChangedEventHandler PropertyChanged;

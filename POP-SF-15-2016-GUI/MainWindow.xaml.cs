@@ -21,8 +21,9 @@ namespace POP_SF_15_2016_GUI
         List<Korisnik> postojeciKorisnik = Projekat.instanca.Korisnik;
         ObservableCollection<Korisnik> pKorisnik = new ObservableCollection<Korisnik>(Projekat.instanca.Korisnik);
 
-        List<Racun> postojeciRacun = Projekat.instanca.Racun;
         ObservableCollection<Racun> pRacun = new ObservableCollection<Racun>(Projekat.instanca.Racun);
+        List<Racun> postojeciRacun = Projekat.instanca.Racun;
+        
 
         List<DodatnaUsluga> postojaceUsluge = Projekat.instanca.DodatnaUsluga;
         ObservableCollection<DodatnaUsluga> pDodatna = new ObservableCollection<DodatnaUsluga>(Projekat.instanca.DodatnaUsluga);
@@ -37,6 +38,15 @@ namespace POP_SF_15_2016_GUI
         //TipNamestaja tempTip = new TipNamestaja();
         public MainWindow()
         {
+            foreach(var thing in pRacun)
+            {
+                foreach(var thingy in thing.DodatneUsluge)
+                {
+                    Console.WriteLine(thingy.Naziv);
+                }
+            }
+            //Za korigovanje .. ispis usluga radi samo zato sto se u ovom pozivu pozove metoda 'Dodatne Usluge', Prepraviti
+
 
             InitializeComponent();
             lvUsluge.ItemsSource = pDodatna;
@@ -44,7 +54,9 @@ namespace POP_SF_15_2016_GUI
             lvAkcije.ItemsSource = pAkcija;
             lvKorisnici.ItemsSource = pKorisnik;
             lvTipovi.ItemsSource = pTipNamestaja;
-            lvRacuni.ItemsSource = pRacun; 
+            lvRacuni.ItemsSource = pRacun;
+            
+            
         }
 
         private void Izlaz(object sender, RoutedEventArgs e)
@@ -127,7 +139,6 @@ namespace POP_SF_15_2016_GUI
                 DatumProdaje = DateTime.Now,
                 DodatneUsluge = new List<DodatnaUsluga>(),
                 ImeKupca = "",
-                PrezimeKupca = "",
                 UkupnaCena = 0
 
             };

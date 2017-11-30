@@ -15,7 +15,6 @@
       </DodatnaUsluga>
     </dodatneUsluge>
     <ImeKupca>Radovan</ImeKupca>
-    <PrezimeKupca>Miljonic</PrezimeKupca>
     <UkupnaCena>1050</UkupnaCena>
   </Racun>
   <Racun>
@@ -39,7 +38,6 @@
       </DodatnaUsluga>
     </dodatneUsluge>
     <ImeKupca>Radovan</ImeKupca>
-    <PrezimeKupca>Miljonic</PrezimeKupca>
     <UkupnaCena>1050</UkupnaCena>
   </Racun>
   <Racun>
@@ -57,7 +55,6 @@
       </DodatnaUsluga>
     </dodatneUsluge>
     <ImeKupca>Radovan</ImeKupca>
-    <PrezimeKupca>Miljonic</PrezimeKupca>
     <UkupnaCena>1050</UkupnaCena>
   </Racun>
 </ArrayOfRacun>
