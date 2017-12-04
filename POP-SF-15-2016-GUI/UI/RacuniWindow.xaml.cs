@@ -46,11 +46,20 @@ namespace POP_SF_15_2016_GUI.UI
             {
                 tbProdavac.Text = "";
             }
-            tbNamestaj.Text = racun.ProdatiNamestaj.ToString();
+            if (racun.ProdatiNamestaj != null)
+            {
+                tbNamestaj.Text = racun.ProdatiNamestaj.ToString();
+            } else
+            {
+                tbNamestaj.Text = "";
+            }
             tbBrojKomada.Text = racun.BrojKomada.ToString();
             tbDatumProdaje.Text = racun.DatumProdaje.ToString();
             lbPostojace.ItemsSource = Projekat.instanca.DodatnaUsluga;
-            lbNarucene.ItemsSource = racun.DodatneUsluge;
+            foreach(DodatnaUsluga du in racun.DodatneUsluge)
+            {
+                lbNarucene.Items.Add(du);
+            } 
             tbKupac.Text = racun.ImeKupca.ToString();
             tbUkupnaCena.Text = racun.UkupnaCena.ToString();
             //Ubaciti checkboxove pored svaki dodatne usluge kako ne bi doslo do greske
@@ -67,9 +76,13 @@ namespace POP_SF_15_2016_GUI.UI
             }  
             foreach(var x in lbNarucene.Items)
             {
+                Console.WriteLine();
                 du.Add((DodatnaUsluga)x);
             }
-
+            foreach(var z in du)
+            {
+                Console.WriteLine(z.ToString());
+            }
             switch (operacija)
             {
                 case Operacija.DODAVANJE:
@@ -81,7 +94,7 @@ namespace POP_SF_15_2016_GUI.UI
                         DatumProdaje = Convert.ToDateTime(tbDatumProdaje.Text),
                         DodatneUsluge = du,
                         ImeKupca = tbKupac.Text,
-                        UkupnaCena = Convert.ToInt32(tbUkupnaCena)
+                        UkupnaCena = Convert.ToInt16(tbUkupnaCena.Text)
                     };
                     postojaciRacuni.Add(noviRacun);
                     break;
@@ -115,6 +128,12 @@ namespace POP_SF_15_2016_GUI.UI
             DodatnaUsluga du = (DodatnaUsluga)lbPostojace.SelectedItem;
             lbNarucene.Items.Add(du);
             
+        }
+
+        private void IzbaciUslugu(object sender, RoutedEventArgs e)
+        {
+            DodatnaUsluga du = (DodatnaUsluga)lbNarucene.SelectedItem;
+            lbNarucene.Items.Remove(du);
         }
     }
 }

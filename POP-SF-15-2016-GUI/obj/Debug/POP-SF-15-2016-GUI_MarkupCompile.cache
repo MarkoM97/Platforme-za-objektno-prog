@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\
+S:\profile.V5\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\obj\Debug\
 POP_SF_15_2016_GUI
 none
 false
 DEBUG;TRACE
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\App.xaml
-8-498010707
+S:\profile.V5\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016-GUI\App.xaml
+9-943815232
 
-22283614323
+23-752130467
 131569487696
-LoginWindow.xaml;MainWindow.xaml;UI\AkcijeWindow.xaml;UI\KorisniciWindow.xaml;UI\NamestajWindow.xaml;UI\RacuniWindow.xaml;UI\TipoviWindow.xaml;UI\UslugeWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;MainWindowProdavac.xaml;UI\AkcijeWindow.xaml;UI\KorisniciWindow.xaml;UI\NamestajWindow.xaml;UI\RacuniWindow.xaml;UI\TipoviWindow.xaml;UI\UslugeWindow.xaml;
 
 False
 

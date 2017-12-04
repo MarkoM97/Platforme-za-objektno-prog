@@ -40,6 +40,7 @@
         <ListBox x:Name="lbPostojace"   HorizontalAlignment="Left" Height="111" Margin="0,39,0,0" Grid.Row="5" VerticalAlignment="Top" Width="133"/>
         <ListBox x:Name="lbNarucene"  HorizontalAlignment="Left" Height="111" Margin="45,39,0,0" Grid.Row="5" VerticalAlignment="Top" Width="144" Grid.Column="1" FontSize="12"/>
         <Button Content="Naruci&#xA;" HorizontalAlignment="Left" Margin="134,80,0,0" Grid.Row="5" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2" Height="29" Click="NaruciUslugu"/>
+        <Button Content="Izbaci&#xD;&#xA;" HorizontalAlignment="Left" Margin="133,114,0,0" Grid.Row="5" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2" Height="29" Click="IzbaciUslugu"/>
 
     </Grid>
 </Window>

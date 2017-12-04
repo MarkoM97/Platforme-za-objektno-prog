@@ -16,7 +16,7 @@ namespace POP_SF_15_2016_GUI
     {
         
         List<Namestaj> postojeciNamestaj = Projekat.instanca.Namestaj;
-        ObservableCollection<Namestaj> pNamestaj = new ObservableCollection<Namestaj>(Projekat.instanca.Namestaj);
+        ObservableCollection<Namestaj> pNamestaj = new ObservableCollection<Namestaj>();
 
         List<Korisnik> postojeciKorisnik = Projekat.instanca.Korisnik;
         ObservableCollection<Korisnik> pKorisnik = new ObservableCollection<Korisnik>(Projekat.instanca.Korisnik);
@@ -38,9 +38,9 @@ namespace POP_SF_15_2016_GUI
         //TipNamestaja tempTip = new TipNamestaja();
         public MainWindow()
         {
-            foreach(var thing in pRacun)
+            foreach (var thing in pRacun)
             {
-                foreach(var thingy in thing.DodatneUsluge)
+                foreach (var thingy in thing.DodatneUsluge)
                 {
                     Console.WriteLine(thingy.Naziv);
                 }
@@ -50,6 +50,18 @@ namespace POP_SF_15_2016_GUI
 
             InitializeComponent();
             lvUsluge.ItemsSource = pDodatna;
+            foreach (var x in postojeciNamestaj)
+            {
+                if (x.TipNamestaja.Obrisan == false)
+                {
+                    pNamestaj.Add(x);
+                }
+
+                if(x.Akcija.Obrisan == true)
+                {
+                    x.Akcija = null;
+                }
+            }
             lvNamestaj.ItemsSource = pNamestaj;
             lvAkcije.ItemsSource = pAkcija;
             lvKorisnici.ItemsSource = pKorisnik;
@@ -238,7 +250,8 @@ namespace POP_SF_15_2016_GUI
                 }
 
                 Projekat.instanca.Namestaj = postojeciNamestaj;
-                
+
+
             }
         }
 

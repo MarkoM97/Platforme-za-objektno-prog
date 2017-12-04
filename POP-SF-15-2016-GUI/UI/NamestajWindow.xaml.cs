@@ -29,13 +29,16 @@ namespace POP_SF_15_2016_GUI.UI
             cbAkcije.Items.Add("");
             foreach (var Akcija in Projekat.instanca.Akcija)
             {
-                cbAkcije.Items.Add(Akcija.Naziv);
+                if (Akcija.Obrisan == false)
+                {
+                    cbAkcije.Items.Add(Akcija.Naziv);
+                }
             }
 
             if (namestaj.Akcija != null)
             {
                 cbAkcije.SelectedItem = namestaj.Akcija.Naziv;
-            }else
+            } else
             {
                 cbAkcije.SelectedItem = "";
             }
@@ -43,7 +46,9 @@ namespace POP_SF_15_2016_GUI.UI
 
             foreach (var Tip in Projekat.instanca.TipNamestaja)
             {
-                cbTipNamestaja.Items.Add(Tip.Naziv);
+                if (Tip.Obrisan == false) {
+                    cbTipNamestaja.Items.Add(Tip.Naziv);
+                }
             }
             if (namestaj.TipNamestaja != null)
             {

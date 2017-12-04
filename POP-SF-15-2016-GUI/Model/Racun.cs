@@ -28,7 +28,7 @@ namespace POP_15_2016_GUI.Model
             } 
 }
         [XmlElement(ElementName = "namestajId")]
-        public int namestajId;
+        public int namestajId { get; set; }
         private Namestaj prodatiNamestaj { get; set; }
         [XmlIgnore]
         public Namestaj ProdatiNamestaj {
@@ -53,7 +53,6 @@ namespace POP_15_2016_GUI.Model
         [XmlArray("dodatneUsluge")]
         [XmlArrayItem("DodatnaUsluga")]
         public List<DodatnaUsluga> dodatneUsluge { get; set; }
-        public int DodatnaUslugaId { get;set; }
         [XmlIgnore]
         public List<DodatnaUsluga> DodatneUsluge
         {

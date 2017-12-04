@@ -29,19 +29,28 @@ namespace POP_SF_15_2016_GUI
         {
 
 
-            //foreach(Korisnik kor in Projekat.instanca.Korisnik)
-            //{
-                //if(kor.KorisnickoIme.Equals(tbKorisnicko.Text) && kor.Lozinka.Equals(tbLozinka.Text))
-                //{
-                    MainWindow mejn = new MainWindow();
-                    mejn.Show();
-                    this.Close();
-                    return;
-                //}  
-            //}
-           // MessageBox.Show("Nisu dobri login podaci");
-            //tbKorisnicko.Clear();
-            //tbLozinka.Clear();
+            foreach(Korisnik kor in Projekat.instanca.Korisnik)
+            {
+                if(kor.KorisnickoIme.Equals(tbKorisnicko.Text) && kor.Lozinka.Equals(tbLozinka.Text))
+                {
+                    if (kor.TipKorisnika == true)
+                    {
+                        MainWindow mejn = new MainWindow();
+                        mejn.Show();
+                        this.Close();
+                        return;
+                    }else
+                    {
+                        MainWindowProdavac mejn = new MainWindowProdavac();
+                        mejn.Show();
+                        this.Close();
+                        return;
+                    }
+                }  
+            }
+           MessageBox.Show("Nisu dobri login podaci");
+           tbKorisnicko.Clear();
+           tbLozinka.Clear();
 
         }
     }

@@ -91,7 +91,7 @@ namespace POP_15_2016_GUI.Model
         {
             foreach(var thing  in Projekat.instanca.Namestaj)
             {
-                if (id.Equals(id))
+                if (id.Equals(thing.id))
                 {
                     return thing;
                 }
