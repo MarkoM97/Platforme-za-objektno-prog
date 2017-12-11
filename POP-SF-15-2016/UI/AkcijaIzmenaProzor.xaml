@@ -1,0 +1,33 @@
+﻿<Window x:Class="POP_SF_15_2016.UI.AkcijaIzmenaProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_15_2016.UI"
+        mc:Ignorable="d"
+        Title="AkcijaIzmenaProzor" Height="300" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="83*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="199*"/>
+        </Grid.ColumnDefinitions>
+        <Label HorizontalContentAlignment="Right" Content="Naziv" HorizontalAlignment="Left" Margin="61,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="82" Height="33"/>
+        <Label HorizontalContentAlignment="Right" Content="Pocetak" HorizontalAlignment="Left" Margin="61,10,0,0" Grid.Row="2" VerticalAlignment="Top" Width="82" Height="29"/>
+        <Label HorizontalContentAlignment="Right" Content="Zavrsetak" HorizontalAlignment="Left" Margin="61,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="82" Height="29"/>
+        <Label HorizontalContentAlignment="Right" Content="Popust" HorizontalAlignment="Left" Margin="61,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="82" Height="28"/>
+        <TextBox Text="{Binding Path=Naziv}" x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="10,5,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
+        <Label Content="%" Grid.Column="1" HorizontalAlignment="Left" Margin="57,10,0,0" Grid.Row="4" VerticalAlignment="Top" Height="24" Width="20"/>
+        <TextBox Text="{Binding Path=Popust}" x:Name="tbPopust" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="47"/>
+        <DatePicker SelectedDate="{Binding Path=PocetakAkcije}" x:Name="dpPocetak" Grid.Column="1" Margin="10,7,46,6" Grid.Row="2"/>
+        <DatePicker DisplayDateStart="01/01/2017" SelectedDate="{Binding Path=ZavrsetakAkcije}" x:Name="dpZavršetak" Grid.Column="1" Margin="10,8,46,0" Grid.Row="3" Text="Pera123" IsTodayHighlighted="False"/>
+        <Button x:Name="btnSacuvaj" Content="Sacuvaj" Grid.Column="1" HorizontalAlignment="Left" Margin="10,20,0,0" Grid.Row="5" VerticalAlignment="Top" Width="130" Height="40" Click="btnSacuvaj_Click"/>
+    </Grid>
+</Window>

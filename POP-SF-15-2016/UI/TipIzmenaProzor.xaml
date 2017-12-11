@@ -1,0 +1,15 @@
+﻿<Window x:Class="POP_SF_15_2016.UI.TipIzmenaProzor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_15_2016.UI"
+        mc:Ignorable="d"
+        Title="TipIzmenaProzor" Height="200" Width="300">
+    <Grid>
+        <Label Content="Naziv tipa namestaja:" FontSize="15" HorizontalAlignment="Left" Margin="68,33,0,0" VerticalAlignment="Top" Width="153" Height="28"/>
+        <TextBox Text="{Binding Path=Naziv}" Name="tbNaziv"  HorizontalAlignment="Left" Height="34" Margin="49,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <Button x:Name="btnSacuvaj" Content="Sacuvaj" HorizontalAlignment="Left" Margin="97,124,0,0" VerticalAlignment="Top" Width="97" Height="26" Click="btnSacuvaj_Click"/>
+
+    </Grid>
+</Window>
