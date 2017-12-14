@@ -30,7 +30,8 @@ namespace POP_SF_15_2016.Model
         {
             //Ucitavanje iz serialajzera
             Namestaj = new ObservableCollection<Namestaj>();
-            Tipovi = new ObservableCollection<TipNamestaja>();
+            //Tipovi = new ObservableCollection<TipNamestaja>();
+            Tipovi = TipNamestaja.getAll();
             Akcije = new ObservableCollection<Akcija>();
             Racuni = new ObservableCollection<Racun>();
             Korisnici = new ObservableCollection<Korisnik>();
