@@ -1,4 +1,5 @@
-﻿using POP_SF_15_2016.UI;
+﻿using POP_SF_15_2016.Model;
+using POP_SF_15_2016.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,12 @@ namespace POP_SF_15_2016
     {
         public MainWindow()
         {
+            TipNamestaja noviTip = TipNamestaja.create(new TipNamestaja()
+            {
+                Naziv = "Cekaj id",
+                Obrisan = false
+            });
+
             InitializeComponent();
         }
 

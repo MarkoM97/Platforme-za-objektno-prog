@@ -17,6 +17,8 @@ namespace POP_SF_15_2016.Model
         private string naziv { get; set; }
         private bool obrisan { get; set; }
 
+
+        public TipNamestaja() { }
         public TipNamestaja(int id) {
             this.id = id;
         }
@@ -106,6 +108,61 @@ namespace POP_SF_15_2016.Model
 
                 }
                 return tipoviNamestaja;
+            }
+        }
+
+
+        public static TipNamestaja create(TipNamestaja tn)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "UPDATE TipNamestaja set Naziv=@Naziv, Obrisan=@Obrisan WHERE Id=@Id";
+                //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
+                //cmd.Parameters.AddWithValue("Obrisan", )
+                cmd.Parameters.AddWithValue("Id", tn.Id);
+                cmd.Parameters.AddWithValue("Naziv", tn.Naziv);
+                cmd.Parameters.AddWithValue("Obrisan", tn.Obrisan);
+                cmd.ExecuteNonQuery();
+                foreach(var tipNamestaja in Aplikacija.Instance.Tipovi)
+                {
+                    if(tipNamestaja.Id == tn.Id)
+                    {
+                        tipNamestaja.Naziv = tn.Naziv;
+                        tipNamestaja.Obrisan = tn.Obrisan;
+                        break;
+                    }
+                }
+            }
+            Aplikacija.Instance.Tipovi.Add(tn);
+            return tn;
+
+        }
+
+
+        public static void update(TipNamestaja tn)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "INSERT INTO TipNamestaja (Naziv,Obrisan) VALUES(@Naziv, @Obrisan)";
+                cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+                cmd.Parameters.AddWithValue("Naziv", tn.Naziv);
+                cmd.Parameters.AddWithValue("Obrisan", tn.Obrisan);
+                int newId = int.Parse(cmd.ExecuteScalar().ToString()); //Izvrsava se query nad bazom
+
+                tn.Id = newId;
+            }
+        }
+
+        public static void delete(TipNamestaja tn)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                tn.Obrisan = true;
+                update(tn);
             }
         }
         #endregion
