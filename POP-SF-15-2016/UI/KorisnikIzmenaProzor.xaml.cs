@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POP_SF_15_2016.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,35 @@ namespace POP_SF_15_2016.UI
     /// </summary>
     public partial class KorisnikIzmenaProzor : Window
     {
-        public KorisnikIzmenaProzor()
+        Korisnik korisnik;
+        public enum Stanje { DODAVANJE, IZMENA}
+        Stanje stanje;
+        public KorisnikIzmenaProzor(Korisnik korisnik, Stanje stanje = Stanje.DODAVANJE)
         {
             InitializeComponent();
+
+            this.korisnik = korisnik;
+            this.stanje = stanje;
+
+            tbIme.DataContext = korisnik;
+            tbPrezime.DataContext = korisnik;
+            tbKorisniko.DataContext = korisnik;
+            tbLozinka.DataContext = korisnik;
+
+            cbTip.Items.Add(Korisnik.tipKorisnika.ADMINISTRATOR);
+            cbTip.Items.Add(Korisnik.tipKorisnika.PRODAVAC);
+            cbTip.DataContext = korisnik;
+
+
+        }
+
+        private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
+        {
+            if(stanje == Stanje.DODAVANJE)
+            {
+                Aplikacija.Instance.Korisnici.Add(korisnik);
+            }
+            this.Close();
         }
     }
 }

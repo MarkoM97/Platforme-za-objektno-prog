@@ -34,7 +34,11 @@ namespace POP_SF_15_2016.UI
 
         private void dgTip_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-
+            string x = (string)e.Column.Header;
+            if (x == "Id" || x == "Obrisan")
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)

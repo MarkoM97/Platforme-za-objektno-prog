@@ -16,9 +16,6 @@ namespace POP_SF_15_2016.Model
         private string lozinka { get; set; }
         public enum tipKorisnika { ADMINISTRATOR, PRODAVAC }
         tipKorisnika tip;
-
-       
-
         private bool obrisan { get; set; }
 
         public Korisnik(int id)

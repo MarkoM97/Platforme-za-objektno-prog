@@ -23,6 +23,7 @@ namespace POP_SF_15_2016.Model
         public Namestaj(int id) {
             this.id = id;
             this.tip = Aplikacija.Instance.Tipovi[0];
+            this.akcija = null;
         }
 
         //Konstruktor koristen za izmenu
@@ -33,7 +34,7 @@ namespace POP_SF_15_2016.Model
             this.jedinicnaCena = jedinicnaCena;
             this.kolicina = kolicina;
             this.sifra = sifra;
-            this.akcija = akcija;
+            if (akcija != null) { this.akcija = akcija; } else { this.akcija = null; }; 
             this.tip = tip;
             this.obrisan = obrisan;
         }
@@ -60,7 +61,13 @@ namespace POP_SF_15_2016.Model
         
         public double JedinicnaCena {
             get {
-                return jedinicnaCena;
+                //Racunanje popusta kod 1 kolicine namestaja
+                double procenatSnizenja = 0;
+                if (akcija != null)
+                {
+                    procenatSnizenja = ((akcija.Popust / 100) * jedinicnaCena);
+                }
+                return jedinicnaCena - procenatSnizenja;
             } set {
                 jedinicnaCena = value;
                 OnPropertyChanged("JedinicnaCena");
@@ -95,12 +102,15 @@ namespace POP_SF_15_2016.Model
         {
             get
             {
-                return akcija;
+                return akcija; 
+                
             }
             set
             {
                 akcija = value;
                 OnPropertyChanged("Akcija");
+                //Da bi promena akcije dinamicki menjala jedinicnu cenu namestaja bez osvezavanja dataGrida.
+                OnPropertyChanged("JedinicnaCena");
             }
         }
 

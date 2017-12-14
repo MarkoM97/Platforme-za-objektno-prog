@@ -94,6 +94,26 @@ namespace POP_SF_15_2016.Model
         {
             get
             {
+                /*if (usluge != null)
+                {
+                    foreach (var x in usluge)
+                    {
+                        UkupnaCena += x.Cena;
+                    }
+                }
+                foreach(var x in namestaji)
+                {
+                    if(x.Key.Akcija != null)
+                    {
+
+                    }
+                    double popust = namestaj.akcija.popust;
+                    procenatSnizenja = ((popust / 100) * cenaNamestaja);
+
+                }
+                Console.WriteLine(procenatSnizenja);
+                Console.WriteLine(cenaUsluga);
+                double ukupnaCena = (((cenaNamestaja - procenatSnizenja) * brojProdatihNamestaja) + cenaUsluga) + 2.52;*/
                 return ukupnaCena;
             }set
             {

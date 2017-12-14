@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="AkcijaProzor" Height="300" Width="450">
     <Grid>
-        <DataGrid Name="dgAkcija" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn" AutoGenerateColumns="True" IsReadOnly="True" />
+        <DataGrid Name="dgAkcija" AutoGeneratingColumn="dgAkcija_AutoGeneratingColumn" AutoGenerateColumns="True" IsReadOnly="True" Margin="0,51,0,72" />
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="37,220,0,0" VerticalAlignment="Top" Width="98" Height="26" Click="btnDodaj_Click"/>
         <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="169,220,0,0" VerticalAlignment="Top" Width="98" Height="26" Click="btnIzmeni_Clicked"/>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="302,220,0,0" VerticalAlignment="Top" Width="98" Height="26" Click="btnObrisi_Clicked"/>
+        <Label Content="Pretraga" HorizontalAlignment="Left" Margin="37,10,0,0" VerticalAlignment="Top" Width="71" Height="26"/>
+        <TextBox Name="tbPretraga" TextChanged="tbPretraga_TextChanged" HorizontalAlignment="Left" Height="22" Margin="100,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

@@ -16,10 +16,10 @@ namespace POP_SF_15_2016.Model
         private DateTime zavrsetakAkcije { get; set; }
         private double popust { get; set; }
         private bool obrisan { get; set; }
-        //public DatePicker pocetakAkcijePicker { get; set; }
-        //public DatePicker zavrsetakAkcijePicker { get; set; }
 
-
+        //Dummy akcija
+        public Akcija() { }
+        
         public Akcija(int id) {
             this.id = id;
             this.pocetakAkcije = DateTime.Now;

@@ -61,7 +61,7 @@ namespace POP_SF_15_2016.UI
             Racun selektovaniRacun = view.CurrentItem as Racun;
             if(MessageBox.Show("Da li ste sigurni", "Potvrda", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                //Aplikacija.Instance.Racuni.Remove();
+                Aplikacija.Instance.Racuni.Remove(selektovaniRacun);
             }
         }
     }

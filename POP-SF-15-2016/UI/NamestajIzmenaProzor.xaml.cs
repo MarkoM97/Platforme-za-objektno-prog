@@ -34,6 +34,7 @@ namespace POP_SF_15_2016.UI
             tbKolicina.DataContext = namestaj;
             tbSifra.DataContext = namestaj;
 
+            
             cbAkcija.ItemsSource = Aplikacija.Instance.Akcije;
             cbAkcija.DataContext = namestaj;
             cbTip.ItemsSource = Aplikacija.Instance.Tipovi;
@@ -48,6 +49,18 @@ namespace POP_SF_15_2016.UI
                 Aplikacija.Instance.Namestaj.Add(namestaj);
             }
             this.Close();
+        }
+
+        private void chbAkcija_Checked(object sender, RoutedEventArgs e)
+        {
+            cbAkcija.IsEnabled = false;
+            namestaj.Akcija = null;
+        }
+
+        private void chbAkcija_Unchecked(object sender, RoutedEventArgs e)
+        {
+            cbAkcija.IsEnabled = true;
+            cbAkcija.SelectedIndex = 0;
         }
     }
 }

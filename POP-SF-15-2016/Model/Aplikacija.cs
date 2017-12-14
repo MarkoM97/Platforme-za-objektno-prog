@@ -48,12 +48,13 @@ namespace POP_SF_15_2016.Model
             Korisnik k1 = new Korisnik(0, "Marko", "Martonosi", "", "", Korisnik.tipKorisnika.ADMINISTRATOR, false);
             Racun r1 = new Model.Racun(0, k1, s, "Radovan", 500, false);
             DodatnaUsluga d1 = new Model.DodatnaUsluga(0, "Montaza", 250, false);
+
             r1.namestaji.Add(n1, 1);
-            //r1.namestaj.Add(new KeyValuePair<Namestaj, int>(n1,1));
             Korisnici.Add(k1);
             Usluge.Add(d1);
             Namestaj.Add(n1);
             Akcije.Add(a1);
+            //Akcije.Add(new Akcija());
             Tipovi.Add(t1);
             Racuni.Add(r1);
         }
