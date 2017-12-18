@@ -80,8 +80,21 @@ namespace POP_SF_15_2016.Model
         }
 
 
+        public static TipNamestaja getById(int id)
+        {
+            foreach(TipNamestaja tip in Aplikacija.Instance.Tipovi)
+            {
+                if(tip.Id.Equals(id))
+                {
+                    return tip;
+                }
+            }
+            return null;
+        }
+
+
         #region Database
-        public static ObservableCollection<TipNamestaja> getAll()
+        public static ObservableCollection<TipNamestaja> GetAll()
         {
             var tipoviNamestaja = new ObservableCollection<TipNamestaja>();
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
@@ -101,7 +114,7 @@ namespace POP_SF_15_2016.Model
 
                 foreach(DataRow row in ds.Tables["TipNamestaja"].Rows)
                 {
-                    var tipNamestaja = new TipNamestaja(int.Parse(row["Id"].ToString()));
+                    var tipNamestaja = new TipNamestaja();
                     tipNamestaja.Naziv = row["Naziv"].ToString();
                     tipNamestaja.Obrisan = bool.Parse(row["Obrisan"].ToString());
                     tipoviNamestaja.Add(tipNamestaja);
@@ -112,7 +125,7 @@ namespace POP_SF_15_2016.Model
         }
 
 
-        public static TipNamestaja create(TipNamestaja tn)
+        public static void Update(TipNamestaja tn)
         {
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
@@ -135,13 +148,11 @@ namespace POP_SF_15_2016.Model
                     }
                 }
             }
-            Aplikacija.Instance.Tipovi.Add(tn);
-            return tn;
 
         }
 
 
-        public static void update(TipNamestaja tn)
+        public static TipNamestaja Create(TipNamestaja tn)
         {
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
@@ -155,14 +166,16 @@ namespace POP_SF_15_2016.Model
 
                 tn.Id = newId;
             }
+            Aplikacija.Instance.Tipovi.Add(tn);
+            return tn;
         }
 
-        public static void delete(TipNamestaja tn)
+        public static void Delete(TipNamestaja tn)
         {
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 tn.Obrisan = true;
-                update(tn);
+                Update(tn);
             }
         }
         #endregion

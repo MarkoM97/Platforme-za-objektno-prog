@@ -24,7 +24,7 @@ namespace POP_SF_15_2016
     {
         public MainWindow()
         {
-            TipNamestaja noviTip = TipNamestaja.create(new TipNamestaja()
+            TipNamestaja noviTip = TipNamestaja.Create(new TipNamestaja()
             {
                 Naziv = "Cekaj id",
                 Obrisan = false

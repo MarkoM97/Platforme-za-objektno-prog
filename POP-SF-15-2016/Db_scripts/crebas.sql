@@ -8,7 +8,7 @@ Go
 CREATE TABLE Akcija(
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	Naziv VARCHAR(30),
-	PocetakAkcija DATE ,
+	PocetakAkcije DATE ,
 	ZavrsetakAkcije DATE,
 	Popust INT,
 	Obrisan BIT

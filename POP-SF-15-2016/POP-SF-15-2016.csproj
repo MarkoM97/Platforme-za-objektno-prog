@@ -171,10 +171,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Utils\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Db_scripts\crebas.sql" />
     <Content Include="Db_scripts\seedsql.sql" />

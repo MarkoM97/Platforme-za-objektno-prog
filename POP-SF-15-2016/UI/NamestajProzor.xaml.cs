@@ -56,7 +56,7 @@ namespace POP_SF_15_2016.UI
                     if(namestaj.Akcija != null) e.Accepted = namestaj.Akcija.Naziv.ToString().Contains(s);
                     break;
                 case "Tip":
-                    e.Accepted = namestaj.Tip.Naziv.ToString().Contains(s);
+                    e.Accepted = namestaj.TipNamestaja.Naziv.ToString().Contains(s);
                     break;
                 default:
                     break;
@@ -75,7 +75,7 @@ namespace POP_SF_15_2016.UI
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            Namestaj noviNamestaj = new Namestaj(Aplikacija.Instance.Namestaj.Last().Id + 1);
+            Namestaj noviNamestaj = new Namestaj();
             NamestajIzmenaProzor nip = new NamestajIzmenaProzor(noviNamestaj);
             nip.ShowDialog();
         }
