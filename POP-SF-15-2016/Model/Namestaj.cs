@@ -109,9 +109,9 @@ namespace POP_SF_15_2016.Model
             }
             set
             {
-                Akcija = value;
-                akcijaId = value.Id;
-                OnPropertyChanged("AkcijaId");
+                if (value == null) Console.WriteLine("HEEEY");
+                if (value != null) { akcijaId = value.Id; } else { akcijaId = -1; };
+                OnPropertyChanged("Akcija");
                 //Da bi promena akcije dinamicki menjala jedinicnu cenu namestaja bez osvezavanja dataGrida.
                 OnPropertyChanged("JedinicnaCena");
             }

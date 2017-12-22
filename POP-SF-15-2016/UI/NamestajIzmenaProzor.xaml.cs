@@ -53,8 +53,11 @@ namespace POP_SF_15_2016.UI
 
         private void chbAkcija_Checked(object sender, RoutedEventArgs e)
         {
+            Akcija akcija = new Akcija();
             cbAkcija.IsEnabled = false;
-            namestaj.Akcija = null;
+            cbAkcija.SelectedItem = null;
+            namestaj.Akcija = akcija;
+            Console.WriteLine(namestaj.Akcija.Naziv);
         }
 
         private void chbAkcija_Unchecked(object sender, RoutedEventArgs e)
