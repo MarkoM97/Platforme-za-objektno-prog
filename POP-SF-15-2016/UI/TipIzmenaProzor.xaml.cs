@@ -37,8 +37,9 @@ namespace POP_SF_15_2016.UI
         {
             if(stanje == Stanje.DODAVANJE)
             {
-                Aplikacija.Instance.Tipovi.Add(tip);
+                Model.TipNamestaja.Create(tip);
             }
+            Model.TipNamestaja.Update(tip);
             this.Close();
         }
     }

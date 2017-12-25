@@ -6,14 +6,14 @@
 Go
 
 CREATE TABLE Akcija(
-	Id INT PRIMARY KEY IDENTITY(1,1),
+	Id INT PRIMARY KEY IDENTITY(0,1),
 	Naziv VARCHAR(30),
 	PocetakAkcije DATE ,
 	ZavrsetakAkcije DATE,
 	Popust INT,
 	Obrisan BIT
-
 )
+Go
 
 CREATE TABLE Namestaj (
 	Id INT PRIMARY KEY IDENTITY(1,1),
@@ -26,8 +26,36 @@ CREATE TABLE Namestaj (
 	Obrisan BIT,
 	FOREIGN KEY (TipNamestajaId) REFERENCES TipNamestaja(Id),
 	FOREIGN KEY (AkcijaId) REFERENCES Akcija(Id)
+)
+Go
 
+CREATE TABLE DodatneUsluga(
+	Id INT PRIMARY KEY  IDENTITY(1,1),
+	Naziv VARCHAR(50),
+	Cena NUMERIC(9,2),
+	Obrisan BIT
+)
+Go
 
+CREATE TABLE Korisnik (
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	Ime VARCHAR(50),
+	Prezime VARCHAR(50),
+	KorisnickoIme VARCHAR(50),
+	Lozinka VARCHAR(50),
+	TipKorisnika BIT,
+	Obrisan BIT
+)
+Go
 
+CREATE TABLE Racun(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	KorisnikId INT,
+	Namestaj VARCHAR(200),
+	DodatneUsluge VARCHAR(100),
+	ImeKupca VARCHAR(50),
+	UkupnaCena NUMERIC(9,2),
+	Obrisan BIT
+	FOREIGN KEY (KorisnikId) REFERENCES Korisnik(Id)
 )
 Go

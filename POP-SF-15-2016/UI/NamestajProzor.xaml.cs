@@ -95,7 +95,7 @@ namespace POP_SF_15_2016.UI
             if (MessageBox.Show("Da li ste sigurni?", "Potvrda brisanja", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Namestaj selektovaniNamestaj = view.CurrentItem as Namestaj;
-                Aplikacija.Instance.Namestaj.Remove(selektovaniNamestaj);
+                Model.Namestaj.Delete(selektovaniNamestaj);
             }
         }
 

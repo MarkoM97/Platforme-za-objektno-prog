@@ -26,6 +26,9 @@ namespace POP_SF_15_2016.UI
         {
             InitializeComponent();
 
+
+
+
             view = CollectionViewSource.GetDefaultView(Aplikacija.Instance.Tipovi);
             dgTip.ItemsSource = view;
             dgTip.IsSynchronizedWithCurrentItem = true;
@@ -63,7 +66,7 @@ namespace POP_SF_15_2016.UI
             if(MessageBox.Show("Da li ste sigurni?" , "Potvrda", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 TipNamestaja selektovaniTip = view.CurrentItem as TipNamestaja;
-                Aplikacija.Instance.Tipovi.Remove(selektovaniTip);
+                Model.TipNamestaja.Delete(selektovaniTip);
             }
         }
     }

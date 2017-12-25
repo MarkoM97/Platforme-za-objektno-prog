@@ -146,11 +146,13 @@ namespace POP_SF_15_2016.Model
                 foreach (DataRow row in ds.Tables["Akcija"].Rows)
                 {
                     var akcija = new Akcija();
+                    akcija.Id = int.Parse(row["Id"].ToString());
                     akcija.Naziv = row["Naziv"].ToString();
                     akcija.PocetakAkcije = DateTime.Parse(row["PocetakAkcije"].ToString());
                     akcija.ZavrsetakAkcije = DateTime.Parse(row["ZavrsetakAkcije"].ToString());
                     akcija.Popust = int.Parse(row["Popust"].ToString());
                     akcija.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
                     akcije.Add(akcija);
 
                 }
@@ -218,6 +220,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 n.Obrisan = true;
+                Aplikacija.Instance.Akcije.Remove(n);
                 Update(n);
             }
         }

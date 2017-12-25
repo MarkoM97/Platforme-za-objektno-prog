@@ -11,11 +11,13 @@ using System.Threading.Tasks;
 
 namespace POP_SF_15_2016.Model
 {
-    public class Namestaj: INotifyPropertyChanged
+    public class Namestaj : ICloneable, INotifyPropertyChanged
     {
         private int id { get; set; }
-        private string naziv {get;set;}
+        private string naziv { get; set; }
         private double jedinicnaCena { get; set; }
+
+
         private int kolicina { get; set; }
         private string sifra { get; set; }
         private int akcijaId { get; set; }
@@ -25,7 +27,7 @@ namespace POP_SF_15_2016.Model
         //Koristen za dodavnje 
         //Konstruktor za metodu dodavanja namestaja.Stavlja tip automatski na prvi iz liste tipova kako cbTip imao selectedItem i dodeljuje mu se nov id
         public Namestaj() {
-
+            this.tipNamestajaId = 1;
         }
 
         //Konstruktor koristen za izmenu
@@ -36,7 +38,7 @@ namespace POP_SF_15_2016.Model
             this.jedinicnaCena = jedinicnaCena;
             this.kolicina = kolicina;
             this.sifra = sifra;
-            if (akcija != null) { this.akcijaId = akcija.Id; } else { this.akcijaId = 0; }; 
+            if (akcija != null) { this.akcijaId = akcija.Id; } else { this.akcijaId = 0; };
             this.tipNamestajaId = tip.Id;
             this.obrisan = obrisan;
         }
@@ -50,7 +52,7 @@ namespace POP_SF_15_2016.Model
             }
         }
 
-        
+
         public string Naziv {
             get {
                 return naziv;
@@ -60,16 +62,10 @@ namespace POP_SF_15_2016.Model
             }
         }
 
-        
         public double JedinicnaCena {
             get {
-                //Racunanje popusta kod 1 kolicine namestaja
-                double procenatSnizenja = 0;
-                if (akcijaId != 0)
-                {
-                    procenatSnizenja = ((Akcija.getById(akcijaId).Popust / 100) * jedinicnaCena);
-                }
-                return jedinicnaCena - procenatSnizenja;
+                return jedinicnaCena;
+
             } set {
                 jedinicnaCena = value;
                 OnPropertyChanged("JedinicnaCena");
@@ -109,11 +105,12 @@ namespace POP_SF_15_2016.Model
             }
             set
             {
-                if (value == null) Console.WriteLine("HEEEY");
-                if (value != null) { akcijaId = value.Id; } else { akcijaId = -1; };
+                if (value != null) { akcijaId = value.Id; } else { akcijaId = 0; };
                 OnPropertyChanged("Akcija");
+                OnPropertyChanged("akcijaId");
                 //Da bi promena akcije dinamicki menjala jedinicnu cenu namestaja bez osvezavanja dataGrida.
                 OnPropertyChanged("JedinicnaCena");
+                
             }
         }
 
@@ -125,8 +122,9 @@ namespace POP_SF_15_2016.Model
             }
             set
             {
-                TipNamestaja = value;
+                //TipNamestaja = value;
                 tipNamestajaId = value.Id;
+                OnPropertyChanged("tipNamestajaId");
                 OnPropertyChanged("TipNamestaja");
             }
         }
@@ -157,6 +155,19 @@ namespace POP_SF_15_2016.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        public object Clone()
+        {
+            Namestaj kopija = new Namestaj();
+            kopija.Naziv = Naziv;
+            kopija.Sifra = Sifra;
+            kopija.TipNamestaja = TipNamestaja;
+            kopija.Akcija = Akcija;
+            kopija.Id = Id;
+            kopija.JedinicnaCena = JedinicnaCena;
+            kopija.Obrisan = Obrisan;
+            kopija.Kolicina = Kolicina;
+            return kopija;
+        }
 
         #region Database
         public static ObservableCollection<Namestaj> GetAll()
@@ -180,15 +191,15 @@ namespace POP_SF_15_2016.Model
                 foreach (DataRow row in ds.Tables["Namestaj"].Rows)
                 {
                     var namestaj = new Namestaj();
+                    namestaj.Id = int.Parse(row["Id"].ToString());
                     namestaj.Naziv = row["Naziv"].ToString();
-                    namestaj.JedinicnaCena = int.Parse(row["JedinicnaCena"].ToString());
+                    namestaj.JedinicnaCena = double.Parse(row["JedinicnaCena"].ToString()); 
                     namestaj.Kolicina = int.Parse(row["Kolicina"].ToString());
                     namestaj.Sifra = row["Sifra"].ToString();
                     namestaj.akcijaId = int.Parse(row["AkcijaId"].ToString());
                     namestaj.tipNamestajaId = int.Parse(row["TipNamestajaId"].ToString());
                     namestaj.Obrisan = bool.Parse(row["Obrisan"].ToString());
                     namestaji.Add(namestaj);
-
                 }
                 return namestaji;
             }
@@ -206,6 +217,7 @@ namespace POP_SF_15_2016.Model
                 //cmd.Parameters.AddWithValue("Obrisan", )
                 cmd.Parameters.AddWithValue("Id", n.Id);
                 cmd.Parameters.AddWithValue("Naziv", n.Naziv);
+                cmd.Parameters.AddWithValue("JedinicnaCena", n.JedinicnaCena);
                 cmd.Parameters.AddWithValue("Sifra", n.Sifra);
                 cmd.Parameters.AddWithValue("Kolicina", n.Kolicina);
                 cmd.Parameters.AddWithValue("AkcijaId", n.akcijaId);
@@ -237,7 +249,7 @@ namespace POP_SF_15_2016.Model
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO TipNamestaja (Naziv,JedinicnaCena, Kolicina, Sifra, AkcijaId, TipNamestajaId,Obrisan) VALUES(@Naziv,@JedinicnaCena,@Kolicina, @Sifra, @AkcijaId, @TipNamestajaId, @Obrisan)";
+                cmd.CommandText = "INSERT INTO Namestaj (Naziv,JedinicnaCena, Kolicina, Sifra, AkcijaId, TipNamestajaId,Obrisan) VALUES(@Naziv,@JedinicnaCena,@Kolicina, @Sifra, @AkcijaId, @TipNamestajaId, @Obrisan)";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
                 cmd.Parameters.AddWithValue("Naziv", n.Naziv);
                 cmd.Parameters.AddWithValue("JedinicnaCena", n.JedinicnaCena);
@@ -259,9 +271,12 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 n.Obrisan = true;
+                Aplikacija.Instance.Namestaj.Remove(n);
                 Update(n);
             }
         }
+
+        
         #endregion
     }
 }

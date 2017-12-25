@@ -29,14 +29,19 @@ namespace POP_SF_15_2016.Model
         private Aplikacija()
         {
             //Ucitavanje iz serialajzera
-            Namestaj = new ObservableCollection<Namestaj>();
-            //Tipovi = new ObservableCollection<TipNamestaja>();
+            //Namestaj = Model.Namestaj.GetAll();
+            /*foreach(var x in Namestaj)
+            {
+                Console.WriteLine(x.Naziv);
+            }*/
+            //Tipovi = new ObservableCollection<TipNamestaja>();*/
             Tipovi = TipNamestaja.GetAll();
-            Akcije = new ObservableCollection<Akcija>();
+            Akcije = Model.Akcija.GetAll();
+            Namestaj = Model.Namestaj.GetAll();
             Racuni = new ObservableCollection<Racun>();
-            Korisnici = new ObservableCollection<Korisnik>();
-            Usluge = new ObservableCollection<DodatnaUsluga>();
-            popuniPodatke();
+            Korisnici = Model.Korisnik.GetAll();
+            Usluge = Model.DodatnaUsluga.GetAll();
+            //popuniPodatke();
         }
 
         private void popuniPodatke()

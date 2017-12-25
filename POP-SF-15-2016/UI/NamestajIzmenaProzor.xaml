@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_15_2016.UI"
         mc:Ignorable="d"
-        Title="NamestajIzmenaProzor" Height="400" Width="500">
+        Title="NamestajIzmenaProzor" Height="500" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="44*"/>
             <RowDefinition Height="41*"/>
             <RowDefinition Height="47*"/>
             <RowDefinition Height="48*"/>
-            <RowDefinition Height="48*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="91*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="85*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="95*"/>
@@ -29,11 +29,11 @@
         <Button x:Name="btnSacuvajIzmene" Content="Sacuvaj" HorizontalAlignment="Left" Margin="24,24,0,0" Grid.Row="6" VerticalAlignment="Top" Width="184" Height="36" Click="btnSacuvajIzmene_Click" Grid.Column="1"/>
         <TextBox Name="tbCena" Text="{Binding Path=JedinicnaCena}" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="24,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="1"/>
         <Label Content="RSD" Grid.Column="1" HorizontalAlignment="Left" Margin="112,9,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="32"/>
-        <TextBox Name="tbNaziv" Text="{Binding Path=Naziv}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,7" TextWrapping="Wrap" Width="88"/>
+        <TextBox Name="tbNaziv" Text="{Binding Path=Naziv}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,20" TextWrapping="Wrap" Width="130"/>
         <TextBox Name="tbKolicina" Text="{Binding Path=Kolicina}" Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="24,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="2"/>
         <TextBox Name="tbSifra" Text="{Binding Path=Sifra}" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="24,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="3"/>
         <ComboBox Name="cbAkcija" SelectedItem="{Binding Path=Akcija}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,7" Grid.Row="4" Width="101"/>
-        <ComboBox Name="cbTip" SelectedItem="{Binding Path=Tip}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,10" Grid.Row="5" Width="101"/>
+        <ComboBox Name="cbTip" SelectedItem="{Binding Path=TipNamestaja}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,10" Grid.Row="5" Width="101"/>
         <CheckBox Unchecked="chbAkcija_Unchecked" Checked="chbAkcija_Checked" Name="chbAkcija" Content="Bez akcije" Grid.Column="1" HorizontalAlignment="Left" Margin="141,16,0,0" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.171,0.556" Height="22" Width="151"/>
 
     </Grid>

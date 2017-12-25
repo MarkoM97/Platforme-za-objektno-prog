@@ -79,7 +79,7 @@ namespace POP_SF_15_2016.UI
             if (MessageBox.Show("Da li ste sigurni?", "Potvrda", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 //Ostaje da bi tokom izmene namestaja takodje prikazala nova lista sa izbrisanom akcijom
-                Aplikacija.Instance.Akcije.Remove(selektovanaAkcija);
+                Akcija.Delete(selektovanaAkcija);
             }
         }
 

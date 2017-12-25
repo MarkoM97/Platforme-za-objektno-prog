@@ -44,20 +44,20 @@ namespace POP_SF_15_2016.UI
 
         private void btnSacuvajIzmene_Click(object sender, RoutedEventArgs e)
         {
-            if(stanje == Stanje.DODAVANJE)
+            if (stanje == Stanje.DODAVANJE)
             {
-                Aplikacija.Instance.Namestaj.Add(namestaj);
+                Model.Namestaj.Create(namestaj);
             }
+            Model.Namestaj.Update(namestaj);
             this.Close();
+            
         }
 
         private void chbAkcija_Checked(object sender, RoutedEventArgs e)
         {
-            Akcija akcija = new Akcija();
             cbAkcija.IsEnabled = false;
             cbAkcija.SelectedItem = null;
-            namestaj.Akcija = akcija;
-            Console.WriteLine(namestaj.Akcija.Naziv);
+            namestaj.Akcija = new Akcija();
         }
 
         private void chbAkcija_Unchecked(object sender, RoutedEventArgs e)

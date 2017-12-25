@@ -40,8 +40,9 @@ namespace POP_SF_15_2016.UI
         {
             if(stanje == Stanje.DODAVANJE)
             {
-                Aplikacija.Instance.Akcije.Add(akcija);
+                Model.Akcija.Create(akcija);
             }
+            Model.Akcija.Update(akcija);
             this.Close();
         }
     }

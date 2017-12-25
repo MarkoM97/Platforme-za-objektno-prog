@@ -115,6 +115,7 @@ namespace POP_SF_15_2016.Model
                 foreach(DataRow row in ds.Tables["TipNamestaja"].Rows)
                 {
                     var tipNamestaja = new TipNamestaja();
+                    tipNamestaja.Id = int.Parse(row["Id"].ToString());
                     tipNamestaja.Naziv = row["Naziv"].ToString();
                     tipNamestaja.Obrisan = bool.Parse(row["Obrisan"].ToString());
                     tipoviNamestaja.Add(tipNamestaja);
@@ -175,6 +176,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 tn.Obrisan = true;
+                Aplikacija.Instance.Tipovi.Remove(tn);
                 Update(tn);
             }
         }
