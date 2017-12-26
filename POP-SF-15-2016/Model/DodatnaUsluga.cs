@@ -35,7 +35,7 @@ namespace POP_SF_15_2016.Model
             get
             {
                 return id;
-            }set
+            } set
             {
                 id = value;
                 OnPropertyChanged("Id");
@@ -47,7 +47,7 @@ namespace POP_SF_15_2016.Model
             get
             {
                 return naziv;
-            }set
+            } set
             {
                 naziv = value;
                 OnPropertyChanged("Naziv");
@@ -59,7 +59,7 @@ namespace POP_SF_15_2016.Model
             get
             {
                 return cena;
-            }set
+            } set
             {
                 cena = value;
                 OnPropertyChanged("Cena");
@@ -71,11 +71,23 @@ namespace POP_SF_15_2016.Model
             get
             {
                 return obrisan;
-            }set
+            } set
             {
                 obrisan = value;
                 OnPropertyChanged("Obrisan");
             }
+        }
+
+        public static DodatnaUsluga getById(int id)
+        {
+            foreach(var x in Aplikacija.Instance.Usluge)
+            {
+                if(x.Id.Equals(id))
+                {
+                    return x;
+                }
+            }
+            return null;
         }
 
         private void OnPropertyChanged(string name)

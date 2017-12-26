@@ -75,8 +75,6 @@ S:\profile.V5\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\bin\Debug\POP-SF-15-2016.exe.config
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\bin\Debug\POP-SF-15-2016.exe
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\bin\Debug\POP-SF-15-2016.pdb
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.csprojResolveAssemblyReference.cache
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.csproj.ResolveComReference.cache
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\MainWindow.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\AkcijaIzmenaProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\AkcijaProzor.g.cs
@@ -109,3 +107,4 @@ C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debu
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.csproj.CoreCompileInputs.cache
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.exe
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.pdb
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.csprojResolveAssemblyReference.cache

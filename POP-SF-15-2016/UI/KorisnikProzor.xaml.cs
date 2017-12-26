@@ -33,7 +33,7 @@ namespace POP_SF_15_2016.UI
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            Korisnik noviKorisnik = new Korisnik(Aplikacija.Instance.Korisnici.Last().Id + 1);
+            Korisnik noviKorisnik = new Korisnik();
             KorisnikIzmenaProzor kip = new KorisnikIzmenaProzor(noviKorisnik);
             kip.ShowDialog();
         }

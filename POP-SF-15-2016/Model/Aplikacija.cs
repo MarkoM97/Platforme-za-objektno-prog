@@ -28,19 +28,13 @@ namespace POP_SF_15_2016.Model
 
         private Aplikacija()
         {
-            //Ucitavanje iz serialajzera
-            //Namestaj = Model.Namestaj.GetAll();
-            /*foreach(var x in Namestaj)
-            {
-                Console.WriteLine(x.Naziv);
-            }*/
-            //Tipovi = new ObservableCollection<TipNamestaja>();*/
+            //Problem: Poziv getById funkcije iz Racuna za namestaj ne radi tacnije sputava ucitavanje namestaja. Pitati za razlog. Da li je to zbog regije?
             Tipovi = TipNamestaja.GetAll();
             Akcije = Model.Akcija.GetAll();
             Namestaj = Model.Namestaj.GetAll();
-            Racuni = new ObservableCollection<Racun>();
             Korisnici = Model.Korisnik.GetAll();
             Usluge = Model.DodatnaUsluga.GetAll();
+            Racuni = Model.Racun.GetAll();
             //popuniPodatke();
         }
 
@@ -55,7 +49,7 @@ namespace POP_SF_15_2016.Model
             Racun r1 = new Model.Racun(0, k1, s, "Radovan", 500, false);
             DodatnaUsluga d1 = new Model.DodatnaUsluga(0, "Montaza", 250, false);
 
-            r1.namestaji.Add(n1, 1);
+            //r1.namestaji.Add(n1, 1);
             Korisnici.Add(k1);
             Usluge.Add(d1);
             Namestaj.Add(n1);

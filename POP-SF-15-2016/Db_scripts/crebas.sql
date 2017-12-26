@@ -29,7 +29,7 @@ CREATE TABLE Namestaj (
 )
 Go
 
-CREATE TABLE DodatneUsluga(
+CREATE TABLE DodatnaUsluga(
 	Id INT PRIMARY KEY  IDENTITY(1,1),
 	Naziv VARCHAR(50),
 	Cena NUMERIC(9,2),
@@ -51,7 +51,7 @@ Go
 CREATE TABLE Racun(
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	KorisnikId INT,
-	Namestaj VARCHAR(200),
+	Namestaj VARCHAR(1000),
 	DodatneUsluge VARCHAR(100),
 	ImeKupca VARCHAR(50),
 	UkupnaCena NUMERIC(9,2),

@@ -148,6 +148,21 @@ namespace POP_SF_15_2016.Model
             return naziv;
         }
 
+        public static Namestaj getById(int id)
+        {
+            Console.WriteLine("Got id" + id);
+            foreach(Namestaj n in Aplikacija.Instance.Namestaj)
+            {
+                Console.WriteLine("Id namestaja : " + n.Id);
+                if(n.Id.Equals(id))
+                {
+                    Console.WriteLine(n.Naziv);
+                    return n;
+                }
+            }
+            return null;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string name)

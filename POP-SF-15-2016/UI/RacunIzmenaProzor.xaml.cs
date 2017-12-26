@@ -45,11 +45,11 @@ namespace POP_SF_15_2016.UI
             dgPostojaceDodatne.IsSynchronizedWithCurrentItem = true;
             dgPostojaceDodatne.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgNaruceniNamestaj.ItemsSource = CollectionViewSource.GetDefaultView(racun.namestaji);
+            dgNaruceniNamestaj.ItemsSource = CollectionViewSource.GetDefaultView(racun.Namestaji);
             dgNaruceniNamestaj.IsSynchronizedWithCurrentItem = true;
             dgNaruceniNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgNaruceneDodatne.ItemsSource = CollectionViewSource.GetDefaultView(racun.usluge);
+            dgNaruceneDodatne.ItemsSource = CollectionViewSource.GetDefaultView(racun.Usluge);
             dgNaruceneDodatne.IsSynchronizedWithCurrentItem = true;
             dgNaruceneDodatne.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
@@ -64,19 +64,32 @@ namespace POP_SF_15_2016.UI
         private void btnDodajUslugu_Click(object sender, RoutedEventArgs e)
         {
             DodatnaUsluga selektovanaUsluga = viewDodatne.CurrentItem as DodatnaUsluga;
-            racun.usluge.Add(selektovanaUsluga);
+            Console.WriteLine("Pre dodavanja");
+            foreach(var x in racun.Usluge)
+            {
+                Console.WriteLine(x.Naziv);
+            }
+            racun.Usluge.Add(selektovanaUsluga);
+            Console.WriteLine("Posle dodavanja");
+            foreach (var x in racun.Usluge)
+            {
+                Console.WriteLine(x.Naziv);
+            }
         }
 
         private void btnIzbaciUslugu_Click(object sender, RoutedEventArgs e)
         {
             DodatnaUsluga selektovanaUsluga = dgNaruceneDodatne.SelectedItem as DodatnaUsluga;
-            racun.usluge.Remove(selektovanaUsluga);
+            racun.Usluge.Remove(selektovanaUsluga);
 
         }
 
         private void btnDodajNamestaj_Click(object sender, RoutedEventArgs e)
         {
-           
+            foreach (var x in racun.Namestaji)
+            {
+                Console.WriteLine(x);
+            }
             Namestaj selektovaniNamestaj = viewNamestaj.CurrentItem as Namestaj;
             int kolicina = int.Parse(cbKolicina.SelectedItem.ToString());
             if (kolicina > selektovaniNamestaj.Kolicina)
@@ -88,10 +101,10 @@ namespace POP_SF_15_2016.UI
                 Warning.Visibility = Visibility.Hidden;
                 try
                 {
-                    racun.namestaji[selektovaniNamestaj] = racun.namestaji[selektovaniNamestaj] + kolicina;
+                    racun.Namestaji[selektovaniNamestaj] = racun.Namestaji[selektovaniNamestaj] + kolicina;
                 }catch(Exception ex) when (ex is KeyNotFoundException || ex is NullReferenceException)
                 {
-                    racun.namestaji.Add(selektovaniNamestaj, kolicina);
+                    racun.Namestaji.Add(selektovaniNamestaj, kolicina);
                 }
                 selektovaniNamestaj.Kolicina = selektovaniNamestaj.Kolicina - kolicina;
                 dgNaruceniNamestaj.Items.Refresh();
@@ -116,7 +129,7 @@ namespace POP_SF_15_2016.UI
                         z.Kolicina += tempKolicina;
                     }
                 }
-                racun.namestaji.Remove(x.Value.Key);
+                racun.Namestaji.Remove(x.Value.Key);
                 dgNaruceniNamestaj.Items.Refresh();
             }
             

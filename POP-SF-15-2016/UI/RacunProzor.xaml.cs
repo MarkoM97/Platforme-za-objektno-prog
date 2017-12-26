@@ -35,7 +35,7 @@ namespace POP_SF_15_2016.UI
         private void dgRacun_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string x = (string)e.Column.Header;
-            if (x == "usluge" || x == "namestaji" || x == "Id" || x == "Obrisan")
+            if (x == "Usluge" || x == "Namestaji" || x == "Id" || x == "Obrisan")
             {
                 e.Cancel = true;
             }
@@ -43,7 +43,7 @@ namespace POP_SF_15_2016.UI
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            Racun racun = new Racun(Aplikacija.Instance.Racuni.Last().Id + 1);
+            Racun racun = new Racun();
             RacunIzmenaProzor rip = new RacunIzmenaProzor(racun);
             rip.ShowDialog();
 

@@ -15,3 +15,12 @@ INSERT INTO Namestaj(TipNamestajaId, AkcijaId, Naziv,Sifra, JedinicnaCena, Kolic
 INSERT INTO Namestaj(TipNamestajaId, AkcijaId, Naziv,Sifra, JedinicnaCena, Kolicina, Obrisan) VALUES (2,2 ,'Sofija ugaona','sf84', 223.5, 4, 0);
 INSERT INTO Namestaj(TipNamestajaId, AkcijaId, Naziv,Sifra, JedinicnaCena, Kolicina, Obrisan) VALUES (3, 3,'Ivan polica','sf84', 850.5, 13, 0);
 
+INSERT INTO Korisnik(Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika, Obrisan) VALUES ('Marko', 'Martonosi', 'marko', '123', 0, 0);
+INSERT INTO Korisnik(Ime, Prezime, KorisnickoIme, Lozinka, TipKorisnika, Obrisan) VALUES ('Stefan', 'Martonosi', 'stefa', '123', 1, 0);
+
+INSERT INTO DodatnaUsluga(Naziv, Cena, Obrisan) VALUES ('Montaza', 250, 0);
+INSERT INTO DodatnaUsluga(Naziv, Cena, Obrisan) VALUES ('Transport', 340, 0);
+
+INSERT INTO Racun(KorisnikId, Namestaj, DodatneUsluge, ImeKupca, UkupnaCena, Obrisan) VALUES (1, '[StavkaProdaje]1[Namestaj/Komada]3[StavkaProdaje]', '[Usluga]1[Usluga]', 'Petar Petrovic', 5000, 0 );
+INSERT INTO Racun(KorisnikId, Namestaj, DodatneUsluge, ImeKupca, UkupnaCena, Obrisan) VALUES (1, '[StavkaProdaje]1[Namestaj/Komada]3[StavkaProdaje]2[Namestaj/Komada]2[StavkaProdaje]', '[Usluga]1[Usluga]2[Usluga]', 'Petar Petrovic', 5000, 0 );
+

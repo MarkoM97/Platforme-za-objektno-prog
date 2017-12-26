@@ -175,10 +175,12 @@ namespace POP_SF_15_2016.Model
                     korisnik.Prezime = row["Prezime"].ToString();
                     korisnik.KorisnickoIme = row["KorisnickoIme"].ToString();
                     korisnik.Lozinka = row["Lozinka"].ToString();
-                    korisnik.Tip = (tipKorisnika)int.Parse(row["TipKorisnika"].ToString());
-                    Console.WriteLine(korisnik.tip);
+                    //Ne potreban else jer je default-na vrednost administrator
+                    if (row["TipKorisnika"].ToString().Equals("True"))
+                    {
+                        korisnik.Tip = tipKorisnika.PRODAVAC;
+                    }
                     korisnik.Obrisan = bool.Parse(row["Obrisan"].ToString());
-
                     korisnici.Add(korisnik);
 
                 }

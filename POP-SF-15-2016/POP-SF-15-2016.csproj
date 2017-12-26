@@ -176,25 +176,5 @@
     <Content Include="Db_scripts\crebas.sql" />
     <Content Include="Db_scripts\seedsql.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="ConfigurationLib">
-      <Guid>{65AB85E3-2AEF-4664-A0BE-95089707368B}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="ConfigurationManagerLib">
-      <Guid>{977B818C-D9E0-4E27-9A20-16D8652A10C8}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
