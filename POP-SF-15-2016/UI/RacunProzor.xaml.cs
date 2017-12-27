@@ -35,7 +35,7 @@ namespace POP_SF_15_2016.UI
         private void dgRacun_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             string x = (string)e.Column.Header;
-            if (x == "Usluge" || x == "Namestaji" || x == "Id" || x == "Obrisan")
+            if (x == "Usluge" || x == "Stavke" || x == "Id" || x == "Obrisan")
             {
                 e.Cancel = true;
             }

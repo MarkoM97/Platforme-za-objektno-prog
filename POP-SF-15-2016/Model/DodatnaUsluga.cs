@@ -99,6 +99,63 @@ namespace POP_SF_15_2016.Model
 
 
         #region Database
+        public static ObservableCollection<DodatnaUsluga> GetForRacun(int id)
+        {
+            var usluge = new ObservableCollection<DodatnaUsluga>();
+            using(var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "SELECT * FROM DodatnaUsluga WHERE Id IN (SELECT UslugaId FROM UslugeRacuna WHERE RacunId=@RacunId)";
+                cmd.Parameters.AddWithValue("RacunId", id);
+                SqlDataAdapter sdp = new SqlDataAdapter();
+                sdp.SelectCommand = cmd;
+                DataSet ds = new DataSet();
+                sdp.Fill(ds, "DodatnaUsluga");
+
+                foreach(DataRow row in ds.Tables["DodatnaUsluga"].Rows) {
+                    var usluga = new DodatnaUsluga();
+                    usluga.Id = int.Parse(row["Id"].ToString());
+                    usluga.Naziv = row["Naziv"].ToString();
+                    usluga.Cena = double.Parse(row["Cena"].ToString());
+                    usluga.Obrisan = bool.Parse(row["Obrisan"].ToString());
+
+                    usluge.Add(usluga);
+                }
+                return usluge;
+
+            }
+        }
+
+        public static void  DeleteForRacun(Racun r, DodatnaUsluga du)
+        {
+            using(var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                r.Usluge.Remove(du);
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "DELETE FROM UslugeRacuna WHERE RacunId=@RacunId AND UslugaId=@UslugaId";
+                cmd.Parameters.AddWithValue("RacunId", r.Id);
+                cmd.Parameters.AddWithValue("UslugaId", du.Id);
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
+        public static void AddForRacun(Racun r, DodatnaUsluga du)
+        {
+            using(var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+                r.Usluge.Add(du);
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "INSERT INTO UslugeRacuna(RacunId, UslugaId) VALUES (@RacunId, @UslugaId)";
+                cmd.Parameters.AddWithValue("RacunId", r.Id);
+                cmd.Parameters.AddWithValue("UslugaId", du.Id);
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
         public static ObservableCollection<DodatnaUsluga> GetAll()
         {
             var usluge = new ObservableCollection<DodatnaUsluga>();

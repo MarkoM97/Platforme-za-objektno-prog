@@ -19,6 +19,8 @@ namespace POP_SF_15_2016.UI
         Stanje stanje;
         ICollectionView viewNamestaj;
         ICollectionView viewDodatne;
+        ICollectionView viewNamestajDodati;
+        ICollectionView viewDodatneDodate;
         //ObservableCollection<DodatnaUsluga> naruceneUsluge = new ObservableCollection<DodatnaUsluga>();
         //ObservableCollection<Tuple<Namestaj, int>> naruceniNamestaj = new ObservableCollection<Tuple<Namestaj, int>>();
         public RacunIzmenaProzor(Racun racun, Stanje stanje = Stanje.DODAVANJE)
@@ -45,11 +47,14 @@ namespace POP_SF_15_2016.UI
             dgPostojaceDodatne.IsSynchronizedWithCurrentItem = true;
             dgPostojaceDodatne.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgNaruceniNamestaj.ItemsSource = CollectionViewSource.GetDefaultView(racun.Namestaji);
+            viewNamestajDodati = CollectionViewSource.GetDefaultView(racun.Stavke);
+            dgNaruceniNamestaj.ItemsSource = viewNamestajDodati;
             dgNaruceniNamestaj.IsSynchronizedWithCurrentItem = true;
             dgNaruceniNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            dgNaruceneDodatne.ItemsSource = CollectionViewSource.GetDefaultView(racun.Usluge);
+
+            viewDodatneDodate = CollectionViewSource.GetDefaultView(racun.Usluge);
+            dgNaruceneDodatne.ItemsSource = viewDodatneDodate;
             dgNaruceneDodatne.IsSynchronizedWithCurrentItem = true;
             dgNaruceneDodatne.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
@@ -64,34 +69,25 @@ namespace POP_SF_15_2016.UI
         private void btnDodajUslugu_Click(object sender, RoutedEventArgs e)
         {
             DodatnaUsluga selektovanaUsluga = viewDodatne.CurrentItem as DodatnaUsluga;
-            Console.WriteLine("Pre dodavanja");
-            foreach(var x in racun.Usluge)
-            {
-                Console.WriteLine(x.Naziv);
-            }
-            racun.Usluge.Add(selektovanaUsluga);
-            Console.WriteLine("Posle dodavanja");
-            foreach (var x in racun.Usluge)
-            {
-                Console.WriteLine(x.Naziv);
-            }
+            DodatnaUsluga.AddForRacun(racun, selektovanaUsluga);
+            dgNaruceneDodatne.ItemsSource = racun.Usluge;
+
+
         }
 
         private void btnIzbaciUslugu_Click(object sender, RoutedEventArgs e)
         {
             DodatnaUsluga selektovanaUsluga = dgNaruceneDodatne.SelectedItem as DodatnaUsluga;
-            racun.Usluge.Remove(selektovanaUsluga);
-
+            DodatnaUsluga.DeleteForRacun(racun, selektovanaUsluga);
+            dgNaruceneDodatne.ItemsSource = racun.Usluge;
         }
 
         private void btnDodajNamestaj_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var x in racun.Namestaji)
-            {
-                Console.WriteLine(x);
-            }
+
             Namestaj selektovaniNamestaj = viewNamestaj.CurrentItem as Namestaj;
             int kolicina = int.Parse(cbKolicina.SelectedItem.ToString());
+
             if (kolicina > selektovaniNamestaj.Kolicina)
             {
                 Warning.Visibility = Visibility.Visible;
@@ -99,40 +95,51 @@ namespace POP_SF_15_2016.UI
             else
             {
                 Warning.Visibility = Visibility.Hidden;
-                try
+                selektovaniNamestaj.Kolicina -= kolicina;
+
+                foreach (var x in racun.Stavke)
                 {
-                    racun.Namestaji[selektovaniNamestaj] = racun.Namestaji[selektovaniNamestaj] + kolicina;
-                }catch(Exception ex) when (ex is KeyNotFoundException || ex is NullReferenceException)
-                {
-                    racun.Namestaji.Add(selektovaniNamestaj, kolicina);
+                    if (x.Namestaj.Id.Equals(selektovaniNamestaj.Id))
+                    {
+                        x.BrojKomada += kolicina;
+                        Stavka.UpdateForRacun(racun, x);
+                        dgNaruceniNamestaj.ItemsSource = racun.Stavke;
+                        return;
+                    }
                 }
-                selektovaniNamestaj.Kolicina = selektovaniNamestaj.Kolicina - kolicina;
-                dgNaruceniNamestaj.Items.Refresh();
+
+                Stavka newStavka = new Stavka(selektovaniNamestaj, kolicina);
+                Stavka.AddForRacun(racun, newStavka);
+                dgNaruceniNamestaj.ItemsSource = racun.Stavke;
+                return;
             }
         }
 
         private void btnIzbaciNamestaj_Click(object sender, RoutedEventArgs e)
         {
-            int tempKolicina = int.Parse(cbKolicina.SelectedItem.ToString());
-            var x = dgNaruceniNamestaj.Items.CurrentItem as KeyValuePair<Namestaj, int>?;
-            Namestaj nam = x.Value.Key;
-            if(tempKolicina > nam.Kolicina)
+            int Kolicina = int.Parse(cbKolicina.SelectedItem.ToString());
+
+            Stavka stavka = dgNaruceniNamestaj.Items.CurrentItem as Stavka;
+            if (Kolicina > stavka.BrojKomada)
             {
                 Warning2.Visibility = Visibility.Visible;
-            } else
+            }
+            else
             {
                 Warning2.Visibility = Visibility.Hidden;
-                foreach (var z in Aplikacija.Instance.Namestaj)
+                foreach (var namestaj in Aplikacija.Instance.Namestaj)
                 {
-                    if (z == nam)
+                    if (namestaj == stavka.Namestaj)
                     {
-                        z.Kolicina += tempKolicina;
+                        stavka.BrojKomada -= Kolicina;
+                        namestaj.Kolicina += Kolicina;
                     }
                 }
-                racun.Namestaji.Remove(x.Value.Key);
-                dgNaruceniNamestaj.Items.Refresh();
+                Stavka.UpdateForRacun(racun, stavka);
+                dgNaruceniNamestaj.ItemsSource = racun.Stavke;
+
             }
-            
+    
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)

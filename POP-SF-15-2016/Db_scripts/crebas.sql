@@ -51,11 +51,29 @@ Go
 CREATE TABLE Racun(
 	Id INT PRIMARY KEY IDENTITY(1,1),
 	KorisnikId INT,
-	Namestaj VARCHAR(1000),
-	DodatneUsluge VARCHAR(100),
 	ImeKupca VARCHAR(50),
 	UkupnaCena NUMERIC(9,2),
+	DatumProdaje DATE,
 	Obrisan BIT
 	FOREIGN KEY (KorisnikId) REFERENCES Korisnik(Id)
+)
+Go
+
+CREATE TABLE StavkeRacuna(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	RacunId INT,
+	NamestajId INT,
+	BrojKomada INT,
+	FOREIGN KEY (RacunId) REFERENCES Racun(Id),
+	FOREIGN KEY (NamestajId) REFERENCES Namestaj(Id)
+)
+Go
+
+CREATE TABLE UslugeRacuna(
+	RacunId INT,
+	UslugaId INT,
+	FOREIGN KEY (RacunId) REFERENCES Racun(Id),
+	FOREIGN KEY (UslugaId) REFERENCES DodatnaUsluga(Id),
+	PRIMARY KEY (RacunId, UslugaId)
 )
 Go

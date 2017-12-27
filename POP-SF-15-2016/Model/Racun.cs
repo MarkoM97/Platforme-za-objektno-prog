@@ -15,11 +15,9 @@ namespace POP_SF_15_2016.Model
     {
         private int id { get; set; }
         private int korisnikId { get; set; }
-        private Dictionary<int, int> namestaji { get; set; }
-        //ObservableCollection<KeyValuePair<Namestaj, int>> namestaj { get; set; }
+        private ObservableCollection<Stavka> stavke { get; set; }
+        private ObservableCollection<DodatnaUsluga> usluge { get; set; }
         private DateTime datumProdaje { get; set; }
-        private List<int> usluge { get; set; }
-
         private string imeKupca { get; set; }
         private double ukupnaCena { get; set; }
         private bool obrisan { get; set; }
@@ -28,18 +26,17 @@ namespace POP_SF_15_2016.Model
         {
             //Da ne bi pocinjalo od 0001 godine
             this.DatumProdaje = DateTime.Now;
-            namestaji = new Dictionary<int, int>();
-            usluge = new List<int>();
+            stavke = new ObservableCollection<Stavka>();
+            usluge = new ObservableCollection<DodatnaUsluga>();
         }
 
         public Racun(int id, Korisnik korisnik, DateTime datum, string imeKupca, double ukupnaCena, bool obrisan)
         {
             this.id = id;
             this.korisnikId = korisnik.Id;
-            namestaji = new Dictionary<int, int>();
-            //namestaj = new ObservableCollection<KeyValuePair<Namestaj, int>>();
+            stavke = new ObservableCollection<Stavka>();
             this.datumProdaje = datum;
-            usluge = new List<int>() ;
+            usluge = new ObservableCollection<DodatnaUsluga>();
             this.imeKupca = imeKupca;
             this.ukupnaCena = ukupnaCena;
             this.obrisan = obrisan;
@@ -56,69 +53,36 @@ namespace POP_SF_15_2016.Model
                 OnPropertyChanged("Id");
             }
         }
-        private static ObservableCollection<DodatnaUsluga> ConvertUsluga(List<int> usluge)
-        {
-            ObservableCollection<DodatnaUsluga> newUsluge = new ObservableCollection<DodatnaUsluga>();
-            foreach(var x in usluge)
-            {
-                newUsluge.Add(Model.DodatnaUsluga.getById(x));
-            }
-            return newUsluge;
-        }
+      
 
-        private static List<int> DeConvertUsluga(ObservableCollection<DodatnaUsluga> usluge)
-        {
-            List<int> newList = new List<int>();
-            foreach(var x in usluge)
-            {
-                newList.Add(x.Id);
-            }
-            return newList;
-        }
 
 
         public ObservableCollection<DodatnaUsluga> Usluge
         {
             get {
-                return ConvertUsluga(usluge);
+                usluge = Model.DodatnaUsluga.GetForRacun(id);
+                return usluge;
             } set {
-                Console.WriteLine("Pokusana neka add metoda");
-                usluge = DeConvertUsluga(value);
+
+                usluge = value;
                 OnPropertyChanged("Usluge");
                 OnPropertyChanged("usluge");
             }
         }
 
-        private static Dictionary<Namestaj, int> Convert(Dictionary<int, int> dict)
-        {
-            Dictionary<Namestaj, int> newDict = new Dictionary<Namestaj, int>();
-            foreach(var x in dict)
-            {
-                newDict.Add(Model.Namestaj.getById(x.Key), x.Value);
-            }
-            return newDict;
-        }
-
-        private static Dictionary<int, int> DeConvert(Dictionary<Namestaj, int> dict)
-        {
-            Dictionary<int, int> newDict = new Dictionary<int, int>();
-            foreach(var x in dict)
-            {
-                newDict.Add(x.Key.Id, x.Value);
-            }
-            return newDict;
-        }
-        public Dictionary<Namestaj, int> Namestaji
+        
+        public ObservableCollection<Stavka> Stavke
         {
             get
             {
-                return Convert(namestaji);
+               
+                return Model.Stavka.GetForRacun(id);
             }
             set
             {
-                namestaji = DeConvert(value);
-                OnPropertyChanged("Namestaji");
-                OnPropertyChanged("namestaji");
+                stavke = value;
+                OnPropertyChanged("Stavke");
+                OnPropertyChanged("stavke");
             }
         }
 
@@ -239,37 +203,16 @@ namespace POP_SF_15_2016.Model
                   
                     var racun = new Racun();
                     racun.Id = int.Parse(row["Id"].ToString());
-                    Console.WriteLine("Proso");
 
                     racun.korisnikId = int.Parse(row["KorisnikId"].ToString());
-                    Console.WriteLine("Proso");
-
-                    var namestajString = row["Namestaj"].ToString().Split(new string[] { "[StavkaProdaje]"}, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var s in namestajString)
-                    {
-                        var jedanNamestaj = s.Split(new string[] { "[Namestaj/Komada]" }, StringSplitOptions.RemoveEmptyEntries);
-                        racun.namestaji.Add(int.Parse(jedanNamestaj[0]), int.Parse(jedanNamestaj[1]));
-                    }
-                    Console.WriteLine("Proso");
-
-                    var dodatneString = row["DodatneUsluge"].ToString().Split(new string[] { "[Usluga]" }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach(var x in dodatneString)
-                    {
-                        racun.usluge.Add(int.Parse(x));
-                    }
-                    Console.WriteLine("Proso");
 
                     racun.ImeKupca = (row["ImeKupca"].ToString());
-                    Console.WriteLine("Proso");
 
-                    //racun.DatumProdaje = DateTime.Parse(row["DatumProdaje"].ToString());
-                    //Console.WriteLine("Proso");
+                    racun.DatumProdaje = DateTime.Parse(row["DatumProdaje"].ToString());
 
                     racun.UkupnaCena = double.Parse(row["UkupnaCena"].ToString());
-                    Console.WriteLine("Proso");
 
                     racun.Obrisan = bool.Parse(row["Obrisan"].ToString());
-                    Console.WriteLine("Proso");
 
 
                     racuni.Add(racun);
