@@ -112,6 +112,7 @@ namespace POP_SF_15_2016.Model
         public static void AddForRacun(Racun r , Stavka s)
         {
             Console.WriteLine("Dosao do add metode racuna");
+            Console.WriteLine("Id ovog racuna: " + r.Id);
             using(var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 r.Stavke.Add(s);

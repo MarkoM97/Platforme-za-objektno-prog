@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Aplikacija.cs" />
     <Compile Include="Model\DodatnaUsluga.cs" />
     <Compile Include="Model\Korisnik.cs" />
@@ -78,6 +81,9 @@
     <Compile Include="UI\NamestajProzor.xaml.cs">
       <DependentUpon>NamestajProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\ProdavacProzor.xaml.cs">
+      <DependentUpon>ProdavacProzor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\RacunIzmenaProzor.xaml.cs">
       <DependentUpon>RacunIzmenaProzor.xaml</DependentUpon>
     </Compile>
@@ -90,6 +96,10 @@
     <Compile Include="UI\TipNamestajaProzor.xaml.cs">
       <DependentUpon>TipNamestajaProzor.xaml</DependentUpon>
     </Compile>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\NamestajProzor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ProdavacProzor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

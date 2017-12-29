@@ -16,6 +16,7 @@ namespace POP_SF_15_2016.UI
     {
         Racun racun;
         public enum Stanje { DODAVANJE, IZMENA}
+        public enum Pristup { ADMINISTRATOR, PRODAVAC}
         Stanje stanje;
         ICollectionView viewNamestaj;
         ICollectionView viewDodatne;
@@ -23,7 +24,7 @@ namespace POP_SF_15_2016.UI
         ICollectionView viewDodatneDodate;
         //ObservableCollection<DodatnaUsluga> naruceneUsluge = new ObservableCollection<DodatnaUsluga>();
         //ObservableCollection<Tuple<Namestaj, int>> naruceniNamestaj = new ObservableCollection<Tuple<Namestaj, int>>();
-        public RacunIzmenaProzor(Racun racun, Stanje stanje = Stanje.DODAVANJE)
+        public RacunIzmenaProzor(Racun racun, Stanje stanje = Stanje.DODAVANJE, Pristup pristup = Pristup.ADMINISTRATOR)
         {
             InitializeComponent();
 
@@ -32,6 +33,7 @@ namespace POP_SF_15_2016.UI
 
             cbProdavac.ItemsSource = Aplikacija.Instance.Korisnici;
             cbProdavac.DataContext = racun;
+            tbUkupna.DataContext = racun;
 
             dpDatumProdaje.DataContext = racun;
 
@@ -64,13 +66,29 @@ namespace POP_SF_15_2016.UI
                 cbKolicina.Items.Add(i);
             }
             cbKolicina.SelectedItem = 1;
+
+
+            if(pristup == Pristup.PRODAVAC)
+            {
+                cbProdavac.Visibility = Visibility.Hidden;
+                dpDatumProdaje.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnDodajUslugu_Click(object sender, RoutedEventArgs e)
         {
             DodatnaUsluga selektovanaUsluga = viewDodatne.CurrentItem as DodatnaUsluga;
+
+            foreach (var x in racun.Usluge)
+            {
+                if (x.Id.Equals(selektovanaUsluga.Id))
+                {
+                    return;
+                }
+            }
             DodatnaUsluga.AddForRacun(racun, selektovanaUsluga);
             dgNaruceneDodatne.ItemsSource = racun.Usluge;
+            tbUkupna.DataContext = racun;
 
 
         }
@@ -148,6 +166,7 @@ namespace POP_SF_15_2016.UI
             {
                 Aplikacija.Instance.Racuni.Add(racun);
             }
+            Model.Racun.Update(racun);
             this.Close();
         }
 

@@ -46,8 +46,9 @@ namespace POP_SF_15_2016.UI
         {
             if(stanje == Stanje.DODAVANJE)
             {
-                Aplikacija.Instance.Korisnici.Add(korisnik);
+                Korisnik.Create(korisnik);
             }
+            Korisnik.Update(korisnik);
             this.Close();
         }
     }

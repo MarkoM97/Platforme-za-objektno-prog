@@ -9,6 +9,7 @@ namespace POP_SF_15_2016.Model
 {
     public class Aplikacija
     {
+        public int ulogovaniKorisnikId { get; set; }
         public ObservableCollection<Namestaj> Namestaj { get; set; }
         public ObservableCollection<Akcija> Akcije { get; set; }
         public ObservableCollection<TipNamestaja> Tipovi { get; set; }
@@ -35,28 +36,7 @@ namespace POP_SF_15_2016.Model
             Korisnici = Model.Korisnik.GetAll();
             Usluge = Model.DodatnaUsluga.GetAll();
             Racuni = Model.Racun.GetAll();
-            //popuniPodatke();
-        }
-
-        private void popuniPodatke()
-        {
-            DateTime s = DateTime.Now;
-            DateTime.TryParse("2012/03/07", out s);
-            TipNamestaja t1 = new TipNamestaja(0, "Radni delovi", false);
-            Akcija a1 = new Akcija(0, "Prolecna", s, s, 15, false);
-            Namestaj n1 = new Model.Namestaj(0, "Regal", 120, 2, "ss84", a1, t1, false);
-            Korisnik k1 = new Korisnik(0, "Marko", "Martonosi", "", "", Korisnik.tipKorisnika.ADMINISTRATOR, false);
-            Racun r1 = new Model.Racun(0, k1, s, "Radovan", 500, false);
-            DodatnaUsluga d1 = new Model.DodatnaUsluga(0, "Montaza", 250, false);
-
-            //r1.namestaji.Add(n1, 1);
-            Korisnici.Add(k1);
-            Usluge.Add(d1);
-            Namestaj.Add(n1);
-            Akcije.Add(a1);
-            //Akcije.Add(new Akcija());
-            Tipovi.Add(t1);
-            Racuni.Add(r1);
+            
         }
     }
 }

@@ -108,3 +108,7 @@ C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debu
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.exe
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.pdb
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.csprojResolveAssemblyReference.cache
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\LoginWindow.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\LoginWindow.baml
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\ProdavacProzor.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\ProdavacProzor.baml

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\App.xaml
-11-1317619836
+13-208114432
 2-1452387447
-231643116630
+25-82749176
 14-799888181
-MainWindow.xaml;UI\AkcijaIzmenaProzor.xaml;UI\AkcijaProzor.xaml;UI\KorisnikIzmenaProzor.xaml;UI\KorisnikProzor.xaml;UI\NamestajIzmenaProzor.xaml;UI\NamestajProzor.xaml;UI\RacunIzmenaProzor.xaml;UI\RacunProzor.xaml;UI\TipIzmenaProzor.xaml;UI\TipNamestajaProzor.xaml;
+LoginWindow.xaml;MainWindow.xaml;UI\AkcijaIzmenaProzor.xaml;UI\AkcijaProzor.xaml;UI\KorisnikIzmenaProzor.xaml;UI\KorisnikProzor.xaml;UI\NamestajIzmenaProzor.xaml;UI\NamestajProzor.xaml;UI\ProdavacProzor.xaml;UI\RacunIzmenaProzor.xaml;UI\RacunProzor.xaml;UI\TipIzmenaProzor.xaml;UI\TipNamestajaProzor.xaml;
 
 False
 

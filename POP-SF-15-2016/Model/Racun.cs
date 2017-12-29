@@ -24,6 +24,9 @@ namespace POP_SF_15_2016.Model
 
         public Racun()
         {
+            this.korisnikId = LoginWindow.getUlogovani();
+            this.ukupnaCena = 0;
+            this.ImeKupca = "";
             //Da ne bi pocinjalo od 0001 godine
             this.DatumProdaje = DateTime.Now;
             stavke = new ObservableCollection<Stavka>();
@@ -53,6 +56,19 @@ namespace POP_SF_15_2016.Model
                 OnPropertyChanged("Id");
             }
         }
+
+        public string stringNamestaja
+        {
+            get
+            {
+                string s = "";
+                foreach(var x in Stavke)
+                {
+                    s += x.Namestaj.Naziv; 
+                }
+                return s;
+            }
+        }
       
 
 
@@ -67,6 +83,7 @@ namespace POP_SF_15_2016.Model
                 usluge = value;
                 OnPropertyChanged("Usluge");
                 OnPropertyChanged("usluge");
+                OnPropertyChanged("UkupnaCena");
             }
         }
 
@@ -83,6 +100,7 @@ namespace POP_SF_15_2016.Model
                 stavke = value;
                 OnPropertyChanged("Stavke");
                 OnPropertyChanged("stavke");
+                OnPropertyChanged("UkupnaCena");
             }
         }
 
@@ -127,31 +145,38 @@ namespace POP_SF_15_2016.Model
         {
             get
             {
-                /*if (usluge != null)
+                Console.WriteLine("GET METODA CENE");
+                double ukupnaCenaRacuna = 0;
+                if (Usluge != null)
                 {
-                    foreach (var x in usluge)
+                    foreach (var x in Usluge)
                     {
-                        UkupnaCena += x.Cena;
+                        ukupnaCenaRacuna += x.Cena;
                     }
                 }
-                foreach(var x in namestaji)
+                foreach(var x in Stavke)
                 {
-                    if(x.Key.Akcija != null)
+                    if(x.Namestaj.Akcija != null)
                     {
-
+                        double procenatSnizenja = 0;
+                        procenatSnizenja = (((x.Namestaj.Akcija).Popust / 100) * x.Namestaj.JedinicnaCena);
+                        double nakonSnizenja =  Math.Round((x.Namestaj.JedinicnaCena - procenatSnizenja), 2);
+                        ukupnaCenaRacuna = nakonSnizenja * x.BrojKomada;
+                    } else
+                    {
+                        ukupnaCenaRacuna = x.Namestaj.JedinicnaCena * x.BrojKomada;
                     }
-                    double popust = namestaj.akcija.popust;
-                    procenatSnizenja = ((popust / 100) * cenaNamestaja);
 
                 }
-                Console.WriteLine(procenatSnizenja);
-                Console.WriteLine(cenaUsluga);
-                double ukupnaCena = (((cenaNamestaja - procenatSnizenja) * brojProdatihNamestaja) + cenaUsluga) + 2.52;*/
+                ukupnaCena = ukupnaCenaRacuna;
+                Console.WriteLine("Trenutna vrednost : " + ukupnaCena);
                 return ukupnaCena;
             } set
             {
                 ukupnaCena = value;
                 OnPropertyChanged("UkupnaCena");
+                OnPropertyChanged("Stavke");
+                OnPropertyChanged("Usluge");
             }
         }
 
@@ -223,31 +248,31 @@ namespace POP_SF_15_2016.Model
         }
 
 
-        /*public static void Update(racun n)
+        public static void Update(Racun n)
         {
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE Akcija set Naziv=@Naziv,PocetakAkcije=@PocetakAkcije, ZavrsetakAkcije=@ZavrsetakAkcije, Popust=@Popust, Obrisan=@Obrisan WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Racun set KorisnikId=@KorisnikId, ImeKupca=@ImeKupca, DatumProdaje=@DatumProdaje, UkupnaCena=@UkupnaCena, Obrisan=@Obrisan WHERE Id=@Id";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
                 cmd.Parameters.AddWithValue("Id", n.Id);
-                cmd.Parameters.AddWithValue("Naziv", n.Naziv);
-                cmd.Parameters.AddWithValue("PocetakAkcije", n.PocetakAkcije);
-                cmd.Parameters.AddWithValue("ZavrsetakAkcije", n.ZavrsetakAkcije);
-                cmd.Parameters.AddWithValue("Popust", n.Popust);
+                cmd.Parameters.AddWithValue("KorisnikId", n.korisnikId);
+                cmd.Parameters.AddWithValue("ImeKupca", n.ImeKupca);
+                cmd.Parameters.AddWithValue("DatumProdaje", n.DatumProdaje);
+                cmd.Parameters.AddWithValue("UkupnaCena", n.UkupnaCena);
                 cmd.Parameters.AddWithValue("Obrisan", n.Obrisan);
                 cmd.ExecuteNonQuery();
-                foreach (var namestaj in Aplikacija.Instance.Akcije)
+                foreach (var racun in Aplikacija.Instance.Racuni)
                 {
-                    if (namestaj.Id == n.Id)
+                    if (racun.Id == n.Id)
                     {
-                        namestaj.Naziv = n.Naziv;
-                        namestaj.PocetakAkcije = n.PocetakAkcije;
-                        namestaj.ZavrsetakAkcije = n.ZavrsetakAkcije;
-                        namestaj.Popust = n.Popust;
-                        namestaj.Obrisan = n.Obrisan;
+                        racun.korisnikId = n.korisnikId;
+                        racun.ImeKupca = n.ImeKupca;
+                        racun.DatumProdaje = n.DatumProdaje;
+                        racun.UkupnaCena = n.UkupnaCena;
+                        racun.Obrisan = n.Obrisan;
                         break;
                     }
                 }
@@ -256,36 +281,36 @@ namespace POP_SF_15_2016.Model
         }
 
 
-        public static Akcija Create(Akcija n)
+        public static Racun Create(Racun n)
         {
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO Akcija (Naziv,PocetakAkcije, ZavrsetakAkcije, Popust, Obrisan) VALUES(@Naziv,@PocetakAkcije,@ZavrsetakAkcije, @Popust , @Obrisan)";
+                cmd.CommandText = "INSERT INTO Racun (KorisnikId,ImeKupca, DatumProdaje, UkupnaCena, Obrisan) VALUES(@KorisnikId,@ImeKupca,@DatumProdaje, @UkupnaCena, @Obrisan)";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
-                cmd.Parameters.AddWithValue("Naziv", n.Naziv);
-                cmd.Parameters.AddWithValue("PocetakAkcije", n.PocetakAkcije);
-                cmd.Parameters.AddWithValue("ZavrsetakAkcije", n.ZavrsetakAkcije);
-                cmd.Parameters.AddWithValue("Popust", n.Popust);
+                cmd.Parameters.AddWithValue("KorisnikId", n.korisnikId);
+                cmd.Parameters.AddWithValue("ImeKupca", n.ImeKupca);
+                cmd.Parameters.AddWithValue("DatumProdaje", n.DatumProdaje);
+                cmd.Parameters.AddWithValue("UkupnaCena", n.UkupnaCena);
                 cmd.Parameters.AddWithValue("Obrisan", n.Obrisan);
                 int newId = int.Parse(cmd.ExecuteScalar().ToString()); //Izvrsava se query nad bazom
 
                 n.Id = newId;
             }
-            Aplikacija.Instance.Akcije.Add(n);
+            Aplikacija.Instance.Racuni.Add(n);
             return n;
         }
 
-        public static void Delete(Akcija n)
+        public static void Delete(Racun n)
         {
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 n.Obrisan = true;
-                Aplikacija.Instance.Akcije.Remove(n);
+                Aplikacija.Instance.Racuni.Remove(n);
                 Update(n);
             }
-        }*/
+        }
         #endregion
     }
 }
