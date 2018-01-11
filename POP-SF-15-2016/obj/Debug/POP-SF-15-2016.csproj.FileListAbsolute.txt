@@ -75,6 +75,7 @@ S:\profile.V5\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\bin\Debug\POP-SF-15-2016.exe.config
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\bin\Debug\POP-SF-15-2016.exe
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\bin\Debug\POP-SF-15-2016.pdb
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\LoginWindow.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\MainWindow.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\AkcijaIzmenaProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\AkcijaProzor.g.cs
@@ -82,14 +83,17 @@ C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debu
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\KorisnikProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\NamestajIzmenaProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\NamestajProzor.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\ProdavacProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\RacunIzmenaProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\RacunProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\TipIzmenaProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\TipNamestajaProzor.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\App.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016_Content.g.cs
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016_MarkupCompile.cache
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016_MarkupCompile.lref
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\LoginWindow.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\MainWindow.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\AkcijaIzmenaProzor.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\AkcijaProzor.baml
@@ -97,6 +101,7 @@ C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debu
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\KorisnikProzor.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\NamestajIzmenaProzor.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\NamestajProzor.baml
+C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\ProdavacProzor.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\RacunIzmenaProzor.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\RacunProzor.baml
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\TipIzmenaProzor.baml
@@ -107,8 +112,3 @@ C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debu
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.csproj.CoreCompileInputs.cache
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.exe
 C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.pdb
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\POP-SF-15-2016.csprojResolveAssemblyReference.cache
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\LoginWindow.g.cs
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\LoginWindow.baml
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\ProdavacProzor.g.cs
-C:\Users\Wishmaster\Platforme\Platforme-za-objektno-prog\POP-SF-15-2016\obj\Debug\UI\ProdavacProzor.baml

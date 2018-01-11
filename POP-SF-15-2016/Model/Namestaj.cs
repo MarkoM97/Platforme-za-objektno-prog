@@ -28,6 +28,10 @@ namespace POP_SF_15_2016.Model
         //Konstruktor za metodu dodavanja namestaja.Stavlja tip automatski na prvi iz liste tipova kako cbTip imao selectedItem i dodeljuje mu se nov id
         public Namestaj() {
             this.tipNamestajaId = 1;
+            this.naziv = "";
+            this.sifra = "";
+            this.jedinicnaCena = 0;
+            
         }
 
         //Konstruktor koristen za izmenu
@@ -100,6 +104,13 @@ namespace POP_SF_15_2016.Model
         {
             get
             {
+                try
+                {
+                    if (Akcija.getById(akcijaId).ZavrsetakAkcije < DateTime.Now) akcijaId = 0;
+                }catch(NullReferenceException)
+                {
+                    akcijaId = 0;
+                }
                 return Akcija.getById(akcijaId); 
                 
             }
@@ -113,7 +124,27 @@ namespace POP_SF_15_2016.Model
                 
             }
         }
+        public string AkcijaNaziv
+        {
+            get
+            {
+                if(akcijaId == 0) { return ""; }
+                return getById(akcijaId).Naziv;
+            }set { }
+        }
 
+        public string TipNamestajaNaziv
+        {
+            get
+            {
+                return getById(tipNamestajaId).Naziv;
+            }
+            set
+            {
+
+            }
+
+        }
         public TipNamestaja TipNamestaja
         {
             get
@@ -147,6 +178,7 @@ namespace POP_SF_15_2016.Model
         {
             return naziv;
         }
+
 
         public static Namestaj getById(int id)
         {
@@ -188,7 +220,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Namestaj WHERE Obrisan=0";
+                cmd.CommandText = "SELECT * FROM Namestaj WHERE Obrisan=0 AND TipNamestajaId IN (SELECT Id FROM TipNamestaja WHERE Obrisan=0)";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
 
@@ -224,7 +256,7 @@ namespace POP_SF_15_2016.Model
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "UPDATE Namestaj set Naziv=@Naziv,JedinicnaCena=@JedinicnaCena, Kolicina=@Kolicina, AkcijaId=@AkcijaId, TipNamestajaId=@TipNamestajaId, Obrisan=@Obrisan WHERE Id=@Id";
+                cmd.CommandText = "UPDATE Namestaj set Naziv=@Naziv,JedinicnaCena=@JedinicnaCena,Sifra=@Sifra, Kolicina=@Kolicina, AkcijaId=@AkcijaId, TipNamestajaId=@TipNamestajaId, Obrisan=@Obrisan WHERE Id=@Id";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
                 cmd.Parameters.AddWithValue("Id", n.Id);

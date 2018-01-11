@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace POP_SF_15_2016.Model
 {
-    public class DodatnaUsluga : INotifyPropertyChanged
+    public class DodatnaUsluga : ICloneable,INotifyPropertyChanged
     {
         private int id { get; set; }
         private string naziv { get; set; }
@@ -246,6 +246,15 @@ namespace POP_SF_15_2016.Model
                 Aplikacija.Instance.Usluge.Remove(du);
                 Update(du);
             }
+        }
+
+        public object Clone()
+        {
+            DodatnaUsluga kopija = new DodatnaUsluga();
+            kopija.Id = Id;
+            kopija.Naziv = Naziv;
+            kopija.Obrisan = Obrisan;
+            return kopija;
         }
         #endregion
     }

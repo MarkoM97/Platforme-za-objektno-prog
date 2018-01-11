@@ -30,6 +30,7 @@ namespace POP_SF_15_2016
 
         private void btnNamestaj_Click(object sender, RoutedEventArgs e)
         {
+            Console.WriteLine("Klik na namestaj");
             NamestajProzor np = new NamestajProzor();
             np.ShowDialog();
         }

@@ -82,7 +82,6 @@ namespace POP_SF_15_2016.Model
 
                 usluge = value;
                 OnPropertyChanged("Usluge");
-                OnPropertyChanged("usluge");
                 OnPropertyChanged("UkupnaCena");
             }
         }
@@ -99,7 +98,6 @@ namespace POP_SF_15_2016.Model
             {
                 stavke = value;
                 OnPropertyChanged("Stavke");
-                OnPropertyChanged("stavke");
                 OnPropertyChanged("UkupnaCena");
             }
         }
@@ -145,18 +143,21 @@ namespace POP_SF_15_2016.Model
         {
             get
             {
-                Console.WriteLine("GET METODA CENE");
                 double ukupnaCenaRacuna = 0;
                 if (Usluge != null)
                 {
                     foreach (var x in Usluge)
                     {
+
                         ukupnaCenaRacuna += x.Cena;
+                        
                     }
                 }
                 foreach(var x in Stavke)
                 {
-                    if(x.Namestaj.Akcija != null)
+                    Console.WriteLine(x.Namestaj.Naziv);
+                    Console.WriteLine("Naziv akcije: " + x.Namestaj.Akcija);
+                    if(x.Namestaj.Akcija.Id == 0)
                     {
                         double procenatSnizenja = 0;
                         procenatSnizenja = (((x.Namestaj.Akcija).Popust / 100) * x.Namestaj.JedinicnaCena);
@@ -169,14 +170,11 @@ namespace POP_SF_15_2016.Model
 
                 }
                 ukupnaCena = ukupnaCenaRacuna;
-                Console.WriteLine("Trenutna vrednost : " + ukupnaCena);
                 return ukupnaCena;
             } set
             {
                 ukupnaCena = value;
                 OnPropertyChanged("UkupnaCena");
-                OnPropertyChanged("Stavke");
-                OnPropertyChanged("Usluge");
             }
         }
 

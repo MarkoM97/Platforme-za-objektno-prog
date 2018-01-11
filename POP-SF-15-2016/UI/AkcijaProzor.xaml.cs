@@ -59,7 +59,7 @@ namespace POP_SF_15_2016.UI
 
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
-            Akcija novaAkcija = new Akcija(Aplikacija.Instance.Akcije.Last().Id + 1);
+            Akcija novaAkcija = new Akcija();
             AkcijaIzmenaProzor aip = new AkcijaIzmenaProzor(novaAkcija);
             aip.ShowDialog();
         }
@@ -68,8 +68,14 @@ namespace POP_SF_15_2016.UI
             Akcija selektovanaAkcija = view.CurrentItem as Akcija;
             if (selektovanaAkcija != null)
             {
+                
+                Akcija old = (Akcija)selektovanaAkcija.Clone();
                 AkcijaIzmenaProzor aip = new AkcijaIzmenaProzor(selektovanaAkcija, AkcijaIzmenaProzor.Stanje.IZMENA);
-                aip.ShowDialog();
+                if(aip.ShowDialog() != true)
+                {
+                    int index = Aplikacija.Instance.Akcije.IndexOf(selektovanaAkcija);
+                    Aplikacija.Instance.Akcije[index] = old;
+                }
             }
         }
 
@@ -87,7 +93,7 @@ namespace POP_SF_15_2016.UI
         {
             //string s = tbPretraga.Text;
             Akcija akcija = e.Item as Akcija;
-            if (akcija.Naziv == null)
+            if (akcija.Naziv == "")
             {
                 //e.Accepted = akcija.Naziv.ToString().Contains(s);
                 e.Accepted = false;

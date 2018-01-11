@@ -44,6 +44,7 @@ namespace POP_SF_15_2016.UI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = true;
             if(stanje == Stanje.DODAVANJE)
             {
                 Korisnik.Create(korisnik);

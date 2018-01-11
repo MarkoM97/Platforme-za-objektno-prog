@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace POP_SF_15_2016.Model
 {
-    public class Korisnik: INotifyPropertyChanged
+    public class Korisnik: ICloneable,INotifyPropertyChanged
     {
         private int id { get; set; }
         private string ime { get; set; }
@@ -24,6 +24,10 @@ namespace POP_SF_15_2016.Model
 
         public Korisnik()
         {
+            this.ime = "";
+            this.prezime = "";
+            this.korisnickoIme = "";
+            this.lozinka = "";
         }
 
         public Korisnik(int id, string ime, string prezime, string korisnickoIme, string lozinka, tipKorisnika tip, bool obrisan)
@@ -230,7 +234,7 @@ namespace POP_SF_15_2016.Model
             {
                 con.Open();
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO Korisnik (Ime,Prezime, KorisnickoIme, Lozinka, TipKorisnika, Obrisan) VALUES(@Ime,@Prezime,@KorisnickoIme, @Lozinka , @TipKorisnika, @Obrisan)";
+                cmd.CommandText = "INSERT INTO Korisnik (Ime,Prezime, KorisnickoIme, Lozinka, TipKorisnika, Obrisan) VALUES (@Ime,@Prezime,@KorisnickoIme, @Lozinka , @TipKorisnika, @Obrisan)";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();";
                 cmd.Parameters.AddWithValue("Ime", k.Ime);
                 cmd.Parameters.AddWithValue("Prezime", k.Prezime);
@@ -254,6 +258,18 @@ namespace POP_SF_15_2016.Model
                 Aplikacija.Instance.Korisnici.Remove(k);
                 Update(k);
             }
+        }
+
+        public object Clone()
+        {
+            Korisnik kopija = new Korisnik();
+            kopija.Id = Id;
+            kopija.Ime = Ime;
+            kopija.Prezime = Prezime;
+            kopija.KorisnickoIme = KorisnickoIme;
+            kopija.lozinka = lozinka;
+            kopija.Obrisan = Obrisan;
+            return kopija;
         }
         #endregion
 

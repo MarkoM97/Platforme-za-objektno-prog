@@ -11,17 +11,17 @@ using System.Threading.Tasks;
 
 namespace POP_SF_15_2016.Model
 {
-    public class TipNamestaja : INotifyPropertyChanged
+    public class TipNamestaja : ICloneable,INotifyPropertyChanged
     {
         private int id { get; set; }
         private string naziv { get; set; }
         private bool obrisan { get; set; }
 
 
-        public TipNamestaja() { }
-        public TipNamestaja(int id) {
-            this.id = id;
+        public TipNamestaja() {
+            this.naziv = "";
         }
+
 
         public TipNamestaja(int id, string naziv, bool obrisan)
         {
@@ -179,6 +179,15 @@ namespace POP_SF_15_2016.Model
                 Aplikacija.Instance.Tipovi.Remove(tn);
                 Update(tn);
             }
+        }
+
+        public object Clone()
+        {
+            TipNamestaja kopija = new TipNamestaja();
+            kopija.Id = Id;
+            kopija.Naziv = Naziv;
+            kopija.Obrisan = Obrisan;
+            return kopija;
         }
         #endregion
     }

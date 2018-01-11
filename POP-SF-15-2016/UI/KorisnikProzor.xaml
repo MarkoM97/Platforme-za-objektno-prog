@@ -7,9 +7,17 @@
         mc:Ignorable="d"
         Title="KorisnikProzor" Height="300" Width="500">
     <Grid>
-        <DataGrid Name="dgKorisnik" AutoGeneratingColumn="dgKorisnik_AutoGeneratingColumn" AutoGenerateColumns="True" IsReadOnly="True"  />
+        <DataGrid Name="dgKorisnik" AutoGeneratingColumn="dgKorisnik_AutoGeneratingColumn" AutoGenerateColumns="True" IsReadOnly="True" Margin="0,84"  />
         <Button x:Name="btnDodaj" Content="Dodaj" HorizontalAlignment="Left" Margin="59,215,0,0" VerticalAlignment="Top" Width="109" Height="29" Click="btnDodaj_Click"/>
         <Button x:Name="btnIzmeni" Content="Izmeni" HorizontalAlignment="Left" Margin="202,215,0,0" VerticalAlignment="Top" Width="108" Height="29" Click="btnIzmeni_Click"/>
         <Button x:Name="btnObrisi" Content="Obrisi" HorizontalAlignment="Left" Margin="343,215,0,0" VerticalAlignment="Top" Width="108" Height="29" Click="btnObrisi_Click"/>
+        <Label Content="Pretrazi po" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top" Width="69"/>
+        <ComboBox Name="cbKriterijumPretrage" HorizontalAlignment="Left" Margin="127,14,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Pretrazi" HorizontalAlignment="Left" Margin="258,10,0,0" VerticalAlignment="Top" Width="69"/>
+        <TextBox TextChanged="tbPretraga_TextChanged" Name="tbPretraga" HorizontalAlignment="Left" Height="23" Margin="317,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Sortiraj" HorizontalAlignment="Left" Margin="53,41,0,0" VerticalAlignment="Top" Width="69"/>
+        <ComboBox x:Name="cbKriterijumSortiranja" HorizontalAlignment="Left" Margin="127,47,0,0" VerticalAlignment="Top" Width="120"/>
+        <RadioButton Checked="rbRastuce_Checked" Name="rbRastuce" Content="Rastuce" HorizontalAlignment="Left" Margin="275,42,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="rbOpadajuce" Content="Opadajuce" HorizontalAlignment="Left" Margin="275,57,0,0" VerticalAlignment="Top" Checked="rbOpadajuce_Checked"/>
     </Grid>
 </Window>

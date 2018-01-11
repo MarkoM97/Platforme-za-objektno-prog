@@ -61,13 +61,6 @@ namespace POP_SF_15_2016.UI
 
         }
 
-        private void btnIzmeni_Click(object sender, RoutedEventArgs e)
-        {
-            Racun selektovaniRacun = view.CurrentItem as Racun;
-            RacunIzmenaProzor rip = new RacunIzmenaProzor(selektovaniRacun, RacunIzmenaProzor.Stanje.IZMENA);
-            rip.ShowDialog();
-        }
-
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             Racun selektovaniRacun = view.CurrentItem as Racun;
@@ -128,6 +121,13 @@ namespace POP_SF_15_2016.UI
 
             Racun racun = e.Item as Racun;
             e.Accepted = racun.stringNamestaja.Contains(namestaj.Naziv);
+        }
+
+        private void btnDetaljnije_Click(object sender, RoutedEventArgs e)
+        {
+            Racun selektovaniRacun = view.CurrentItem as Racun;
+            RacunIzmenaProzor rip = new RacunIzmenaProzor(selektovaniRacun, RacunIzmenaProzor.Stanje.IZMENA);
+            rip.ShowDialog();
         }
     }
 }

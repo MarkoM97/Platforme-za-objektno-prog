@@ -12,7 +12,7 @@ using System.Windows.Controls;
 
 namespace POP_SF_15_2016.Model
 {
-    public class Akcija : INotifyPropertyChanged
+    public class Akcija : ICloneable,INotifyPropertyChanged
     {
         private int id { get; set; }
         private string naziv { get; set; }
@@ -22,13 +22,14 @@ namespace POP_SF_15_2016.Model
         private bool obrisan { get; set; }
 
         //Dummy akcija
-        public Akcija() { }
-        
-        public Akcija(int id) {
-            this.id = id;
+        public Akcija() {
+            this.naziv = "";
+            this.popust = 0;
             this.pocetakAkcije = DateTime.Now;
             this.zavrsetakAkcije = DateTime.Now;
         }
+        
+
 
         public Akcija(int id, string naziv, DateTime pocetakAkcije, DateTime zavrsetakAkcije, double popust, bool obrisan)
         {
@@ -131,7 +132,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan=0";
+                cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan=0 AND ZavrsetakAkcije > GETDATE() OR ZavrsetakAkcije = '0001-01-01'";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
 
@@ -223,6 +224,18 @@ namespace POP_SF_15_2016.Model
                 Aplikacija.Instance.Akcije.Remove(n);
                 Update(n);
             }
+        }
+
+        public object Clone()
+        {
+            Akcija kopija = new Akcija();
+            kopija.Id = Id;
+            kopija.Naziv = Naziv;
+            kopija.PocetakAkcije = PocetakAkcije;
+            kopija.ZavrsetakAkcije = ZavrsetakAkcije;
+            kopija.Popust = Popust;
+            kopija.Obrisan = Obrisan;
+            return kopija;
         }
         #endregion
     }

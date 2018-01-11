@@ -96,6 +96,7 @@ namespace POP_SF_15_2016.Model
                     Console.WriteLine("Poziva se delete metoda");
                     cmd.CommandText = "DELETE FROM StavkeRacuna WHERE RacunId=@RacunId AND NamestajId=@NamestajId";
                     cmd.Parameters.AddWithValue("RacunId", r.Id);
+                    cmd.Parameters.AddWithValue("NamestajId", s.Namestaj.Id);
                 }
                 else {
                     Console.WriteLine("Poziva se update metoda");

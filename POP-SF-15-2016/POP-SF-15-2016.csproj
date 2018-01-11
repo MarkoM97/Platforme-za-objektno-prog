@@ -69,6 +69,7 @@
     <Compile Include="UI\AkcijaProzor.xaml.cs">
       <DependentUpon>AkcijaProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\dobleValidationRule.cs" />
     <Compile Include="UI\KorisnikIzmenaProzor.xaml.cs">
       <DependentUpon>KorisnikIzmenaProzor.xaml</DependentUpon>
     </Compile>
@@ -90,12 +91,14 @@
     <Compile Include="UI\RacunProzor.xaml.cs">
       <DependentUpon>RacunProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\stringValidationRule.cs" />
     <Compile Include="UI\TipIzmenaProzor.xaml.cs">
       <DependentUpon>TipIzmenaProzor.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\TipNamestajaProzor.xaml.cs">
       <DependentUpon>TipNamestajaProzor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\ValidatorConverter.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

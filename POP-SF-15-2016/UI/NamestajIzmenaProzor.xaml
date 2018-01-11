@@ -6,35 +6,61 @@
         xmlns:local="clr-namespace:POP_SF_15_2016.UI"
         mc:Ignorable="d"
         Title="NamestajIzmenaProzor" Height="500" Width="500">
+    <Window.Resources>
+        <local:ValidatorConverter x:Key="converter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="44*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="47*"/>
-            <RowDefinition Height="48*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="49*"/>
-            <RowDefinition Height="85*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="61*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="136*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="95*"/>
             <ColumnDefinition Width="151*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Naziv" FontSize="20" HorizontalAlignment="Left" Margin="65,3,0,0" RenderTransformOrigin="-0.228,0.235" Width="88" HorizontalContentAlignment="Right"/>
-        <Label Content="Cena" FontSize="20" HorizontalAlignment="Left" Margin="65,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.228,0.235" Grid.Row="1" Height="46" Width="88" HorizontalContentAlignment="Right" Grid.RowSpan="2"/>
+        <Label Content="Cena" FontSize="20" HorizontalAlignment="Left" Margin="65,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.228,0.235" Grid.Row="1" Height="46" Width="88" HorizontalContentAlignment="Right"/>
         <Label Content="Kolicina" FontSize="20" HorizontalAlignment="Left" Margin="65,0,0,0" RenderTransformOrigin="-0.228,0.235" Grid.Row="2" Width="88" HorizontalContentAlignment="Right"/>
         <Label Content="Sifra" FontSize="20" HorizontalAlignment="Left" Margin="65,0,0,0" RenderTransformOrigin="-0.228,0.235" Grid.Row="3" Width="88" HorizontalContentAlignment="Right"/>
         <Label Content="Akcija" FontSize="20" HorizontalAlignment="Left" Margin="65,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.228,0.235" Grid.Row="4" Width="88" Height="48" HorizontalContentAlignment="Right"/>
         <Label Content="Tip" FontSize="20" HorizontalAlignment="Left" Margin="65,0,0,0" RenderTransformOrigin="-0.228,0.235" Grid.Row="5" Width="88" HorizontalContentAlignment="Right"/>
-        <Button x:Name="btnSacuvajIzmene" Content="Sacuvaj" HorizontalAlignment="Left" Margin="24,24,0,0" Grid.Row="6" VerticalAlignment="Top" Width="184" Height="36" Click="btnSacuvajIzmene_Click" Grid.Column="1"/>
-        <TextBox Name="tbCena" Text="{Binding Path=JedinicnaCena}" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="24,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="1"/>
+        <Button x:Name="btnSacuvajIzmene" Content="Sacuvaj" HorizontalAlignment="Left" Margin="24,45,0,0" Grid.Row="6" VerticalAlignment="Top" Width="130" Height="30" Click="btnSacuvajIzmene_Click" Grid.Column="1"/>
+
+        <TextBox Name="tbCena" Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="24,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="1">
+            <TextBox.Text>
+                <Binding Path="JedinicnaCena" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:dobleValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBox Name="tbKolicina" Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="24,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="2">
+            <TextBox.Text>
+                <Binding Path="Kolicina" UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local:dobleValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+
         <Label Content="RSD" Grid.Column="1" HorizontalAlignment="Left" Margin="112,9,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="32"/>
         <TextBox Name="tbNaziv" Text="{Binding Path=Naziv}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,20" TextWrapping="Wrap" Width="130"/>
-        <TextBox Name="tbKolicina" Text="{Binding Path=Kolicina}" Grid.Column="1" HorizontalAlignment="Left" Height="27" Margin="24,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="2"/>
+
         <TextBox Name="tbSifra" Text="{Binding Path=Sifra}" Grid.Column="1" HorizontalAlignment="Left" Height="28" Margin="24,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88" Grid.Row="3"/>
-        <ComboBox Name="cbAkcija" SelectedItem="{Binding Path=Akcija}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,7" Grid.Row="4" Width="101"/>
+        <ComboBox Name="cbAkcija" SelectedItem="{Binding Path=Akcija}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,16" Grid.Row="4" Width="101"/>
         <ComboBox Name="cbTip" SelectedItem="{Binding Path=TipNamestaja}" Grid.Column="1" HorizontalAlignment="Left" Margin="24,10,0,10" Grid.Row="5" Width="101"/>
         <CheckBox Unchecked="chbAkcija_Unchecked" Checked="chbAkcija_Checked" Name="chbAkcija" Content="Bez akcije" Grid.Column="1" HorizontalAlignment="Left" Margin="141,16,0,0" Grid.Row="4" VerticalAlignment="Top" RenderTransformOrigin="0.171,0.556" Height="22" Width="151"/>
+        <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding ElementName=tbCena, Path=(Validation.Errors), Converter={StaticResource ResourceKey=converter}}" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="24,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.RowSpan="2"/>
+        <TextBlock Foreground="Red" FontWeight="Bold" Text="{Binding ElementName=tbKolicina, Path=(Validation.Errors), Converter={StaticResource ResourceKey=converter}}" Grid.Column="1" HorizontalAlignment="Left" Height="16" Margin="24,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Grid.Row="1" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>
