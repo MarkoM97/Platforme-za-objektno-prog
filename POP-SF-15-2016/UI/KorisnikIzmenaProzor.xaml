@@ -53,8 +53,8 @@
         -->
 
 
-            <TextBox Text="{Binding Path=KorisnickoIme}"  Name="tbKorisniko" Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="0,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Grid.Row="2"/>
-            <!--   <TextBox.Text>
+        <TextBox GotFocus="tbKorisniko_GotFocus" LostFocus="tbKorisniko_LostFocus" Text="{Binding Path=KorisnickoIme}"  Name="tbKorisniko" Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="0,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Grid.Row="2"/>
+        <!--   <TextBox.Text>
                 <Binding Path="KorisnickoIme" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
                         <local:stringValidationRule/>
@@ -77,7 +77,9 @@
 
         <ComboBox Name="cbTip" SelectedItem="{Binding Path=Tip}" Grid.Column="1" HorizontalAlignment="Left" Margin="0,21,0,0" Grid.Row="4" VerticalAlignment="Top" Width="163" Height="34"/>
         <Button x:Name="btnSacuvaj" Content="Sacuvaj" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="5" VerticalAlignment="Top" Width="153" Height="37" RenderTransformOrigin="0.458,0.757" Click="btnSacuvaj_Click"/>
+        <Label Name="tbKorisnickoValidation" Visibility="Hidden" Foreground="Red" FontWeight="Bold" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="0,65,0,0" Grid.Row="1" Content="Korisnicko ime zauzeto!!!" VerticalAlignment="Top" Width="163" Grid.RowSpan="2"/>
         
+
         <!--><TextBlock Text="{Binding ElementName=tbIme, Path=(Validation.Errors), Converter={StaticResource ResourceKey=converter}}" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="0,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
         <TextBlock Text="{Binding ElementName=tbPrezime, Path=(Validation.Errors), Converter={StaticResource ResourceKey=converter}}" Grid.Column="1" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Grid.Row="1"/>
         <TextBlock Text="{Binding ElementName=tbKorisniko, Path=(Validation.Errors), Converter={StaticResource ResourceKey=converter}}" Grid.Column="1" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="163" Grid.Row="2"/>

@@ -101,8 +101,8 @@ namespace POP_SF_15_2016.Model
                 else {
                     Console.WriteLine("Poziva se update metoda");
                     cmd.CommandText = "UPDATE StavkeRacuna SET BrojKomada=@BrojKomada WHERE RacunId=@RacunId AND NamestajId=@NamestajId";
-                    cmd.Parameters.AddWithValue("NamestajId", s.namestajId);
-                    cmd.Parameters.AddWithValue("BrojKomada", s.brojKomada);
+                    cmd.Parameters.AddWithValue("NamestajId", s.Namestaj.Id);
+                    cmd.Parameters.AddWithValue("BrojKomada", s.BrojKomada);
                     cmd.Parameters.AddWithValue("RacunId", r.Id);
                 }
                 

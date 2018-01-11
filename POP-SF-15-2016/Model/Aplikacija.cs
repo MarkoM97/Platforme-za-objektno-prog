@@ -42,7 +42,58 @@ namespace POP_SF_15_2016.Model
             Console.WriteLine("Proso");
             Racuni = Model.Racun.GetAll();
             Console.WriteLine("Proso");
+        }
 
+        public static ObservableCollection<Akcija> filtriraneAkcije()
+        {
+            ObservableCollection<Akcija> storage = new ObservableCollection<Akcija>();
+            foreach (var x in Instance.Akcije)
+            {
+                if (x.Obrisan == false && x.Naziv != "" && x.ZavrsetakAkcije > DateTime.Now)
+                {
+                    storage.Add(x);
+                }
+            }
+            return storage;
+        }
+
+        public static ObservableCollection<Namestaj> filtriranNamestaj()
+        {
+            ObservableCollection<Namestaj> storage = new ObservableCollection<Namestaj>();
+            foreach (var x in Instance.Namestaj)
+            {
+                if (x.Obrisan == false && x.TipNamestaja.Obrisan == false)
+                {
+                    storage.Add(x);
+                }
+            }
+            return storage;
+        }
+
+        public static ObservableCollection<TipNamestaja> filtriraniTipovi()
+        {
+            ObservableCollection<TipNamestaja> storage = new ObservableCollection<TipNamestaja>();
+            foreach(var x in Instance.Tipovi)
+            {
+                if(x.Obrisan == false)
+                {
+                    storage.Add(x);
+                }
+            }
+            return storage;
+        }
+
+        public static ObservableCollection<Korisnik> filtriraniKorisnici()
+        {
+            ObservableCollection<Korisnik> storage = new ObservableCollection<Korisnik>();
+            foreach(var x in Instance.Korisnici)
+            {
+                if(x.Obrisan == false)
+                {
+                    storage.Add(x);
+                }
+            }
+            return storage;
         }
     }
 }

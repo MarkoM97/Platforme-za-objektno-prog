@@ -47,7 +47,7 @@ namespace POP_SF_15_2016.UI
         private void skloniBezTipa(object sender, FilterEventArgs e)
         {
             Namestaj namestaj = e.Item as Namestaj;
-            e.Accepted = namestaj.TipNamestaja != null;
+            e.Accepted = namestaj.TipNamestaja.Obrisan != true && namestaj.Obrisan != true;
         }
 
         private void pretraga(object sender, FilterEventArgs e)
@@ -58,16 +58,16 @@ namespace POP_SF_15_2016.UI
             switch (x)
             {
                 case "Naziv":
-                    e.Accepted = namestaj.Naziv.ToString().Contains(s);
+                    e.Accepted = namestaj.Naziv.ToString().Contains(s) && namestaj.Obrisan != true && namestaj.TipNamestaja.Obrisan != true ;
                     break;
                 case "Sifra":
-                    e.Accepted = namestaj.Sifra.ToString().Contains(s);
+                    e.Accepted = namestaj.Sifra.ToString().Contains(s) && namestaj.Obrisan != true && namestaj.TipNamestaja.Obrisan != true;
                     break;
                 case "Akcija":
-                    if (namestaj.Akcija != null) e.Accepted = namestaj.Akcija.Naziv.ToString().Contains(s);
+                    if (namestaj.Akcija != null) e.Accepted = namestaj.Akcija.Naziv.ToString().Contains(s) && namestaj.Obrisan != true && namestaj.TipNamestaja.Obrisan != true;
                     break;
                 case "Tip":
-                    e.Accepted = namestaj.TipNamestaja.Naziv.ToString().Contains(s);
+                    e.Accepted = namestaj.TipNamestaja.Naziv.ToString().Contains(s) && namestaj.Obrisan != true && namestaj.TipNamestaja.Obrisan != true;
                     break;
                 default:
                     break;
@@ -113,6 +113,8 @@ namespace POP_SF_15_2016.UI
             {
                 Namestaj selektovaniNamestaj = view.CurrentItem as Namestaj;
                 Model.Namestaj.Delete(selektovaniNamestaj);
+                view.Refresh();
+                
             }
         }
 

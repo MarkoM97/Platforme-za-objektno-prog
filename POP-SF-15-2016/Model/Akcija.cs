@@ -132,7 +132,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Akcija WHERE Obrisan=0 AND ZavrsetakAkcije > GETDATE() OR ZavrsetakAkcije = '0001-01-01'";
+                cmd.CommandText = "SELECT * FROM Akcija WHERE ZavrsetakAkcije > GETDATE() OR ZavrsetakAkcije = '0001-01-01'";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
 
@@ -221,7 +221,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 n.Obrisan = true;
-                Aplikacija.Instance.Akcije.Remove(n);
+                //Aplikacija.Instance.Akcije.Remove(n);
                 Update(n);
             }
         }
@@ -238,6 +238,20 @@ namespace POP_SF_15_2016.Model
             return kopija;
         }
         #endregion
+
+
+        public ObservableCollection<Akcija> filtriraneAkcije()
+        {
+            ObservableCollection<Akcija> storage = new ObservableCollection<Akcija>();
+            foreach (var x in Aplikacija.Instance.Akcije)
+            {
+                if (x.Obrisan == false)
+                {
+                    storage.Add(x);
+                }
+            }
+            return storage;
+        }
     }
 
 }

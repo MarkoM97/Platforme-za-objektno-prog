@@ -143,7 +143,7 @@ namespace POP_SF_15_2016.Model
         {
             get
             {
-                double ukupnaCenaRacuna = 0;
+                /*double ukupnaCenaRacuna = 0;
                 if (Usluge != null)
                 {
                     foreach (var x in Usluge)
@@ -170,6 +170,7 @@ namespace POP_SF_15_2016.Model
 
                 }
                 ukupnaCena = ukupnaCenaRacuna;
+                return ukupnaCena;*/
                 return ukupnaCena;
             } set
             {
@@ -208,7 +209,7 @@ namespace POP_SF_15_2016.Model
             {
 
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Racun WHERE Obrisan=0";
+                cmd.CommandText = "SELECT * FROM Racun";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
 

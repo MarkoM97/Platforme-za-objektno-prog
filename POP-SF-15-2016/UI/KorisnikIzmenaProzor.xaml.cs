@@ -52,5 +52,26 @@ namespace POP_SF_15_2016.UI
             Korisnik.Update(korisnik);
             this.Close();
         }
+
+        private void tbKorisniko_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string korisnicko = tbKorisniko.Text;
+            foreach(var x in Aplikacija.Instance.Korisnici)
+            {
+                if(x.KorisnickoIme.Equals(korisnicko))
+                {
+                    tbKorisnickoValidation.Visibility = Visibility.Visible;
+                    tbKorisniko.BorderBrush = Brushes.Red;
+                } else
+                {
+                    tbKorisniko.ClearValue(TextBox.BorderBrushProperty);
+                }
+            }
+        }
+
+        private void tbKorisniko_GotFocus(object sender, RoutedEventArgs e)
+        {
+            tbKorisnickoValidation.Visibility = Visibility.Hidden;
+        }
     }
 }

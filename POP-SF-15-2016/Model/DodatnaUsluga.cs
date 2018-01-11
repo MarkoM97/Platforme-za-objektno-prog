@@ -162,7 +162,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM DodatnaUsluga WHERE Obrisan=0";
+                cmd.CommandText = "SELECT * FROM DodatnaUsluga";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
 

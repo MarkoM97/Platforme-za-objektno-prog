@@ -47,6 +47,6 @@
         <ComboBox Name="cbKolicina" HorizontalAlignment="Left" Margin="10,134,0,0" Grid.Row="2" VerticalAlignment="Top" Width="49" Grid.Column="1"/>
         <Label Name="Warning" Visibility="Hidden" Foreground="#FF0000" Content="Nema toliko na lageru" HorizontalAlignment="Left" Margin="381,81,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
         <Label Name="Warning2" Visibility="Hidden" Foreground="#FF0000" Content="Nema toliko na dadatih" HorizontalAlignment="Left" Margin="373,89,0,0" Grid.Row="2" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="150"/>
-        <Button Foreground="Red" x:Name="btnOdustani" Content="Odustani" HorizontalAlignment="Left" Margin="277,21,0,0" Grid.Row="7" VerticalAlignment="Top" Width="159" Height="40" Click="btnOdustani_Click" Grid.Column="1"/>
+        <Label Content="+ PDV 150,00RSD" Grid.Column="1" HorizontalAlignment="Left" Margin="97,3,0,0" Grid.Row="6" VerticalAlignment="Top" Width="124"/>
     </Grid>
 </Window>

@@ -30,6 +30,7 @@ namespace POP_SF_15_2016.UI
             cvs = new CollectionViewSource();
             cvs.Source = Aplikacija.Instance.Tipovi;
 
+            cvs.Filter += new FilterEventHandler(origFilter);
             view = cvs.View;
             dgTip.ItemsSource = view;
             dgTip.IsSynchronizedWithCurrentItem = true;
@@ -41,6 +42,12 @@ namespace POP_SF_15_2016.UI
             dgTip.IsSynchronizedWithCurrentItem = true;
             dgTip.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
             */
+        }
+
+        private void origFilter(object sender, FilterEventArgs e)
+        {
+            TipNamestaja tip = e.Item as TipNamestaja;
+            e.Accepted = tip.Obrisan == false;
         }
 
         private void dgTip_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -81,6 +88,7 @@ namespace POP_SF_15_2016.UI
             {
                 TipNamestaja selektovaniTip = view.CurrentItem as TipNamestaja;
                 Model.TipNamestaja.Delete(selektovaniTip);
+                view.Refresh();
             }
         }
 
@@ -105,7 +113,7 @@ namespace POP_SF_15_2016.UI
         {
             string x = tbPretraga.Text.ToString();
             TipNamestaja tip = e.Item as TipNamestaja;
-            e.Accepted = tip.Naziv.Contains(x);
+            e.Accepted = tip.Naziv.Contains(x) && tip.Obrisan == false;
         }
     }
 }

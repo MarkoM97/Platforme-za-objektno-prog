@@ -34,10 +34,10 @@ namespace POP_SF_15_2016.UI
             tbKolicina.DataContext = namestaj;
             tbSifra.DataContext = namestaj;
 
-            
-            cbAkcija.ItemsSource = Aplikacija.Instance.Akcije;
+
+            cbAkcija.ItemsSource = Aplikacija.filtriraneAkcije();
             cbAkcija.DataContext = namestaj;
-            cbTip.ItemsSource = Aplikacija.Instance.Tipovi;
+            cbTip.ItemsSource = Aplikacija.filtriraniTipovi();
             cbTip.DataContext = namestaj;
 
         }

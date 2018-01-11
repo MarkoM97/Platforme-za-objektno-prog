@@ -29,7 +29,7 @@ namespace POP_SF_15_2016.UI
 
             cvs = new CollectionViewSource();
             cvs.Source = Aplikacija.Instance.Racuni;
-
+            cvs.Filter += new FilterEventHandler(origFilter);
             view = cvs.View;
             dgRacun.ItemsSource = view;
             dgRacun.IsSynchronizedWithCurrentItem = true;
@@ -41,6 +41,12 @@ namespace POP_SF_15_2016.UI
             cmbKriterijumPretrage.Items.Add("Datum prodaje");
 
             cmbNamestajZaPretragu.ItemsSource = Aplikacija.Instance.Namestaj;
+        }
+
+        private void origFilter(object sender, FilterEventArgs e)
+        {
+            Racun racun = e.Item as Racun;
+            e.Accepted = racun.Obrisan == false;
         }
 
         private void dgRacun_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -66,6 +72,7 @@ namespace POP_SF_15_2016.UI
             if(MessageBox.Show("Da li ste sigurni", "Potvrda", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Racun.Delete(selektovaniRacun);
+                view.Refresh();
             }
         }
 
@@ -84,10 +91,10 @@ namespace POP_SF_15_2016.UI
                 case "Broj racuna":
                     break;
                 case "Datum prodaje":
-                    e.Accepted = racun.DatumProdaje.ToString().Contains(s);
+                    e.Accepted = racun.DatumProdaje.ToString().Contains(s) && racun.Obrisan == false;
                     break;
                 case "Ime i prezime kupca":
-                    e.Accepted = racun.ImeKupca.ToString().Contains(s);
+                    e.Accepted = racun.ImeKupca.ToString().Contains(s) && racun.Obrisan == false;
                     break;
                 default:
                     break;

@@ -22,6 +22,7 @@ namespace POP_SF_15_2016.UI
             cvs = new CollectionViewSource();
             cvs.Source = Aplikacija.Instance.Korisnici;
 
+            cvs.Filter += new FilterEventHandler(origFilter);
             view = cvs.View;
             dgKorisnik.ItemsSource = view;
             dgKorisnik.IsSynchronizedWithCurrentItem = true;
@@ -40,6 +41,15 @@ namespace POP_SF_15_2016.UI
             cbKriterijumSortiranja.Items.Add("Tip");
 
 
+        }
+
+        private void origFilter(object sender, FilterEventArgs e)
+        {
+            Korisnik korisnik = e.Item as Korisnik;
+            if(korisnik.Obrisan == true)
+            {
+                e.Accepted = false;
+            }
         }
 
         private void dgKorisnik_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -81,7 +91,7 @@ namespace POP_SF_15_2016.UI
             if (MessageBox.Show("Da li ste sigurni", "Potvrda brisanja", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 Korisnik.Delete(selektovaniKorisnik);
-                Aplikacija.Instance.Korisnici.Remove(selektovaniKorisnik);
+                view.Refresh();
             }
         }
 
@@ -112,19 +122,19 @@ namespace POP_SF_15_2016.UI
             switch(kriterijumPretrage)
             {
                 case "Ime":
-                    e.Accepted = korisnik.Ime.Contains(x);
+                    e.Accepted = korisnik.Ime.Contains(x) && korisnik.Obrisan == false;
                     break;
                 case "Prezime":
-                    e.Accepted = korisnik.Prezime.Contains(x);
+                    e.Accepted = korisnik.Prezime.Contains(x) && korisnik.Obrisan == false;
                     break;
                 case "Korisnicko ime":
-                    e.Accepted = korisnik.KorisnickoIme.Contains(x);
+                    e.Accepted = korisnik.KorisnickoIme.Contains(x) && korisnik.Obrisan == false;
                     break;
                 case "Lozinka":
-                    e.Accepted = korisnik.Lozinka.Contains(x);
+                    e.Accepted = korisnik.Lozinka.Contains(x) && korisnik.Obrisan == false;
                     break;
                 case "Tip korisnika":
-                    e.Accepted = korisnik.Tip.ToString().Contains(x);
+                    e.Accepted = korisnik.Tip.ToString().Contains(x) && korisnik.Obrisan == false;
                     break;
                 default:
                     break;

@@ -159,7 +159,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 SqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM Korisnik WHERE Obrisan=0";
+                cmd.CommandText = "SELECT * FROM Korisnik";
                 //cmd.CommandText = "SELECT * FROM TipNamestaja WHERE Obrisan=@Obrisan";
                 //cmd.Parameters.AddWithValue("Obrisan", )
 
@@ -255,7 +255,7 @@ namespace POP_SF_15_2016.Model
             using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
             {
                 k.Obrisan = true;
-                Aplikacija.Instance.Korisnici.Remove(k);
+                //Aplikacija.Instance.Korisnici.Remove(k);
                 Update(k);
             }
         }
