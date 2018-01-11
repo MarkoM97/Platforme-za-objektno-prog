@@ -1,6 +1,7 @@
 ﻿using POP_SF_15_2016.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Configuration;
 using System.Data.SqlClient;
@@ -22,6 +23,8 @@ namespace POP_SF_15_2016.UI
         Stanje stanje;
         ICollectionView viewNamestaj;
         ICollectionView viewDodatne;
+        ObservableCollection<DodatnaUsluga> dodateUsluge = new ObservableCollection<DodatnaUsluga>();
+        ObservableCollection<Stavka> dodateStavke = new ObservableCollection<Stavka>();
         ICollectionView viewNamestajDodati;
         ICollectionView viewDodatneDodate;
         //ObservableCollection<DodatnaUsluga> naruceneUsluge = new ObservableCollection<DodatnaUsluga>();
@@ -51,13 +54,13 @@ namespace POP_SF_15_2016.UI
             dgPostojaceDodatne.IsSynchronizedWithCurrentItem = true;
             dgPostojaceDodatne.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            viewNamestajDodati = CollectionViewSource.GetDefaultView(racun.Stavke);
+            viewNamestajDodati = CollectionViewSource.GetDefaultView(dodateStavke);
             dgNaruceniNamestaj.ItemsSource = viewNamestajDodati;
             dgNaruceniNamestaj.IsSynchronizedWithCurrentItem = true;
             dgNaruceniNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
 
-            viewDodatneDodate = CollectionViewSource.GetDefaultView(racun.Usluge);
+            viewDodatneDodate = CollectionViewSource.GetDefaultView(dodateUsluge);
             dgNaruceneDodatne.ItemsSource = viewDodatneDodate;
             dgNaruceneDodatne.IsSynchronizedWithCurrentItem = true;
             dgNaruceneDodatne.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
@@ -103,17 +106,18 @@ namespace POP_SF_15_2016.UI
         {
             DodatnaUsluga selektovanaUsluga = viewDodatne.CurrentItem as DodatnaUsluga;
 
-            foreach (var x in racun.Usluge)
+            foreach (var x in dodateUsluge)
             {
                 if (x.Id.Equals(selektovanaUsluga.Id))
                 {
                     return;
                 }
             }
-            DodatnaUsluga.AddForRacun(racun, selektovanaUsluga);
-            dgNaruceneDodatne.ItemsSource = racun.Usluge;
-            racun.UkupnaCena += selektovanaUsluga.Cena;
-            tbUkupna.Text = racun.UkupnaCena.ToString();
+            // DodatnaUsluga.AddForRacun(racun, selektovanaUsluga);
+            //dgNaruceneDodatne.ItemsSource = racun.Usluge;
+            dodateUsluge.Add(selektovanaUsluga);
+            //racun.UkupnaCena += selektovanaUsluga.Cena;
+            //tbUkupna.Text = racun.UkupnaCena.ToString();
 
 
         }
@@ -121,10 +125,11 @@ namespace POP_SF_15_2016.UI
         private void btnIzbaciUslugu_Click(object sender, RoutedEventArgs e)
         {
             DodatnaUsluga selektovanaUsluga = dgNaruceneDodatne.SelectedItem as DodatnaUsluga;
-            DodatnaUsluga.DeleteForRacun(racun, selektovanaUsluga);
-            dgNaruceneDodatne.ItemsSource = racun.Usluge;
-            racun.UkupnaCena -= selektovanaUsluga.Cena;
-            tbUkupna.Text = racun.UkupnaCena.ToString();
+            dodateUsluge.Remove(selektovanaUsluga);
+            //DodatnaUsluga.DeleteForRacun(racun, selektovanaUsluga);
+            //dgNaruceneDodatne.ItemsSource = racun.Usluge;
+            //racun.UkupnaCena -= selektovanaUsluga.Cena;
+            //tbUkupna.Text = racun.UkupnaCena.ToString();
         }
 
         private void btnDodajNamestaj_Click(object sender, RoutedEventArgs e)
@@ -137,29 +142,32 @@ namespace POP_SF_15_2016.UI
             {
                 Warning.Visibility = Visibility.Visible;
             }
+
+
             else
             {
                 Warning.Visibility = Visibility.Hidden;
                 selektovaniNamestaj.Kolicina -= kolicina;
-                Namestaj.Update(selektovaniNamestaj);
+                //Namestaj.Update(selektovaniNamestaj);
 
-                foreach (var x in racun.Stavke)
+                foreach (var x in dodateStavke)
                 {
                     if (x.Namestaj.Id.Equals(selektovaniNamestaj.Id))
                     {
                         x.BrojKomada += kolicina;
-                        Stavka.UpdateForRacun(racun, x);
-                        dgNaruceniNamestaj.ItemsSource = racun.Stavke;
-                        tbUkupna.Text = racun.UkupnaCena.ToString();
+                        //Stavka.UpdateForRacun(racun, x);
+                        //dgNaruceniNamestaj.ItemsSource = racun.Stavke;
+                        //tbUkupna.Text = racun.UkupnaCena.ToString();
                         return;
                     }
                 }
 
                 Stavka newStavka = new Stavka(selektovaniNamestaj, kolicina);
-                Stavka.AddForRacun(racun, newStavka);
-                dgNaruceniNamestaj.ItemsSource = racun.Stavke;
-                racun.UkupnaCena += newStavka.Namestaj.JedinicnaCena * newStavka.BrojKomada;
-                tbUkupna.Text = racun.UkupnaCena.ToString();
+                //Stavka.AddForRacun(racun, newStavka);
+                dodateStavke.Add(newStavka);
+                //dgNaruceniNamestaj.ItemsSource = racun.Stavke;
+               // racun.UkupnaCena += newStavka.Namestaj.JedinicnaCena * newStavka.BrojKomada;
+                //tbUkupna.Text = racun.UkupnaCena.ToString();
                 return;
             }
         }
@@ -184,10 +192,14 @@ namespace POP_SF_15_2016.UI
                         namestaj.Kolicina += Kolicina;
                     }
                 }
-                Stavka.UpdateForRacun(racun, stavka);
-                dgNaruceniNamestaj.ItemsSource = racun.Stavke;
-                racun.UkupnaCena -= stavka.Namestaj.JedinicnaCena * Kolicina;
-                tbUkupna.Text = racun.UkupnaCena.ToString();
+                //Stavka.UpdateForRacun(racun, stavka);
+                //dgNaruceniNamestaj.ItemsSource = racun.Stavke;
+                if(stavka.BrojKomada == 0)
+                {
+                    dodateStavke.Remove(stavka);
+                }
+                //racun.UkupnaCena -= stavka.Namestaj.JedinicnaCena * Kolicina;
+                //tbUkupna.Text = racun.UkupnaCena.ToString();
 
             }
     
@@ -195,6 +207,21 @@ namespace POP_SF_15_2016.UI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
+            if(stanje == Stanje.DODAVANJE)
+            {
+                
+                Racun.Create(racun);
+                foreach (var x in dodateStavke)
+                {
+                    Stavka.UpdateForRacun(racun, x);
+                }
+                foreach(var x in dodateUsluge)
+                {
+                    DodatnaUsluga.AddForRacun(racun, x);
+                }
+
+                Racun.napraviLog(racun, dodateStavke, dodateUsluge);
+            }
             Model.Racun.Update(racun);
             this.Close();
         }

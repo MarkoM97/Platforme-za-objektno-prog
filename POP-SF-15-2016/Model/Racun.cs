@@ -309,6 +309,41 @@ namespace POP_SF_15_2016.Model
                 Update(n);
             }
         }
+
+        public static void napraviLog(Racun r, ObservableCollection<Stavka> stavke, ObservableCollection<DodatnaUsluga> usluge)
+        {
+            using (var con = new SqlConnection(ConfigurationManager.ConnectionStrings["POP"].ConnectionString))
+            {
+
+                string text = r.Id + "|";
+                text += r.Korisnik.Ime + " " + r.Korisnik.Prezime + "|";
+                text += r.ImeKupca + "|";
+                text += r.UkupnaCena + "|";
+
+                foreach(var x in stavke)
+                {
+                    text += x.Namestaj.Naziv + "$" +  x.BrojKomada + "/";
+                }
+                text += "|";
+                foreach(var x in usluge)
+                {
+                    text += x.Naziv + "/";
+                }
+
+                Console.WriteLine(text);
+
+                con.Open();
+                SqlCommand cmd = con.CreateCommand();
+                cmd.CommandText = "INSERT INTO LogoviRacuna(logRacuna) VALUES (@text)";
+                cmd.Parameters.AddWithValue("text", text);
+                cmd.ExecuteNonQuery();
+
+
+            }
+        }
+
+
+
         #endregion
     }
 }

@@ -55,7 +55,6 @@ namespace POP_SF_15_2016.UI
         private void btnDodaj_Click(object sender, RoutedEventArgs e)
         {
             Racun racun = new Racun();
-            Racun.Create(racun);
             RacunIzmenaProzor rip = new RacunIzmenaProzor(racun);
             rip.ShowDialog();
 

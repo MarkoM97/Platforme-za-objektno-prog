@@ -77,3 +77,10 @@ CREATE TABLE UslugeRacuna(
 	PRIMARY KEY (RacunId, UslugaId)
 )
 Go
+
+
+CREATE TABLE LogoviRacuna(
+	Id INT PRIMARY KEY IDENTITY(1,1),
+	logRacuna VARCHAR(1000)
+)
+Go
